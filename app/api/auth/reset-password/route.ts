@@ -4,7 +4,6 @@ import { Resend } from "resend";
 import bcrypt from "bcryptjs";
 import { randomBytes } from "crypto";
 
-const resend = new Resend(process.env.RESEND_API_KEY);
 const SITE_URL = process.env.NEXTAUTH_URL ?? "https://www.animeinfobr.com.br";
 
 // POST /api/auth/reset-password — solicitar reset
@@ -46,6 +45,7 @@ export async function POST(request: Request) {
 
   const resetLink = `${SITE_URL}/redefinir-senha?token=${token}`;
 
+  const resend = new Resend(process.env.RESEND_API_KEY);
   await resend.emails.send({
     from: "AnimeInfoBR <noreply@animeinfobr.com.br>",
     to: user.email,
