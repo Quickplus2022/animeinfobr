@@ -366,7 +366,7 @@ export default function ORVPage() {
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed">
                 Kim Dokja é um funcionário comum, solitário e quieto. Seu único escapismo é um obscuro web novel chamado{" "}
-                <strong className="text-white">"Three Ways to Survive the Apocalypse"</strong> — uma obra que ninguém mais leu até o fim porque era longa demais, dark demais, e estranha demais.
+                <strong className="text-white">&ldquo;Three Ways to Survive the Apocalypse&rdquo;</strong> — uma obra que ninguém mais leu até o fim porque era longa demais, dark demais, e estranha demais.
               </p>
               <p className="text-slate-300 text-sm leading-relaxed mt-3">
                 Ele passou anos acompanhando a história do protagonista Yoo Joonghyuk sobrevivendo ao apocalipse através de regressões temporais. Dokja era o único leitor fiel, o único que continuou até o último capítulo.
