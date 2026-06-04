@@ -3,6 +3,7 @@ import { Inter, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
+import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -24,7 +25,7 @@ export const metadata: Metadata = {
   },
   description:
     "Descubra seu próximo anime em menos de 1 minuto. Recomendações personalizadas, calendário da temporada, guias e rankings para o público brasileiro.",
-  keywords: ["anime", "animes", "recomendação de anime", "anime brasil", "assistir anime", "calendário anime"],
+  keywords: ["anime", "animes", "recomendação de anime", "anime brasil", "assistir anime", "calendário anime", "animes 2025", "animes dublados"],
   authors: [{ name: "AnimeInfoBR" }],
   creator: "AnimeInfoBR",
   openGraph: {
@@ -47,12 +48,18 @@ export const metadata: Metadata = {
     follow: true,
     googleBot: { index: true, follow: true, "max-image-preview": "large" },
   },
+  verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+  },
 };
+
+const GA_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ?? "";
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen flex flex-col">
+        <GoogleAnalytics measurementId={GA_ID} />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
