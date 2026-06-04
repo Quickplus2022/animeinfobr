@@ -30,8 +30,8 @@ export default function Header() {
               alt="AnimeInfoBR"
               width={200}
               height={56}
-              className="h-10 w-auto object-contain"
-              style={{ mixBlendMode: "screen" }}
+              className="h-10 w-auto object-contain rounded-lg"
+              style={{ mixBlendMode: "multiply", filter: "contrast(1.1)" }}
               priority
             />
           </Link>

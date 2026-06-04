@@ -29,8 +29,8 @@ const MOODS = [
   { label: "Terror", icon: "👻", genre: "Horror" },
   { label: "Drama", icon: "🎭", genre: "Drama" },
   { label: "Fantasia", icon: "🔮", genre: "Fantasy" },
-  { label: "Aventura", icon: "🗺️", genre: "Adventure" },
-  { label: "Mistério", icon: "🕵️", genre: "Mystery" },
+  { label: "Aventura", icon: "🌍", genre: "Adventure" },
+  { label: "Mistério", icon: "🔍", genre: "Mystery" },
 ];
 
 const SEASON_NAMES: Record<string, string> = {
