@@ -67,7 +67,10 @@ export default async function HomePage() {
       <JsonLd data={websiteJsonLd(SITE_URL)} />
       <JsonLd data={trendingListLd} />
       {/* ── HERO ─────────────────────────────────── */}
-      <section className="hero-bg py-20 md:py-28 px-4">
+      <section className="hero-bg hero-grid py-20 md:py-28 px-4 relative overflow-hidden">
+        {/* Floating orbs */}
+        <div className="absolute top-16 left-8 w-32 h-32 bg-violet-600/10 rounded-full blur-2xl animate-float pointer-events-none" />
+        <div className="absolute bottom-12 right-12 w-48 h-48 bg-cyan-600/8 rounded-full blur-3xl animate-float-slow pointer-events-none" />
         <div className="max-w-4xl mx-auto flex flex-col items-center text-center gap-6">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-violet-500/30 bg-violet-500/10 text-violet-300 text-sm font-medium">
             <span className="w-1.5 h-1.5 rounded-full bg-violet-400 animate-pulse" />
@@ -116,9 +119,9 @@ export default async function HomePage() {
               <Link
                 key={mood.genre}
                 href={`/anime?genres=${mood.genre}`}
-                className="flex flex-col items-center gap-2 p-3 rounded-xl bg-[#0d1424] border border-white/8 hover:border-violet-500/40 hover:bg-violet-500/10 transition-all group"
+                className="mood-btn flex flex-col items-center gap-2 p-3 rounded-xl bg-[#0d1424] border border-white/8 hover:border-violet-500/40 hover:bg-violet-500/10 group"
               >
-                <span className="text-2xl">{mood.icon}</span>
+                <span className="text-2xl group-hover:animate-float">{mood.icon}</span>
                 <span className="text-xs text-slate-400 group-hover:text-violet-300 font-medium transition-colors">
                   {mood.label}
                 </span>
@@ -201,7 +204,7 @@ export default async function HomePage() {
                   <Link
                     key={anime.id}
                     href={`/anime/${slug}`}
-                    className="flex items-center gap-4 p-4 rounded-xl bg-[#0d1424] border border-white/8 hover:border-violet-500/30 transition-all group"
+                    className="rank-row flex items-center gap-4 p-4 rounded-xl bg-[#0d1424] border border-white/8 hover:border-violet-500/30 group"
                   >
                     <span
                       className={`text-2xl font-black w-10 text-center shrink-0 ${
@@ -255,12 +258,12 @@ export default async function HomePage() {
             subtitle="Tudo o que você precisa saber para começar"
             viewAllHref="/guias"
           />
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 perspective-cards">
             {GUIDES.slice(0, 3).map((guide) => (
               <Link
                 key={guide.slug}
                 href={`/guias/${guide.slug}`}
-                className="p-5 rounded-xl bg-[#0d1424] border border-white/8 hover:border-violet-500/30 transition-all group"
+                className="card-3d shimmer-card gradient-border p-5 rounded-xl bg-[#0d1424] border border-white/8 hover:border-violet-500/30 group"
               >
                 <div className="text-3xl mb-3">{guide.icon}</div>
                 <h3 className="text-white font-semibold group-hover:text-violet-300 transition-colors mb-1">

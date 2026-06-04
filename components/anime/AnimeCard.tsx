@@ -32,8 +32,8 @@ export default function AnimeCard({
       className={cn(
         "group relative flex flex-col rounded-xl overflow-hidden",
         "bg-[#0d1424] border border-white/8",
-        "hover:border-violet-500/40 transition-all duration-300",
-        "hover:shadow-[0_0_30px_rgba(124,58,237,0.2)]",
+        "hover:border-violet-500/50 transition-all duration-300",
+        "card-3d shimmer-card gradient-border",
         className
       )}
     >

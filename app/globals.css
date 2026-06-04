@@ -147,3 +147,186 @@ img { transition: opacity 0.2s ease; }
 
 /* Font display */
 .font-display { font-family: var(--font-display); }
+
+/* ── 3D / VISUAL EFFECTS ─────────────────────────────── */
+
+/* Floating animation for hero elements */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-12px) rotate(2deg); }
+}
+
+/* Gradient border animation */
+@keyframes gradient-border {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Shimmer sweep */
+@keyframes shimmer-sweep {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(300%) skewX(-15deg); }
+}
+
+/* Star twinkle */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.2; transform: scale(0.8); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+/* Stagger card entrance */
+@keyframes card-rise {
+  from { opacity: 0; transform: translateY(20px) scale(0.97); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Glow pulse for featured */
+@keyframes glow-violet {
+  0%, 100% { box-shadow: 0 0 20px rgba(124,58,237,0.3), 0 0 60px rgba(124,58,237,0.1); }
+  50% { box-shadow: 0 0 40px rgba(124,58,237,0.5), 0 0 80px rgba(124,58,237,0.2); }
+}
+
+/* Hero grid pattern */
+.hero-grid {
+  background-image:
+    linear-gradient(rgba(124,58,237,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(124,58,237,0.06) 1px, transparent 1px);
+  background-size: 60px 60px;
+}
+
+/* 3D card base */
+.card-3d {
+  transition: transform 0.3s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.3s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+@media (hover: hover) {
+  .card-3d:hover {
+    transform: translateY(-6px) rotateX(2deg);
+    box-shadow:
+      0 20px 60px rgba(0,0,0,0.5),
+      0 0 30px rgba(124,58,237,0.2),
+      inset 0 1px 0 rgba(255,255,255,0.1);
+  }
+}
+
+/* Shimmer overlay — add inside card */
+.shimmer-card {
+  position: relative;
+  overflow: hidden;
+}
+.shimmer-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(105deg, transparent 40%, rgba(255,255,255,0.06) 50%, transparent 60%);
+  transform: translateX(-100%) skewX(-15deg);
+  transition: none;
+  pointer-events: none;
+}
+@media (hover: hover) {
+  .shimmer-card:hover::after {
+    animation: shimmer-sweep 0.7s ease forwards;
+  }
+}
+
+/* Gradient animated border */
+.gradient-border {
+  position: relative;
+  background-clip: padding-box;
+}
+.gradient-border::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #7c3aed, #06b6d4, #7c3aed);
+  background-size: 200% 200%;
+  animation: gradient-border 3s ease infinite;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+@media (hover: hover) {
+  .gradient-border:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Float utilities */
+.animate-float { animation: float 4s ease-in-out infinite; }
+.animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+.animate-twinkle { animation: twinkle 2s ease-in-out infinite; }
+.animate-glow { animation: glow-violet 3s ease-in-out infinite; }
+
+/* Stagger delays for grids */
+.stagger-1 { animation: card-rise 0.5s ease forwards; }
+.stagger-2 { animation: card-rise 0.5s 0.05s ease both; }
+.stagger-3 { animation: card-rise 0.5s 0.1s ease both; }
+.stagger-4 { animation: card-rise 0.5s 0.15s ease both; }
+.stagger-5 { animation: card-rise 0.5s 0.2s ease both; }
+.stagger-6 { animation: card-rise 0.5s 0.25s ease both; }
+
+/* Enhanced glass */
+.glass-strong {
+  background: rgba(13, 20, 36, 0.92);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.1);
+}
+
+/* Neon text */
+.neon-violet {
+  text-shadow: 0 0 10px rgba(124,58,237,0.6), 0 0 30px rgba(124,58,237,0.3);
+}
+
+/* 3D perspective container */
+.perspective-cards {
+  perspective: 1200px;
+}
+
+/* Ranking row hover */
+.rank-row {
+  transition: all 0.25s ease;
+  position: relative;
+}
+.rank-row::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  border-radius: 0 2px 2px 0;
+  background: linear-gradient(to bottom, #7c3aed, #06b6d4);
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+@media (hover: hover) {
+  .rank-row:hover {
+    transform: translateX(4px);
+    background: rgba(124,58,237,0.08) !important;
+  }
+  .rank-row:hover::before {
+    opacity: 1;
+  }
+}
+
+/* Mood button 3D */
+.mood-btn {
+  transition: all 0.2s cubic-bezier(0.34,1.56,0.64,1);
+}
+@media (hover: hover) {
+  .mood-btn:hover {
+    transform: translateY(-4px) scale(1.05);
+    box-shadow: 0 8px 24px rgba(124,58,237,0.3);
+  }
+}
+.mood-btn:active {
+  transform: scale(0.95);
+}
