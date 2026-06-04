@@ -287,11 +287,20 @@ export default function ORVPage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950 via-[#0d1424] to-violet-950 opacity-80" />
+        {/* Background image — capa oficial do manhwa */}
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://s4.anilist.co/file/anilistcdn/media/manga/cover/large/bx116822-H6wB1m7aqzuh.jpg')`,
+            filter: "blur(2px) saturate(0.6)",
+            transform: "scale(1.05)",
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-indigo-950/90 via-[#0d1424]/85 to-violet-950/90" />
         <div className="absolute inset-0">
-          <div className="absolute top-20 left-1/4 w-96 h-96 bg-violet-600/10 rounded-full blur-3xl" />
-          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-indigo-600/10 rounded-full blur-3xl" />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-500/5 rounded-full blur-3xl" />
+          <div className="absolute top-20 left-1/4 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl" />
+          <div className="absolute bottom-10 right-1/4 w-80 h-80 bg-indigo-600/15 rounded-full blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-amber-500/8 rounded-full blur-3xl" />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
@@ -332,6 +341,23 @@ export default function ORVPage() {
             O que acontece quando o mundo começa a seguir o roteiro de um web novel — e você é o único que leu até o fim?
             A obra que redefiniu o manhwa moderno e transformou leitores em fãs apaixonados.
           </p>
+
+          {/* CTA buttons */}
+          <div className="flex flex-wrap gap-3 mb-8">
+            <Link
+              href="/orv/ler"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all hover:scale-105 shadow-lg shadow-violet-900/40"
+            >
+              📖 Ler Novel — PT-BR
+            </Link>
+            <a
+              href="/novels/orv-pt-br.pdf"
+              download
+              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-medium text-sm transition-all"
+            >
+              ⬇ Baixar PDF
+            </a>
+          </div>
 
           {/* Quick stats */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-2xl">
@@ -410,9 +436,9 @@ export default function ORVPage() {
           </div>
           <p className="text-slate-400 text-sm mb-8 ml-10">Um elenco construído com camadas. Cada personagem tem contradições, arcos e momentos que ficam na memória.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5" style={{ perspective: "1000px" }}>
             {CHARACTERS.map((char) => (
-              <div key={char.name} className="bg-[#0d1424] border border-white/8 rounded-2xl overflow-hidden hover:border-white/15 transition-all group">
+              <div key={char.name} className="bg-[#0d1424] border border-white/8 rounded-2xl overflow-hidden hover:border-white/20 transition-all duration-300 group hover:-translate-y-1 hover:shadow-2xl hover:shadow-violet-900/30" style={{ transformStyle: "preserve-3d" }}>
                 <div className={`h-2 w-full bg-gradient-to-r ${char.color}`} />
                 <div className="p-5">
                   <div className="flex items-start justify-between mb-3">
@@ -464,9 +490,9 @@ export default function ORVPage() {
           </div>
           <p className="text-slate-400 text-sm mb-8 ml-10">ORV tem um dos sistemas de poder mais elaborados do gênero. Aqui está o que você precisa saber.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4" style={{ perspective: "800px" }}>
             {SYSTEM_ELEMENTS.map((elem) => (
-              <div key={elem.title} className={`rounded-2xl border p-5 ${elem.color} transition-all hover:scale-[1.01]`}>
+              <div key={elem.title} className={`rounded-2xl border p-5 ${elem.color} transition-all duration-300 hover:-translate-y-1 hover:shadow-xl`}>
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-2xl">{elem.icon}</span>
                   <h3 className={`font-bold text-lg ${elem.titleColor}`}>{elem.title}</h3>

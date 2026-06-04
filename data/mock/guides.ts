@@ -91,9 +91,9 @@ A franquia Naruto é uma das maiores do mundo dos animes. Com centenas de episó
 - **Fillers para pular**: Episódios 57-71, 91-112, 144-151, 170-171, 176-196...
 
 #### Filmes (assistir quando indicado)
-1. Naruto Clássico — Filmes 1-3 (opcionais, não são canon)
-2. Shippuden — Filme 4: "The Lost Tower" (após episódio 175)
-3. Shippuden — Filme 6: "Road to Ninja" (após episódio 311) ⭐ Recomendado
+1. Naruto Clássico: Filmes 1-3 (opcionais, não são canon)
+2. Shippuden: Filme 4 "The Lost Tower" (após episódio 175)
+3. Shippuden: Filme 6 "Road to Ninja" (após episódio 311) ⭐ Recomendado
 4. "The Last: Naruto the Movie" (após o episódio 479) ⭐ Canon!
 
 #### 3. Boruto: Naruto Next Generations
@@ -122,13 +122,13 @@ Demon Slayer é uma franquia pequena e bem organizada. Não tem fillers nem conf
 
 ### Ordem Cronológica
 
-1. **Temporada 1** — Demon Slayer: Kimetsu no Yaiba (26 eps, 2019)
-2. **Filme** — Mugen Train (2020) ⭐ Obrigatório! É continuação direta da T1
-3. **Temporada 2** — Entertainment District Arc (11 eps, 2021/2022)
+1. **Temporada 1**: Demon Slayer: Kimetsu no Yaiba (26 eps, 2019)
+2. **Filme**: Mugen Train (2020) ⭐ Obrigatório! É continuação direta da T1
+3. **Temporada 2**: Entertainment District Arc (11 eps, 2021/2022)
    - Os primeiros 7 eps são uma versão estendida do filme Mugen Train
    - Você pode pular os 7 primeiros se já assistiu o filme
-4. **Temporada 3** — Swordsmith Village Arc (11 eps, 2023)
-5. **Temporada 4** — Hashira Training Arc (8 eps, 2024)
+4. **Temporada 3**: Swordsmith Village Arc (11 eps, 2023)
+5. **Temporada 4**: Hashira Training Arc (8 eps, 2024)
 
 ### Preciso assistir o filme no cinema?
 
@@ -168,11 +168,11 @@ O herói normalmente sai do mundo real (geralmente Japão contemporâneo) e acab
 
 ### Melhores Isekai para Começar
 
-1. **Re:Zero** — Drama intenso, protagonista não-invencível
-2. **Mushoku Tensei** — Melhor worldbuilding do gênero
-3. **KonoSuba** — Paródia hilária e perfeita
-4. **Overlord** — Protagonista é o vilão (invertido!)
-5. **That Time I Got Reincarnated as a Slime** — Leve e divertido`,
+1. **Re:Zero**: drama intenso com protagonista que sofre consequências reais por cada morte
+2. **Mushoku Tensei**: worldbuilding denso com sistema de magia entre os mais detalhados do gênero
+3. **KonoSuba**: paródia do isekai com grupo de desajustados absolutamente incompetentes
+4. **Overlord**: perspectiva invertida — o protagonista é o vilão do mundo que invadiu
+5. **That Time I Got Reincarnated as a Slime**: ritmo leve, boa construção de mundo, divertido sem exigir esforço`,
   },
   {
     slug: "o-que-e-shounen",
@@ -196,9 +196,9 @@ O herói normalmente sai do mundo real (geralmente Japão contemporâneo) e acab
 
 ### O Trio Clássico (Os "Big Three")
 
-1. **Naruto** — Ninja que sonha em se tornar o líder da sua aldeia
-2. **Bleach** — Adolescente que vira um ceifador de almas
-3. **One Piece** — Pirata em busca do maior tesouro do mundo
+1. **Naruto**: ninja rejeitado pela aldeia que sonha em se tornar Hokage
+2. **Bleach**: adolescente que adquire poderes de ceifador de almas para proteger sua família
+3. **One Piece**: pirata com corpo de borracha em busca do maior tesouro do mundo
 
 ### Shounen Modernos Obrigatórios
 
@@ -227,24 +227,24 @@ Esses animes têm entre 12 e 26 episódios — o tamanho perfeito para maratonar
 
 ### 12-13 Episódios (1 dia)
 
-- **One Punch Man** — Herói invencível existencialmente entediado. Ação + comédia perfeita
-- **Spy x Family** — Espião monta família falsa com telepatia e assassina. Adorável
-- **Cyberpunk: Edgerunners** — Drama cyberpunk visceral (relacionado ao game)
-- **Violet Evergarden** — Obra-prima sobre emoções humanas, animação linda
+- **One Punch Man**: herói que derrota qualquer inimigo com um soco e está existencialmente entediado com isso
+- **Spy x Family**: espião, assassina e criança telepata formam uma família falsa sem saber uns dos segredos dos outros
+- **Cyberpunk: Edgerunners**: drama cyberpunk visceral ambientado no universo do game Cyberpunk 2077
+- **Violet Evergarden**: ex-soldada aprende a escrever cartas de amor enquanto descobre o que são emoções humanas
 
 ### 24-26 Episódios (fim de semana)
 
-- **Fullmetal Alchemist: Brotherhood** — Considerado o melhor anime de todos os tempos
-- **Death Note** — Thriller psicológico eletrizante
-- **Steins;Gate** — Ficção científica sobre viagem no tempo
-- **Code Geass** — Estratégia e poder em anime político épico
-- **Neon Genesis Evangelion** — O anime que redefiniu o gênero mecha
+- **Fullmetal Alchemist: Brotherhood**: dois irmãos alquimistas pagam um preço alto por tentar ressuscitar a mãe
+- **Death Note**: estudante genial tenta recriar o mundo eliminando criminosos com um caderno sobrenatural
+- **Steins;Gate**: pesquisador amador descobre como enviar mensagens ao passado e desestabiliza a linha do tempo
+- **Code Geass**: príncipe exilado usa poderes de controle mental para liderar uma revolução contra o próprio país
+- **Neon Genesis Evangelion**: adolescentes pilotam robôs gigantes enquanto lidam com traumas e colapso psicológico
 
 ### Filmes (uma tarde)
 
-- **Your Name** (1h52min) — Romance + fantasia, um dos maiores da história
-- **Spirited Away** (2h5min) — Obra-prima do Studio Ghibli
-- **A Silent Voice** (2h10min) — Drama sobre bullying, muito emocionante`,
+- **Your Name** (1h52min): dois jovens trocam de corpo enquanto dormem e tentam se encontrar
+- **Spirited Away** (2h5min): menina de 10 anos fica presa num mundo espiritual e precisa trabalhar para libertar os pais
+- **A Silent Voice** (2h10min): jovem que intimidou uma colega surda tenta fazer as pazes anos depois`,
   },
   {
     slug: "o-que-e-seinen",
@@ -270,12 +270,12 @@ Esses animes têm entre 12 e 26 episódios — o tamanho perfeito para maratonar
 
 ### Seinen Essenciais
 
-1. **Berserk** — Dark fantasy brutal sobre um mercenário em busca de vingança
-2. **Vinland Saga** — Guerra, filosofia e redenção na era Viking
-3. **Vagabond** — Jornada do samurai Miyamoto Musashi em busca de si mesmo
-4. **Monster** — Suspense sobre um médico que salva um assassino em série
-5. **Parasyte** — Ficção científica sobre parasitas alienígenas e humanidade
-6. **Hellsing Ultimate** — Vampiros e horror com estética sombria`,
+1. **Berserk**: mercenário de espada enorme busca vingança contra seu ex-companheiro que o sacrificou por poder — dark fantasy brutal e influente
+2. **Vinland Saga**: filho de guerreiro viking busca vingança enquanto questiona se a violência tem algum sentido
+3. **Vagabond**: adaptação da vida de Miyamoto Musashi — samurai que busca ser o melhor de espada e descobre que a batalha real é interior
+4. **Monster**: neurocirurgião alemão salva a vida de um menino e anos depois descobre que ele se tornou um assassino serial — decide corrigi-lo
+5. **Parasyte**: parasita alienígena toma o braço de um adolescente e os dois são forçados a conviver enquanto outros parasitas devoram humanos
+6. **Hellsing Ultimate**: organização britânica usa o vampiro Alucard para combater ameaças sobrenaturais — violento, estiloso e sem freio`,
   },
   {
     slug: "animes-para-assistir-com-filhos",
@@ -291,24 +291,24 @@ O anime não é só para adultos! Muitos títulos são perfeitos para crianças 
 
 ### Filmes do Studio Ghibli (Recomendados para Todas as Idades)
 
-- **My Neighbor Totoro** — Duas irmãs fazem amizade com uma criatura mágica da floresta
-- **Spirited Away** — Uma menina precisa resgatar seus pais num mundo espiritual
-- **Kiki's Delivery Service** — Uma jovem bruxa começa sua vida independente
-- **Castle in the Sky** — Aventura épica de dois jovens e uma ilha voadora
-- **Howl's Moving Castle** — Magia, guerra e um castelo que caminha
+- **My Neighbor Totoro**: duas irmãs que se mudam para o campo fazem amizade com uma criatura mágica da floresta
+- **Spirited Away**: menina de 10 anos fica presa num mundo espiritual e precisa trabalhar para libertar os pais
+- **Kiki's Delivery Service**: bruxa jovem se instala numa cidade desconhecida e começa um serviço de entregas para ganhar independência
+- **Castle in the Sky**: dois jovens perseguidos por piratas e pelo exército buscam uma ilha voadora lendária
+- **Howl's Moving Castle**: jovem amaldiçoada com corpo de velha encontra abrigo no castelo ambulante de um feiticeiro excêntrico
 
 ### Séries Apropriadas para Crianças
 
-- **Pokémon** — Clássico atemporal sobre batalhas e amizades com criaturas
-- **Doraemon** — Robô gato do futuro com gadgets mágicos
-- **Chi's Sweet Home** — A vida adorável de uma gatinha
-- **Yotsuba&!** — Slice of life sobre uma criança curiosa descobrindo o mundo
+- **Pokémon**: garoto de 10 anos sai de casa para se tornar mestre Pokémon com seu parceiro Pikachu — clássico de múltiplas gerações
+- **Doraemon**: robô gato do século 22 volta ao passado para ajudar um menino azarado com gadgets tecnológicos
+- **Chi's Sweet Home**: a vida cotidiana de uma gatinha perdida adotada por uma família — curto, tranquilo e fofo
+- **Yotsuba&!**: não é anime (só mangá), mas vale mencionar — menina de 5 anos descobre o mundo com entusiasmo genuíno e sem filtros
 
 ### Para Crianças Mais Velhas (10+)
 
-- **Fullmetal Alchemist: Brotherhood** — Aventura com lições sobre consequências e sacrifício
-- **Spy x Family** — Família falsa muito fofa com humor para todas as idades
-- **Violet Evergarden** — Emocionante, com temas de perda e crescimento pessoal`,
+- **Fullmetal Alchemist: Brotherhood**: aventura de dois irmãos alquimistas com temas de consequência, sacrifício e o preço de brincar de deus
+- **Spy x Family**: espião, assassina e criança telepata formam família falsa — humor leve com personagens irresistíveis para todas as idades
+- **Violet Evergarden**: ex-soldada aprende a escrever cartas enquanto entende o que significa sentir — emocionante sem ser manipulador`,
   },
   {
     slug: "ordem-para-assistir-dragon-ball",
@@ -336,7 +336,7 @@ Dragon Ball é uma das franquias mais longas e complexas do mundo dos animes. Ve
 
 #### 3. Dragon Ball Z Kai (2009–2015)
 - Versão remasterizada de DBZ sem fillers
-- **Alternativa ao DBZ original** — mais curto e com melhor ritmo
+- **Alternativa ao DBZ original**: versão mais curta e sem fillers, com ritmo mais próximo do mangá
 
 #### 4. Dragon Ball GT (1996–1997)
 - 64 episódios
@@ -377,20 +377,20 @@ Attack on Titan (SnK) é linear e sem fillers. Simples de acompanhar:
 
 ### Ordem de Exibição
 
-1. **Temporada 1** — 25 episódios (2013) — Apresentação do mundo, os titãs e Eren
-2. **Temporada 2** — 12 episódios (2017) — Revelações e traições
-3. **Temporada 3 Parte 1** — 12 episódios (2018) — Conspiração política
-4. **Temporada 3 Parte 2** — 10 episódios (2019) — O porão e as revelações épicas
-5. **Temporada 4 Parte 1** — 16 episódios (2020/2021) — Salto temporal, Marley
-6. **Temporada 4 Parte 2** — 12 episódios (2022) — Rumbling começa
-7. **Temporada 4 Parte 3** — 2 episódios especiais (2023) — Final da série
+1. **Temporada 1** (25 eps, 2013): apresentação do mundo murado, os titãs e o despertar de Eren
+2. **Temporada 2** (12 eps, 2017): revelações sobre a natureza dos titãs e traições dentro das muralhas
+3. **Temporada 3 Parte 1** (12 eps, 2018): conspiração política interna e o verdadeiro inimigo dentro do governo
+4. **Temporada 3 Parte 2** (10 eps, 2019): o porão de Eren e as revelações que redefinem tudo que veio antes
+5. **Temporada 4 Parte 1** (16 eps, 2020/2021): salto temporal — o mundo além das muralhas e a perspectiva de Marley
+6. **Temporada 4 Parte 2** (12 eps, 2022): o Rumbling começa e as escolhas impossíveis se multiplicam
+7. **Temporada 4 Parte 3** (2 especiais, 2023): final da série
 
 ### Total: ~87 episódios + 2 especiais finais
 
 ### Tem OVAs?
 Sim! Os OVAs são opcionais mas recomendados:
-- **No Regrets** — Origem do Capitão Levi ⭐ Recomendado
-- **Lost Girls** — História de Mikasa e Annie (assista após T2)
+- **No Regrets**: origem do Capitão Levi antes de entrar no Esquadrão de Reconhecimento ⭐ Recomendado
+- **Lost Girls**: histórias paralelas de Mikasa e Annie, indicado assistir após a T2
 
 ### Devo assistir em ordem de lançamento?
 **Sim, absolutamente.** Attack on Titan tem uma narrativa construída com cuidado e cada temporada depende da anterior. Nunca pule episódios.
@@ -412,7 +412,7 @@ Jujutsu Kaisen tem uma ordem simples, mas tem um filme que confunde muita gente:
 
 ### Ordem Recomendada
 
-1. **Temporada 1** — 24 episódios (2020/2021)
+1. **Temporada 1** (24 episódios, 2020/2021)
    - Apresenta Yuji Itadori e o mundo das maldições
    - Obrigatório como primeiro passo
 
@@ -421,7 +421,7 @@ Jujutsu Kaisen tem uma ordem simples, mas tem um filme que confunde muita gente:
    - Mas recomendamos assistir DEPOIS da T1 para curtir melhor
    - Apresenta Yuta Okkotsu, personagem importante na T2
 
-3. **Temporada 2** — 23 episódios (2023)
+3. **Temporada 2** (23 episódios, 2023)
    - Arco Passado de Gojo + Shibuya Incident
    - Considerada uma das melhores temporadas de anime recentes
 
@@ -445,30 +445,30 @@ A T2 é intensa e tem mortes importantes. Se você se apegou aos personagens, se
     content: `## Os 20 Melhores Animes de Ação
 
 ### Top 5 — Absolutos
-1. **Fullmetal Alchemist: Brotherhood** ★ 9.1 — O melhor anime de ação da história
-2. **Attack on Titan** ★ 9.0 — Revolução no gênero. Imperdível
-3. **Demon Slayer** ★ 8.7 — Animação mais linda já feita
-4. **Jujutsu Kaisen** ★ 8.6 — O anime de ação mais popular da atualidade
-5. **Hunter x Hunter (2011)** ★ 9.0 — Subverte todos os tropos do gênero
+1. **Fullmetal Alchemist: Brotherhood** (★ 9.1): dois irmãos alquimistas enfrentam verdades terríveis sobre o mundo e a si mesmos
+2. **Attack on Titan** (★ 9.0): humanidade sobrevive atrás de muros enquanto titãs devoram tudo por fora — mas os segredos reais são muito piores
+3. **Demon Slayer** (★ 8.7): animação com padrão cinematográfico, especialmente nas sequências de batalha
+4. **Jujutsu Kaisen** (★ 8.6): estudante engole um dedo de demônio e passa a conviver com a maldição mais poderosa da história
+5. **Hunter x Hunter (2011)** (★ 9.0): subverte expectativas do shounen — o protagonista não é o mais forte e a série não tem medo de ficar sombria
 
 ### Top 6–10 — Clássicos Obrigatórios
-6. **Naruto Shippuden** ★ 8.6 — A jornada ninja mais emocionante
-7. **One Piece** ★ 8.9 — A maior aventura de todos os tempos
-8. **Dragon Ball Z** ★ 8.0 — O pai de todos os animes de ação
-9. **Bleach: TYBW** ★ 8.9 — O retorno épico de Bleach
-10. **My Hero Academia** ★ 8.5 — Super-heróis no estilo anime
+6. **Naruto Shippuden** (★ 8.6): continuação de Naruto com arcos épicos e uma das melhores batalhas finais do gênero
+7. **One Piece** (★ 8.9): franquia de 25 anos com worldbuilding que cresce a cada arco — quanto mais você assiste, melhor fica
+8. **Dragon Ball Z** (★ 8.0): definiu a linguagem visual e narrativa dos animes de batalha nos anos 90
+9. **Bleach: TYBW** (★ 8.9): retorno de Bleach após anos — animação impecável que faz jus ao arco final do mangá
+10. **My Hero Academia** (★ 8.5): mundo onde 80% da população tem superpoderes e um garoto sem nenhum sonha em ser herói
 
 ### Top 11–20 — Para Não Parar de Assistir
-11. **Vinland Saga** ★ 8.8 — Vikings com profundidade filosófica
-12. **Black Clover** ★ 8.2 — O Naruto da geração atual
-13. **Sword Art Online** ★ 7.7 — Isekai de ação, muito popular
-14. **Solo Leveling** ★ 8.5 — O protagonista mais overpowered do gênero
-15. **Chainsaw Man** ★ 8.5 — Bizarro, violento e brilhante
-16. **Mob Psycho 100** ★ 8.8 — Poderes psiônicos e crescimento pessoal
-17. **Samurai Champloo** ★ 8.5 — Samurai com trilha sonora de hip-hop
-18. **Gurren Lagann** ★ 8.7 — O anime mais épico sobre nunca desistir
-19. **Noragami** ★ 8.3 — Deuses japoneses em aventuras modernas
-20. **Re:Zero** ★ 8.3 — Isekai com consequências reais
+11. **Vinland Saga** (★ 8.8): viking dinamarquês busca vingança pela morte do pai enquanto questiona o sentido da guerra
+12. **Black Clover** (★ 8.2): garoto sem magia em mundo onde todos têm — começo lento, mas a segunda metade compensa
+13. **Sword Art Online** (★ 7.7): o isekai que popularizou o gênero, com arcos variados em qualidade mas sempre entretenimento garantido
+14. **Solo Leveling** (★ 8.5): caçador fraco se torna o mais forte do mundo — ritmo acelerado e batalhas visualmente impressionantes
+15. **Chainsaw Man** (★ 8.5): jovem fusionado com um demônio motosserra trabalha como caçador de demônios em mundo brutal e imprevisível
+16. **Mob Psycho 100** (★ 8.8): menino com poderes psíquicos absurdos que prefere não usá-los — foco no crescimento pessoal
+17. **Samurai Champloo** (★ 8.5): dois samurais rivais com estilos opostos protegem uma garota que busca o pai por todo o Japão
+18. **Gurren Lagann** (★ 8.7): dois jovens saem do subsolo para enfrentar exércitos alienígenas — escalada de epicidade progressiva
+19. **Noragami** (★ 8.3): deus menor sem templo aceita trabalhos pagos por moedas para ganhar seguidores no Japão contemporâneo
+20. **Re:Zero** (★ 8.3): jovem preso num mundo de fantasia revive o mesmo dia repetidamente, carregando memórias de todas as mortes
 
 ### Dica de Ordem para Iniciantes em Ação
 Comece por: Demon Slayer → Fullmetal Alchemist: Brotherhood → Jujutsu Kaisen`,
@@ -484,25 +484,25 @@ Comece por: Demon Slayer → Fullmetal Alchemist: Brotherhood → Jujutsu Kaisen
     content: `## Os Melhores Animes de Romance
 
 ### Para Chorar (Aviso: tenha lenços)
-1. **Violet Evergarden** ★ 8.9 — Obra-prima sobre amor, perda e emoções humanas
-2. **Clannad: After Story** ★ 9.1 — O anime mais emocionante já feito (prepare-se)
-3. **Your Lie in April** ★ 8.7 — Música, amor e tragédia em doses certas
-4. **A Silent Voice** ★ 8.9 — Bullying, redenção e amor (filme)
-5. **Anohana** ★ 8.5 — Amigos de infância e uma perda irreparável
+1. **Violet Evergarden** (★ 8.9): ex-soldada sem braços aprende o significado das palavras "eu te amo" escrevendo cartas para estranhos
+2. **Clannad: After Story** (★ 9.1): a vida adulta de Tomoya depois do colégio — começa como romance e termina como tragédia familiar
+3. **Your Lie in April** (★ 8.7): pianista que perdeu a capacidade de ouvir as próprias notas reencontra a música por causa de uma violinista
+4. **A Silent Voice** (★ 8.9): jovem que intimidou uma colega surda tenta pedir desculpas anos depois — filme, não série
+5. **Anohana** (★ 8.5): grupo de amigos de infância se reúne quando o fantasma de uma deles pede para ter um desejo realizado
 
 ### Para Sorrir e Se Sentir Bem
-6. **Toradora** ★ 8.4 — O tsundere mais famoso do anime
-7. **Horimiya** ★ 8.3 — Romance maduro e realista entre opostos
-8. **Kaguya-sama: Love is War** ★ 8.5 — Batalha de egos disfarçada de romance
-9. **Spy x Family** ★ 8.7 — Não é romance puro, mas o casal é irresistível
-10. **My Dress-Up Darling** ★ 8.3 — Cosplay e romance gentil
+6. **Toradora** (★ 8.4): dois estudantes com má fama ajudam um ao outro a conquistar quem gostam — e acabam se aproximando
+7. **Horimiya** (★ 8.3): a garota popular e o garoto estranho descobrem que ambos escondem lados que não mostram na escola
+8. **Kaguya-sama: Love is War** (★ 8.5): dois estudantes geniais que se gostam recusam ser os primeiros a confessar — é uma batalha de orgulho
+9. **Spy x Family** (★ 8.7): não é romance central, mas a dinâmica entre o casal falso tem mais química que a maioria dos animes do gênero
+10. **My Dress-Up Darling** (★ 8.3): garoto que faz bonecas ajuda a garota mais popular da escola a criar fantasias de cosplay
 
 ### Filmes de Romance Obrigatórios
-11. **Your Name (Kimi no Na wa)** ★ 9.0 — O maior filme de anime de todos os tempos
-12. **Weathering With You** ★ 8.5 — Do mesmo diretor de Your Name
-13. **The Girl Who Leapt Through Time** ★ 8.2 — Viagem no tempo e consequências do amor
-14. **5 Centimeters Per Second** ★ 7.9 — Distância e saudade em poesia visual
-15. **I Want to Eat Your Pancreas** ★ 8.5 — Título estranho, história devastadora`,
+11. **Your Name (Kimi no Na wa)** (★ 9.0): dois jovens de cidades diferentes trocam de corpo enquanto dormem e tentam se encontrar
+12. **Weathering With You** (★ 8.5): adolescente foragido em Tóquio conhece uma garota que consegue abrir clarões no céu chuvoso
+13. **The Girl Who Leapt Through Time** (★ 8.2): estudante descobre que pode voltar no tempo e usa o poder em coisas pequenas — até entender o custo disso
+14. **5 Centimeters Per Second** (★ 7.9): três histórias sobre distância, saudade e a dificuldade de seguir em frente
+15. **I Want to Eat Your Pancreas** (★ 8.5): garoto reservado descobre o diário de uma colega terminal e passa os últimos meses dela com ela`,
   },
   {
     slug: "melhores-animes-isekai",
@@ -518,27 +518,27 @@ Comece por: Demon Slayer → Fullmetal Alchemist: Brotherhood → Jujutsu Kaisen
 Isekai (異世界 = "outro mundo") são animes onde o protagonista é transportado para um mundo diferente, geralmente de fantasia com elementos de RPG.
 
 ### Top 5 Essenciais
-1. **Re:Zero** ★ 8.3 — O isekai mais inteligente. Protagonista não é overpowered, morre e revive com consequências reais
-2. **Mushoku Tensei** ★ 8.5 — O melhor worldbuilding do gênero. Reencarnação com sistema de magia detalhado
-3. **That Time I Got Reincarnated as a Slime** ★ 8.1 — Leve, divertido. Protagonista reencarna como slime mas é absurdamente poderoso
-4. **KonoSuba** ★ 8.2 — Paródia perfeita do gênero. Os personagens são incompetentes e hilários
-5. **Overlord** ★ 7.9 — O protagonista é o vilão. Perspectiva invertida e fascinante
+1. **Re:Zero** (★ 8.3): protagonista que morre e volta no tempo carrega o trauma de cada morte — o isekai que leva consequências a sério
+2. **Mushoku Tensei** (★ 8.5): reencarnação com worldbuilding detalhado, sistema de magia coerente e desenvolvimento de personagem lento mas sólido
+3. **That Time I Got Reincarnated as a Slime** (★ 8.1): protagonista reencarna como um slime fraco e, aos poucos, constrói uma nação de monstros
+4. **KonoSuba** (★ 8.2): paródia dos tropos do isekai — o grupo é formado por incompetentes que de algum jeito sobrevivem
+5. **Overlord** (★ 7.9): jogador fica preso no próprio personagem mago-esqueleto e passa a governar o mundo como o vilão que todos temem
 
 ### Para Fãs de Ação
-6. **Sword Art Online** ★ 7.7 — O mais famoso. Preso num RPG virtual
-7. **Log Horizon** ★ 7.8 — Foco na política e estratégia, não só em batalhas
-8. **The Rising of the Shield Hero** ★ 7.9 — Tom mais sombrio, protagonista injustiçado
+6. **Sword Art Online** (★ 7.7): jogadores presos num RPG virtual morrem de verdade se morrerem no jogo
+7. **Log Horizon** (★ 7.8): foco em política, economia e estratégia em vez de batalhas — como construir uma sociedade dentro de um MMO
+8. **The Rising of the Shield Hero** (★ 7.9): herói invocado é traído logo no primeiro dia e precisa reconstruir sua reputação do zero
 
 ### Mais Recentes e Populares
-9. **Solo Leveling** ★ 8.5 — Manhwa coreano adaptado. Visual espetacular
-10. **Frieren: Beyond Journey's End** ★ 9.2 — Elfa imortal reflete sobre amizades perdidas
-11. **Dungeon Meshi** ★ 8.7 — Aventureiros que cozinham monstros. Único no gênero
+9. **Solo Leveling** (★ 8.5): adaptação do manhwa coreano — caçador fraco que se torna o mais forte, com visual entre os melhores da temporada
+10. **Frieren: Beyond Journey's End** (★ 9.2): elfa imortal retorna aos lugares que visitou décadas atrás com antigos companheiros já mortos
+11. **Dungeon Meshi** (★ 8.7): aventureiros sem dinheiro resolvem o problema de provisões cozinhando os próprios monstros da dungeon
 
 ### Mais Leves / Slice of Life Isekai
-12. **The Saint's Magic Power is Omnipotent** ★ 7.5 — Romance isekai para quem quer algo relaxante
-13. **In Another World With My Smartphone** ★ 6.5 — Batata frita do gênero — simples e descompromissado
-14. **Ascendance of a Bookworm** ★ 8.3 — Isekai focado em conhecimento e livros
-15. **Reincarnated as a Sword** ★ 7.2 — Perspectiva da espada`,
+12. **The Saint's Magic Power is Omnipotent** (★ 7.5): mulher adulta reencarna como santa em mundo de fantasia e vai com calma — romance isekai sem pressa
+13. **In Another World With My Smartphone** (★ 6.5): isekai sem pretensão — para quando você quer se desligar sem pensar muito
+14. **Ascendance of a Bookworm** (★ 8.3): apaixonada por livros reencarna em mundo medieval sem impressão — decide criar livros do zero
+15. **Reincarnated as a Sword** (★ 7.2): perspectiva invertida — a história é contada pela espada, não pelo herói`,
   },
   {
     slug: "melhores-animes-psicologicos",
@@ -555,16 +555,16 @@ Animes que exploram a mente humana, realidades alternativas, dilemas morais e qu
 
 ### Top 10 Psicológicos
 
-1. **Death Note** ★ 8.6 — Gênio cria deus da morte. Batalha intelectual épica entre Light e L
-2. **Neon Genesis Evangelion** ★ 8.5 — Trauma, identidade e o que significa ser humano. O mais influente do gênero
-3. **Monster** ★ 8.7 — Médico caça o monstro que criou. Thriller lento e brilhante
-4. **Steins;Gate** ★ 9.1 — Viagem no tempo e suas consequências psicológicas devastadoras
-5. **Paranoia Agent** ★ 8.2 — Satoshi Kon. Sociedade japonesa em colapso mental
-6. **Serial Experiments Lain** ★ 8.1 — Identidade na era digital. Perturbador e visionário
-7. **Promised Neverland** ★ 8.5 — Crianças que descobrem a verdade sombria sobre sua existência
-8. **Made in Abyss** ★ 8.8 — Exploration anime que vira pesadelo existencial
-9. **Psycho-Pass** ★ 8.4 — Sociedade que detecta criminalidade antes do crime. Orwell em anime
-10. **Higurashi: When They Cry** ★ 8.0 — Horror e loops temporais em cidade idílica
+1. **Death Note** (★ 8.6): estudante encontra caderno capaz de matar qualquer pessoa e decide usá-lo para "purificar" o mundo — com um detetive gênio tentando pará-lo
+2. **Neon Genesis Evangelion** (★ 8.5): adolescente com problemas de abandono pilota robô gigante enquanto o mundo e sua sanidade desmoronam ao redor
+3. **Monster** (★ 8.7): médico alemão salva a vida de um menino e anos depois descobre que ele se tornou um assassino serial em série — decide corrigi-lo
+4. **Steins;Gate** (★ 9.1): pesquisador amador cria máquina de mensagens no tempo e desestabiliza a realidade — o custo emocional cresce a cada salto
+5. **Paranoia Agent** (★ 8.2): Satoshi Kon investiga a mente coletiva de uma sociedade japonesa que inventou um agressor para fugir das próprias responsabilidades
+6. **Serial Experiments Lain** (★ 8.1): adolescente começa a se dissolver entre o mundo real e uma rede virtual — sobre identidade e presença em 1998, antes da internet ser o que é
+7. **Promised Neverland** (★ 8.5): crianças num orfanato descobrem para que são realmente criadas e planejam uma fuga impossível
+8. **Made in Abyss** (★ 8.8): começa como aventura de exploração e se transforma em horror existencial conforme os personagens descem para camadas mais profundas do abismo
+9. **Psycho-Pass** (★ 8.4): futuro onde um sistema detecta potencial criminoso antes do crime acontecer — e as pessoas que mantêm esse sistema funcionando
+10. **Higurashi: When They Cry** (★ 8.0): mesma vila, mesmos personagens, mesmos dias — mas cada arco termina em tragédia diferente e ninguém sabe por quê
 
 ### Para Iniciantes no Gênero
 Comece com **Death Note** — é acessível e viciante. Depois vá para **Steins;Gate**.`,
@@ -582,29 +582,29 @@ Comece com **Death Note** — é acessível e viciante. Depois vá para **Steins
 Nada pior que se apaixonar por um anime e descobrir que está incompleto. Esses você pode maratonar agora mesmo:
 
 ### Curtos (1 fim de semana)
-- **Death Note** — 37 eps — Thriller perfeito
-- **Code Geass** — 50 eps — Estratégia e poder
-- **Steins;Gate** — 24 eps — Ficção científica emocionante
-- **No Game No Life** — 12 eps — Gênios em mundo de jogos
-- **Gurren Lagann** — 27 eps — Epicidade pura
+- **Death Note** (37 eps): thriller psicológico sobre um estudante que tenta dominar o mundo com um caderno sobrenatural
+- **Code Geass** (50 eps): príncipe exilado lidera revolução com poder de dar ordens irresistíveis
+- **Steins;Gate** (24 eps): pesquisador descobre como enviar mensagens ao passado e desestabiliza a linha do tempo
+- **No Game No Life** (12 eps): irmão e irmã gênios em jogos são transportados para um mundo onde tudo se resolve em apostas
+- **Gurren Lagann** (27 eps): dois jovens saem do subsolo para enfrentar exércitos alienígenas — a escala cresce absurdamente
 
 ### Médios (1-2 semanas)
-- **Fullmetal Alchemist: Brotherhood** — 64 eps — O melhor anime
-- **Hunter x Hunter (2011)** — 148 eps — Aventura sem igual
-- **Clannad + After Story** — 49 eps — Drama máximo
-- **Cowboy Bebop** — 26 eps — Clássico atemporal
-- **Samurai Champloo** — 26 eps — Estilo único
+- **Fullmetal Alchemist: Brotherhood** (64 eps): dois irmãos alquimistas pagam um preço alto por tentar ressuscitar a mãe e tentam corrigi-lo
+- **Hunter x Hunter (2011)** (148 eps): menino busca o pai que é um caçador lendário — os arcos ficam progressivamente mais sombrios e complexos
+- **Clannad + After Story** (49 eps): romance de colegial que se transforma em drama familiar pesado na segunda parte
+- **Cowboy Bebop** (26 eps): caçadores de recompensas pelo sistema solar em episódios que misturam gêneros sem se fixar em nenhum
+- **Samurai Champloo** (26 eps): dois samurais rivais com estilos opostos percorrem o Japão em busca de um homem que cheira a girassol
 
 ### Longos (para os dedicados)
-- **Gintama** — 367 eps — A melhor comédia de anime
-- **Fairy Tail** — 328 eps — Aventura de magos
-- **Inuyasha** — 193 eps — Clássico do início dos anos 2000
-- **Yu Yu Hakusho** — 112 eps — Shounen dos anos 90
+- **Gintama** (367 eps): feudal japonês com alienígenas — comédia que parodia outros animes e raramente erra
+- **Fairy Tail** (328 eps): aventura de guilda de magos com laços de amizade no centro de tudo
+- **Inuyasha** (193 eps): garota moderna cai num poço e acorda no Japão feudal com um meio-demônio
+- **Yu Yu Hakusho** (112 eps): adolescente morre salvando uma criança e é recrutado como detetive do mundo espiritual
 
 ### Filmes para Uma Tarde
-- **Your Name** — 1h52 — Romance/fantasia perfeito
-- **Spirited Away** — 2h5 — Obra-prima do Ghibli
-- **Akira** — 2h4 — O pai do anime moderno`,
+- **Your Name** (1h52): dois jovens de cidades diferentes trocam de corpo enquanto dormem
+- **Spirited Away** (2h5): menina fica presa num mundo espiritual e precisa trabalhar para libertar os pais
+- **Akira** (2h4): motoqueiro de gangue de Tóquio enfrenta uma experiência governamental que deu errado — o filme que apresentou anime ao ocidente`,
   },
   {
     slug: "melhores-animes-2024-2025",
@@ -619,21 +619,21 @@ Nada pior que se apaixonar por um anime e descobrir que está incompleto. Esses 
 ### Destaques de 2024
 
 #### Primavera 2024
-- **Dungeon Meshi (Delicious in Dungeon)** ★ 8.7 — Aventureiros que cozinham monstros. O anime mais criativo do ano
-- **Frieren: Beyond Journey's End** (continuação) ★ 9.2 — Concluiu em 2024. Masterpiece
-- **Solo Leveling** ★ 8.5 — Adaptação do manhwa mais esperada dos últimos anos
+- **Dungeon Meshi (Delicious in Dungeon)** (★ 8.7): aventureiros sem dinheiro resolvem o problema das provisões cozinhando os monstros da dungeon — mais criativo que parece
+- **Frieren: Beyond Journey's End** (continuação) (★ 9.2): elfa imortal percorre os caminhos da antiga jornada e revisita o que ficou — concluiu em 2024
+- **Solo Leveling** (★ 8.5): adaptação do manhwa coreano mais aguardada dos anos recentes, com visual impecável
 
 #### Verão/Outono 2024
-- **Bleach: TYBW Parte 3** ★ 8.9 — A saga final de Bleach com qualidade absurda
-- **Dandadan** ★ 8.5 — Aliens, fantasmas e romance bizarro. Revelação do ano
-- **Demon Slayer: Hashira Training Arc** ★ 8.4 — Preparação para o arco final
+- **Bleach: TYBW Parte 3** (★ 8.9): a saga final de Bleach com animação que supera o original em todos os aspectos
+- **Dandadan** (★ 8.5): garota que acredita em fantasmas e garoto que acredita em aliens descobrem que os dois estão certos — romance no meio do caos
+- **Demon Slayer: Hashira Training Arc** (★ 8.4): arco de transição que prepara os personagens para o confronto final com Muzan
 
 ### Destaques de 2025
 
-- **Demon Slayer: Infinity Castle Arc** — O arco final mais aguardado
-- **Bleach: Final Arc** — Conclusão do Thousand-Year Blood War
-- **Solo Leveling Temporada 2** — Sung Jin-Woo mais poderoso que nunca
-- **Dragon Ball Daima** — Nova série do Toriyama
+- **Demon Slayer: Infinity Castle Arc**: o arco final da série, o mais esperado desde a conclusão do mangá
+- **Bleach: Final Arc**: conclusão animada do Thousand-Year Blood War com o mesmo padrão da TYBW
+- **Solo Leveling Temporada 2**: Sung Jin-Woo enfrenta ameaças de escala global após os eventos da primeira temporada
+- **Dragon Ball Daima**: nova série criada pelo próprio Toriyama antes de sua morte em 2024
 
 ### Como acompanhar lançamentos?
 Acesse nosso **Calendário da Temporada** para ver todos os animes em exibição agora com datas de episódios.`,
@@ -652,23 +652,23 @@ Acesse nosso **Calendário da Temporada** para ver todos os animes em exibição
 Muitos brasileiros preferem assistir sem legendas, especialmente crianças e quem está começando. A dublagem brasileira de anime tem alto nível técnico!
 
 ### Clássicos com Ótima Dublagem
-- **Dragon Ball Z** — A dublagem lendária que criou gerações de fãs no Brasil
-- **Naruto** — Dublagem nostálgica muito amada
-- **Pokémon** — Clássico que muitos conheceram dublado
-- **Cavaleiros do Zodíaco** — Uma das dublagens mais icônicas da TV brasileira
-- **Yu-Gi-Oh!** — Outra geração inteira cresceu com esta dublagem
+- **Dragon Ball Z**: a dublagem que definiu como uma geração de brasileiros ouve a voz do Goku — lendária e nostálgica
+- **Naruto**: dublagem sólida que acompanhou o crescimento do anime no Brasil nos anos 2000
+- **Pokémon**: muitos brasileiros conheceram o anime dublado na TV aberta — voz da Misty e do Ash são icônicas por aqui
+- **Cavaleiros do Zodíaco**: uma das dublagens mais marcantes da TV brasileira, com falas que viraram meme
+- **Yu-Gi-Oh!**: geração inteira aprendeu as regras do card game ouvindo a dublagem em português
 
 ### Modernos Bem Dublados
-- **Demon Slayer** — Dublagem excelente disponível na Crunchyroll
-- **My Hero Academia** — Dub BR de alta qualidade
-- **Attack on Titan** — Dublagem dramática e precisa
-- **One Piece** — Longa e boa dublagem BR
-- **Jujutsu Kaisen** — Disponível dublado na Crunchyroll BR
+- **Demon Slayer**: dublagem de alto nível disponível na Crunchyroll, com elenco bem escalado
+- **My Hero Academia**: dub BR consistente ao longo de todas as temporadas
+- **Attack on Titan**: dublagem dramática que captura bem a tensão do original
+- **One Piece**: uma das mais longas dublagens em andamento no Brasil, mantendo qualidade ao longo dos anos
+- **Jujutsu Kaisen**: disponível dublado na Crunchyroll BR com boa qualidade de elenco
 
 ### Onde assistir dublado?
-- **Crunchyroll** — Maior catálogo de dub BR para animes novos
-- **Netflix** — Vários animes populares com dublagem
-- **Amazon Prime Video** — Seleção menor mas de qualidade
+- **Crunchyroll**: maior catálogo de dub BR para animes em exibição e lançamentos recentes
+- **Netflix**: vários animes populares com dublagem, especialmente os que eles co-produzem
+- **Amazon Prime Video**: seleção menor, mas com títulos selecionados bem dublados
 
 ### Dica
 Mesmo amando dublagem, vale experimentar o original em japonês com legenda em português — a performance dos seiyuu (dubladores japoneses) é parte da experiência!`,
@@ -694,23 +694,23 @@ Mesmo amando dublagem, vale experimentar o original em japonês com legenda em p
 ### Os Melhores Slice of Life
 
 #### Comédia + Escola
-- **Nichijou** — O cotidiano mais absurdo e hilário já animado
-- **Azumanga Daioh** — O clássico do gênero. Grupo de amigas do colégio
-- **K-On!** — Meninas formam uma banda de rock. Extremamente fofo
+- **Nichijou**: situações cotidianas levadas ao absurdo máximo com animação expressiva e ritmo de comédia afiado
+- **Azumanga Daioh**: o clássico do gênero — grupo de amigas do colégio em situações simples e hilárias
+- **K-On!**: meninas formam uma banda de rock quase por acidente e passam mais tempo tomando chá do que ensaiando
 
 #### Drama + Emoção
-- **Clannad** — Família, amizade e amor. Faz todo mundo chorar
-- **Anohana** — Saudade de infância e luto. Devastador
-- **March Comes in Like a Lion** — Shogi e solidão
+- **Clannad**: romance de colégio que evolui para drama familiar pesado — a segunda parte (After Story) é onde a série realmente acontece
+- **Anohana**: grupo de amigos de infância se reúne quando o fantasma de uma delas pede para ter um desejo realizado
+- **March Comes in Like a Lion**: jovem enxadrista profissional lida com solidão e depressão enquanto encontra acolhimento numa família vizinha
 
 #### Adulto + Trabalho
-- **Shirobako** — Bastidores de uma produtora de anime. Brilhante
-- **Barakamon** — Calígrafo vai para ilha remota. Lindo e tranquilo
-- **Yotsuba&!** — Não é anime, mas o mangá é o melhor slice of life já feito
+- **Shirobako**: bastidores realistas de uma produtora de anime — cinco amigas que prometeram fazer um anime juntas tentam cumprir a promessa
+- **Barakamon**: calígrafo premiado é mandado para ilha remota após agredir um crítico — aprende sobre simplicidade com os moradores locais
+- **Yotsuba&!**: não é anime (só mangá), mas vale mencionar — o slice of life mais puro já feito, sobre uma criança que se maravilha com tudo
 
 #### Moderno e Popular
-- **Spy x Family** — Família falsa com comédia e coração
-- **Komi Can't Communicate** — Garota com dificuldade social quer 100 amigos`,
+- **Spy x Family**: espião monta família falsa com uma assassina e uma telepata — comédia familiar com coração no lugar certo
+- **Komi Can't Communicate**: garota com aparência perfeita tem ansiedade social severa e decide tentar fazer 100 amigos com ajuda de um colega paciente`,
   },
   {
     slug: "o-que-e-mecha",
@@ -726,22 +726,22 @@ Mesmo amando dublagem, vale experimentar o original em japonês com legenda em p
 
 ### Tipos de Mecha
 
-- **Super Robot** — Robôs com poderes mágicos/absurdos (Gurren Lagann, Mazinger Z)
-- **Real Robot** — Robôs com física mais realista, foco em guerra e política (Gundam)
-- **Eva-type** — Mecha com temas psicológicos profundos (Evangelion)
+- **Super Robot**: robôs com poderes mágicos ou absurdos, ênfase em espetáculo e emoção (Gurren Lagann, Mazinger Z)
+- **Real Robot**: robôs com física mais plausível, foco em guerra, estratégia e custo humano (Gundam)
+- **Eva-type**: mecha como metáfora — foco em temas psicológicos profundos, identidade e trauma (Evangelion)
 
 ### Os Melhores Mecha de Todos os Tempos
 
 #### Clássicos Obrigatórios
-1. **Neon Genesis Evangelion** ★ 8.5 — Redefiniu o gênero. Psicológico e filosófico
-2. **Mobile Suit Gundam (original)** — O pai do real robot mecha
-3. **Tengen Toppa Gurren Lagann** ★ 8.7 — O mais épico já feito. "Nunca desista"
-4. **Code Geass** ★ 8.7 — Mecha + estratégia política. Brilhante
+1. **Neon Genesis Evangelion** (★ 8.5): adolescentes pilotam robôs gigantes enquanto a humanidade lida com traumas e colapso psicológico coletivo
+2. **Mobile Suit Gundam (original)**: o pai do real robot — robôs com física plausível, foco em guerra e custo humano do conflito
+3. **Tengen Toppa Gurren Lagann** (★ 8.7): dois jovens saem do subsolo para enfrentar exércitos alienígenas — a escala de epicidade cresce a cada arco
+4. **Code Geass** (★ 8.7): príncipe exilado usa poder de controle mental para liderar uma revolução, jogando xadrez com vidas humanas
 
 #### Modernos Imperdíveis
-5. **Darling in the FranXX** ★ 7.3 — Visual lindo, pilotagem a dois
-6. **86: Eighty Six** ★ 8.3 — Mecha mais emocionante dos últimos anos
-7. **Aldnoah.Zero** ★ 7.5 — Terra vs Marte em guerra de mechas
+5. **Darling in the FranXX** (★ 7.3): pilotos pós-apocalípticos operam mechas em pares, com forte carga emocional e relações entre os tripulantes
+6. **86: Eighty Six** (★ 8.3): soldados de etnia discriminada pilotam mechas sem nome nem patente — contato por rádio com comandante que nunca os viu
+7. **Aldnoah.Zero** (★ 7.5): guerra entre Terra e colonos de Marte com mechas de tecnologias radicalmente diferentes
 
 #### Para Iniciantes
 Comece com **Gurren Lagann** — é o mais acessível e emocionante para quem nunca assistiu mecha.`,
@@ -759,21 +759,21 @@ Comece com **Gurren Lagann** — é o mais acessível e emocionante para quem nu
 ### Adaptações Icônicas
 
 #### Franquias Clássicas
-- **Pokémon** — O maior fenômeno de anime baseado em game da história
-- **Digimon** — Rival eterno do Pokémon, com história mais profunda
-- **Persona 4 / Persona 5** — Excelentes adaptações dos RPGs da Atlus
-- **Tales of Zestiria** — Adaptação do RPG da Bandai Namco
+- **Pokémon**: anime derivado da franquia de games mais vendida da história — 25+ anos de episódios e ainda em produção
+- **Digimon**: série com crianças que entram no mundo digital e criam vínculos com monstros parceiros — narrativa mais densa que Pokémon
+- **Persona 4 / Persona 5**: adaptações dos JRPGs da Atlus — Persona 4 Golden Animation e Persona 5 The Animation mantêm o espírito dos games
+- **Tales of Zestiria**: adaptação do RPG de ação da Bandai Namco com o herói Sorey e seus serafins
 
 #### Recentes e Elogiados
-- **Cyberpunk: Edgerunners** ★ 8.7 — Baseado no game Cyberpunk 2077. Absoluta obra-prima. 10 episódios
-- **Arcane** (não é anime, mas vale) — Baseado em League of Legends. Emmy award
-- **Castlevania** ★ 8.4 — Baseado nos games da Konami. Violento e brilhante
-- **The Witcher: Nightmare of the Wolf** — Prequel animado do game
+- **Cyberpunk: Edgerunners** (★ 8.7): 10 episódios ambientados no universo de Cyberpunk 2077 — garoto de favela tenta sobreviver em Night City
+- **Arcane** (não é anime, mas vale): baseada em League of Legends, venceu o Emmy — história de duas irmãs em lados opostos de uma guerra
+- **Castlevania** (★ 8.4): Drácula declara guerra à humanidade após sua esposa ser queimada pela Igreja — adaptação sombria e violenta dos games da Konami
+- **The Witcher: Nightmare of the Wolf**: prequel animado focado no mentor de Geralt, antes dos eventos do game
 
 #### Animes com Estética de Game (não baseados, mas com RPG)
-- **Sword Art Online** — Presos num RPG virtual
-- **Log Horizon** — Presos num MMO
-- **KonoSuba** — Isekai com mecânicas de RPG`,
+- **Sword Art Online**: jogadores presos num RPG virtual onde morrer no jogo significa morrer de verdade
+- **Log Horizon**: jogadores presos num MMO que constroem uma sociedade dentro do jogo usando as regras do game a seu favor
+- **KonoSuba**: isekai que parodia as mecânicas de RPG — o protagonista chega ao outro mundo com um grupo de aliados absolutamente inúteis`,
   },
   {
     slug: "melhores-animes-curtos-12-episodios",
@@ -790,26 +790,26 @@ Comece com **Gurren Lagann** — é o mais acessível e emocionante para quem nu
 ### Os Melhores de 12 Episódios
 
 #### Para Rir
-- **KonoSuba** — Grupo de incompetentes em mundo de fantasia. Hilário
-- **Daily Lives of High School Boys** — Comédia absurda do cotidiano masculino
-- **Sabagebu!** — Meninas em clube de airsoft. Comédia violenta e bizarra
+- **KonoSuba**: grupo de desajustados completamente incompetentes sobrevive em mundo de fantasia por pura sorte e caos
+- **Daily Lives of High School Boys**: comédia de sketches sobre o cotidiano de três amigos do ensino médio — sem enredo, só situações absurdas
+- **Sabagebu!**: meninas em clube de airsoft resolvem conflitos do dia a dia com violência imaginária e sem remorso
 
 #### Para Chorar
-- **Violet Evergarden: Gaiden** — Filme spin-off emocionante
-- **Anohana** — 11 episódios de pura emoção sobre amigos de infância
+- **Violet Evergarden: Gaiden**: filme spin-off que conta uma história paralela à série — emocionante mesmo para quem não assistiu tudo
+- **Anohana**: 11 episódios sobre um grupo de amigos de infância que se reúne pelo pedido de uma amiga morta
 
 #### Para se Empolgar
-- **One Punch Man T1** ★ 8.7 — O herói invencível mais divertido do anime
-- **Mob Psycho 100 T1** ★ 8.7 — Do criador de OPM. Ainda melhor
-- **Demon Slayer T1** — Os primeiros 13 episódios que mudaram a indústria
+- **One Punch Man T1** (★ 8.7): herói que derrota qualquer inimigo com um soco e está existencialmente entediado com o próprio poder
+- **Mob Psycho 100 T1** (★ 8.7): menino com poderes psíquicos absurdos que prefere viver normalmente e cresce como pessoa ao longo da série
+- **Demon Slayer T1**: os primeiros 26 episódios que mudaram o padrão de animação do gênero — especialmente os episódios finais do arco do Monte Natagumo
 
 #### Para Pensar
-- **Erased** ★ 8.3 — Viagem ao passado para salvar uma criança
-- **The Promised Neverland T1** ★ 8.5 — Órfãos que descobrem a verdade
-- **Terror in Resonance** ★ 8.0 — Dois terroristas e seus motivos
+- **Erased** (★ 8.3): ilustrador adulto é enviado ao passado toda vez que algo ruim está prestes a acontecer — usa isso para evitar o assassinato de uma colega de infância
+- **The Promised Neverland T1** (★ 8.5): crianças de orfanato descobrem para que são realmente criadas e planejam uma fuga impossível
+- **Terror in Resonance** (★ 8.0): dois adolescentes cometem atos terroristas calculados enquanto desafiam a polícia a descobrir seus motivos reais
 
 #### Sci-Fi e Cyberpunk
-- **Cyberpunk: Edgerunners** ★ 8.7 — 10 episódios. O mais impactante da lista`,
+- **Cyberpunk: Edgerunners** (★ 8.7): 10 episódios no universo de Cyberpunk 2077 — o mais visceral e impactante desta lista`,
   },
 ];
 
