@@ -13,7 +13,12 @@ const LINKS = {
     { label: "Quiz de Anime", href: "/quiz" },
     { label: "O que é Isekai?", href: "/guias/o-que-e-isekai" },
     { label: "O que é Shounen?", href: "/guias/o-que-e-shounen" },
-    { label: "Ordem para Naruto", href: "/guias/ordem-naruto" },
+    { label: "Ordem para Naruto", href: "/guias/ordem-para-assistir-naruto" },
+  ],
+  Institucional: [
+    { label: "Sobre o AnimeInfoBR", href: "/sobre" },
+    { label: "Contato", href: "/contato" },
+    { label: "Política de Privacidade", href: "/privacidade" },
   ],
 };
 
@@ -58,7 +63,11 @@ export default function Footer() {
           ))}
         </div>
 
-        <div className="border-t border-white/8 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/8 pt-6 flex flex-col gap-3">
+          <p className="text-slate-600 text-xs text-center">
+            Desenvolvido por <span className="text-slate-400">Rômulo Bezerra</span> · Apoio no conteúdo: <span className="text-slate-400">Luisa e Júlia</span>
+          </p>
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-slate-500 text-xs text-center sm:text-left">
             © {new Date().getFullYear()} AnimeInfoBR. Dados via{" "}
             <a
@@ -79,6 +88,7 @@ export default function Footer() {
             {" · "}
             <a href="https://www.primevideo.com" target="_blank" rel="noopener noreferrer" className="text-violet-400 hover:text-violet-300">Prime Video</a>
           </p>
+          </div>
         </div>
       </div>
     </footer>
