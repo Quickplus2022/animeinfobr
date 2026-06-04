@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
+import GoogleAdSense from "@/components/seo/GoogleAdSense";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="pt-BR" className={`${inter.variable} ${spaceGrotesk.variable}`}>
       <body className="min-h-screen flex flex-col">
         <GoogleAnalytics measurementId={GA_ID} />
+        <GoogleAdSense />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
