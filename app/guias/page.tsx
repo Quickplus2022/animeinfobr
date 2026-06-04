@@ -49,6 +49,32 @@ export default function GuiasPage() {
         ))}
       </div>
 
+      {/* EXTRA destaque — ORV */}
+      <div className="mb-10">
+        <h2 className="text-xl font-bold text-white mb-4">⭐ Extras</h2>
+        <Link
+          href="/orv"
+          className="group flex flex-col sm:flex-row items-start sm:items-center gap-4 p-5 rounded-xl bg-gradient-to-r from-violet-900/40 via-indigo-900/30 to-[#0d1424] border border-violet-500/30 hover:border-violet-400/60 transition-all"
+        >
+          <div className="text-4xl shrink-0">📖</div>
+          <div className="flex-1 min-w-0">
+            <div className="flex flex-wrap items-center gap-2 mb-1">
+              <span className="px-2 py-0.5 rounded-full text-xs font-bold bg-amber-500/20 text-amber-300 border border-amber-500/30 uppercase tracking-wider">★ EXTRA</span>
+              <span className="px-2 py-0.5 rounded-full text-xs bg-violet-500/15 text-violet-300 border border-violet-500/25">Manhwa · Web Novel</span>
+            </div>
+            <h3 className="text-white font-bold text-lg group-hover:text-violet-300 transition-colors">
+              Omniscient Reader&apos;s Viewpoint — Guia Definitivo
+            </h3>
+            <p className="text-slate-400 text-sm mt-1">
+              Personagens, sistema de poderes, constelações, ordem de leitura e por que ORV é considerado uma obra-prima. O guia mais completo em português.
+            </p>
+          </div>
+          <span className="text-violet-400 text-sm font-medium group-hover:text-violet-300 shrink-0">
+            Ver guia →
+          </span>
+        </Link>
+      </div>
+
       {/* Grouped by category */}
       {categories.map((cat) => {
         const guides = GUIDES.filter((g) => g.category === cat);
