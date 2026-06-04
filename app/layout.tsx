@@ -6,6 +6,7 @@ import Footer from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 import GoogleAdSense from "@/components/seo/GoogleAdSense";
 import SessionProvider from "@/components/auth/SessionProvider";
+import RadioPlayer from "@/components/radio/RadioPlayer";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -70,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
+          <RadioPlayer />
         </SessionProvider>
       </body>
     </html>

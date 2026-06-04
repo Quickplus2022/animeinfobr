@@ -31,7 +31,7 @@ export default function QuizClient() {
     if (step < total - 1) {
       setStep(step + 1);
     } else {
-      // Finished — fetch results
+      // Finished - fetch results
       setLoading(true);
       const quizResult = getQuizResult(newAnswers);
 

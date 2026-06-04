@@ -14,7 +14,7 @@ export default function GoogleAdSense() {
   );
 }
 
-// Componente para anúncio inline — use nas páginas
+// Componente para anúncio inline - use nas páginas
 interface AdUnitProps {
   slot: string;
   format?: "auto" | "rectangle" | "horizontal" | "vertical";

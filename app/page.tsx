@@ -17,7 +17,7 @@ import {
 import { GUIDES } from "@/data/mock/guides";
 
 export const metadata: Metadata = {
-  title: "AnimeInfoBR — Descubra seu próximo anime",
+  title: "AnimeInfoBR: Descubra seu próximo anime",
   description:
     "Descubra seu próximo anime em menos de 1 minuto. Recomendações inteligentes, calendário da temporada e guias em português para o público brasileiro.",
 };
@@ -52,7 +52,7 @@ export default async function HomePage() {
   const { season, year } = getCurrentSeason();
 
   const trendingListLd = itemListJsonLd({
-    name: "Animes em Alta — AnimeInfoBR",
+    name: "Animes em Alta - AnimeInfoBR",
     description: "Os animes mais assistidos do momento",
     url: `${SITE_URL}/anime?sort=trending`,
     items: trending.slice(0, 10).map((a) => ({

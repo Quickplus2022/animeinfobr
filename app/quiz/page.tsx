@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import QuizClient from "./QuizClient";
 
 export const metadata: Metadata = {
-  title: "Quiz — Qual Anime Combina com Você?",
+  title: "Quiz: Qual Anime Combina com Você?",
   description:
     "Responda o quiz e descubra qual anime combina com sua personalidade. Resultado compartilhável em 2 minutos.",
 };

@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Sobre o AnimeInfoBR",
   description:
-    "Conheça o AnimeInfoBR — o portal brasileiro de descoberta e recomendação de animes. Nossa missão, como funciona e por que criamos este projeto.",
+    "Conheça o AnimeInfoBR, o portal brasileiro de descoberta e recomendação de animes. Nossa missão, como funciona e por que criamos este projeto.",
 };
 
 export default function SobrePage() {
@@ -17,7 +17,7 @@ export default function SobrePage() {
           Sobre o <span className="gradient-text">AnimeInfoBR</span>
         </h1>
         <p className="text-slate-400 text-lg max-w-2xl mx-auto">
-          O guia brasileiro de animes — criado para ajudar você a descobrir, entender e acompanhar o universo dos animes em português.
+          O guia brasileiro de animes, criado para ajudar você a descobrir, entender e acompanhar o universo dos animes em português.
         </p>
       </div>
 
@@ -31,7 +31,7 @@ export default function SobrePage() {
             O AnimeInfoBR nasceu com uma missão simples: <strong className="text-white">ajudar o público brasileiro a descobrir seu próximo anime em menos de 1 minuto</strong>, sem spoilers e com recomendações personalizadas em português.
           </p>
           <p className="text-slate-300 leading-relaxed">
-            O Brasil é um dos maiores mercados de anime do mundo, mas faltava um portal em português que reunisse informações completas, recomendações inteligentes e guias acessíveis para todos os níveis — do iniciante total ao otaku experiente.
+            O Brasil é um dos maiores mercados de anime do mundo, mas faltava um portal em português que reunisse informações completas, recomendações inteligentes e guias acessíveis para todos os níveis: do iniciante total ao otaku experiente.
           </p>
         </div>
 
@@ -66,7 +66,7 @@ export default function SobrePage() {
         <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-6 md:p-8">
           <h2 className="text-xl font-bold text-white mb-4">🛠️ Como funciona</h2>
           <p className="text-slate-300 leading-relaxed mb-4">
-            O AnimeInfoBR utiliza a <strong className="text-white">AniList API</strong> — uma das maiores bases de dados de anime do mundo — para fornecer informações atualizadas sobre títulos, personagens, temporadas e recomendações.
+            O AnimeInfoBR utiliza a <strong className="text-white">AniList API</strong>, uma das maiores bases de dados de anime do mundo, para fornecer informações atualizadas sobre títulos, personagens, temporadas e recomendações.
           </p>
           <p className="text-slate-300 leading-relaxed mb-4">
             Todos os dados de anime (títulos, sinopses, imagens, notas) são fornecidos pela AniList e pertencem aos seus respectivos criadores e distribuidoras.

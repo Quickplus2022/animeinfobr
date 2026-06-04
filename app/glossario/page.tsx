@@ -15,13 +15,13 @@ const SECTIONS = [
     icon: "📺",
     desc: "O que significa cada formato de anime",
     terms: [
-      { term: "TV", reading: "", def: "Série exibida em TV aberta ou por assinatura no Japão. Geralmente tem episódios de 20-24 minutos e segue um cronograma semanal. É o formato mais comum — Attack on Titan, Demon Slayer e Naruto são séries TV." },
+      { term: "TV", reading: "", def: "Série exibida em TV aberta ou por assinatura no Japão. Geralmente tem episódios de 20-24 minutos e segue um cronograma semanal. É o formato mais comum: Attack on Titan, Demon Slayer e Naruto são séries TV." },
       { term: "Movie", reading: "Filme", def: "Longa-metragem animado. Pode ser uma história independente ou uma continuação de uma série. Exemplos: Your Name (Kimi no Na wa), Dragon Ball Super: Broly, Demon Slayer: Mugen Train." },
       { term: "OVA", reading: "Original Video Animation", def: "Episódio ou série lançada diretamente em mídia física (DVD/Blu-ray), sem passar pela TV. Geralmente tem orçamento maior, episódios especiais ou histórias paralelas. Não seguem cronograma fixo." },
       { term: "ONA", reading: "Original Net Animation", def: "Anime lançado diretamente em plataformas de streaming (como Netflix ou Crunchyroll), sem exibição prévia na TV. Cyberpunk: Edgerunners e Arcane são exemplos de ONAs." },
       { term: "Special", reading: "Especial", def: "Episódio extra fora da numeração principal. Geralmente são episódios comemorativos, de Natal, recaps ou histórias curtas de personagens. Opcionais na maioria dos casos." },
       { term: "Short", reading: "Curto", def: "Episódios de menos de 10 minutos, às vezes apenas 2-3 minutos. Muito usados em animes com conceitos simples ou experimentais. Aggretsuko começou como um Short." },
-      { term: "Music", reading: "Clipe Musical", def: "Vídeo animado de uma música, sem narrativa própria. Raramente aparece em listas de anime — é basicamente um videoclipe animado." },
+      { term: "Music", reading: "Clipe Musical", def: "Vídeo animado de uma música, sem narrativa própria. Raramente aparece em listas de anime: é basicamente um videoclipe animado." },
       { term: "BD / Blu-ray", reading: "Versão Blu-ray", def: "Versão relançada com melhorias de animação, cenas estendidas ou cenas cortadas da exibição TV. Animes como Attack on Titan e Evangelion têm diferenças notáveis entre TV e BD." },
     ],
   },
@@ -31,7 +31,7 @@ const SECTIONS = [
     icon: "👥",
     desc: "Como a indústria japonesa categoriza anime por público",
     terms: [
-      { term: "Shounen", reading: "少年", def: "Voltado para meninos jovens (12-18 anos). Foco em ação, amizade, superação e batalhas. Os maiores títulos do mundo — Naruto, Dragon Ball, One Piece, Demon Slayer — são shounen. Não significa que adultos não possam (e devam) assistir." },
+      { term: "Shounen", reading: "少年", def: "Voltado para meninos jovens (12-18 anos). Foco em ação, amizade, superação e batalhas. Os maiores títulos do mundo, Naruto, Dragon Ball, One Piece, Demon Slayer, são shounen. Não significa que adultos não possam (e devam) assistir." },
       { term: "Shoujo", reading: "少女", def: "Voltado para meninas jovens (12-18 anos). Prioriza romance, emoções e relacionamentos interpessoais. Exemplos: Sailor Moon, Cardcaptor Sakura, Fruits Basket, Your Lie in April." },
       { term: "Seinen", reading: "青年", def: "Voltado para homens adultos (18+). Temas mais complexos, maduros e filosóficos. Pode ter violência, mortes de protagonistas e finais trágicos. Exemplos: Berserk, Vinland Saga, Monster, Parasyte." },
       { term: "Josei", reading: "女性", def: "Voltado para mulheres adultas (18+). Romance mais realista e maduro do que o shoujo. Exemplos: Nana, Paradise Kiss, Chihayafuru, Sekaiichi Hatsukoi." },
@@ -46,7 +46,7 @@ const SECTIONS = [
     terms: [
       { term: "Isekai", reading: "異世界", def: "\"Outro mundo\". Protagonista transportado para um mundo diferente, geralmente de fantasia com elementos de RPG. O gênero mais popular dos últimos anos. Exemplos: Re:Zero, Mushoku Tensei, KonoSuba, Solo Leveling." },
       { term: "Mecha", reading: "メカ", def: "Robôs gigantes pilotados por humanos. Um dos gêneros mais tradicionais do anime. Divide-se em Super Robot (fantasia) e Real Robot (realismo). Exemplos: Evangelion, Gundam, Gurren Lagann, Code Geass." },
-      { term: "Slice of Life", reading: "Fatia de vida", def: "Retrata o cotidiano sem grandes aventuras — escola, amizades, trabalho, família. Emocionante por sua autenticidade. Exemplos: Clannad, Anohana, Barakamon, Spy x Family." },
+      { term: "Slice of Life", reading: "Fatia de vida", def: "Retrata o cotidiano sem grandes aventuras: escola, amizades, trabalho, família. Emocionante por sua autenticidade. Exemplos: Clannad, Anohana, Barakamon, Spy x Family." },
       { term: "Ecchi", reading: "エッチ", def: "Conteúdo sexual sugestivo mas não explícito. Fanservice elevado. Classificação acima de 14 anos. Categoria presente em muitos subgêneros." },
       { term: "Harem", reading: "", def: "Protagonista cercado por vários personagens (geralmente do sexo oposto) que têm interesse romântico nele. Muito comum em isekai. Exemplos: The Familiar of Zero, Sword Art Online." },
       { term: "Iyashikei", reading: "癒し系", def: "\"Que cura\". Sub-gênero de slice of life extremamente relaxante, sem conflito dramático. Existe para tranquilizar o espectador. Exemplos: Non Non Biyori, Mushishi, Aria." },
@@ -62,11 +62,11 @@ const SECTIONS = [
     icon: "🎬",
     desc: "Termos do processo de criação e da indústria japonesa",
     terms: [
-      { term: "Mangá", reading: "漫画", def: "Quadrinhos japoneses — a principal fonte de adaptação para anime. Lidos da direita para esquerda. Quando uma série fica popular, frequentemente ganha adaptação anime." },
+      { term: "Mangá", reading: "漫画", def: "Quadrinhos japoneses, a principal fonte de adaptação para anime. Lidos da direita para esquerda. Quando uma série fica popular, frequentemente ganha adaptação anime." },
       { term: "Light Novel", reading: "LN", def: "Novel japonesa ilustrada, com capítulos curtos e leitura leve. Muitos animes populares adaptam LNs: SAO, Re:Zero, Overlord, Mushoku Tensei, Slime Isekai." },
       { term: "Manhwa", reading: "만화", def: "Quadrinhos coreanos, geralmente em formato vertical colorido (webtoon). Solo Leveling e Omniscient Reader's Viewpoint são manhwas. Crescente fonte de adaptações anime." },
       { term: "Mangá Original", reading: "", def: "Anime sem source material (mangá ou LN). Roteiro criado diretamente para a animação. Exemplos: Code Geass, Gurren Lagann, Angel Beats." },
-      { term: "Seiyuu", reading: "声優", def: "Dublador japonês de anime. Os seiyuu são celebridades no Japão — Mamoru Miyano (Light Yagami em Death Note), Yuki Kaji (Eren em AoT) são alguns dos mais famosos." },
+      { term: "Seiyuu", reading: "声優", def: "Dublador japonês de anime. Os seiyuu são celebridades no Japão: Mamoru Miyano (Light Yagami em Death Note), Yuki Kaji (Eren em AoT) são alguns dos mais famosos." },
       { term: "Mangaka", reading: "漫画家", def: "Autor de mangá. Akira Toriyama (Dragon Ball), Masashi Kishimoto (Naruto), Hajime Isayama (AoT) são mangakas conhecidos mundialmente." },
       { term: "Studio", reading: "Estúdio", def: "Empresa responsável pela animação. Os mais conhecidos: MAPPA (AoT final, JJK), Ufotable (Demon Slayer), Wit Studio (AoT 1-3), Kyoto Animation (Violet Evergarden, K-On), Madhouse (Death Note, Hunter x Hunter)." },
       { term: "Cours", reading: "クール", def: "Um bloco de 12-13 episódios correspondente a uma temporada do ano (3 meses). Uma série de 24 episódios tem 2 cours. A temporada de anime é dividida em: Inverno (jan), Primavera (abr), Verão (jul), Outono (out)." },
@@ -85,7 +85,7 @@ const SECTIONS = [
       { term: "Power Scaling", reading: "", def: "Discussão sobre o nível de poder comparativo entre personagens. \"Quem venceria, Goku ou Saitama?\" é power scaling. Grande parte do debate da comunidade gira em torno disso." },
       { term: "Plot Armor", reading: "Armadura de Enredo", def: "Quando um personagem sobrevive ou vence situações impossíveis por ser o protagonista, sem justificativa narrativa adequada. Naruto e Goku são famosos por isso." },
       { term: "Deus ex Machina", reading: "", def: "Resolução abrupta e implausível de uma situação impossível. Considerado má escrita pela maioria dos fãs. \"De repente apareceu um poder novo.\"" },
-      { term: "Nakama", reading: "仲間", def: "\"Companheiros de equipe\". O poder da amizade/lealdade entre personagens — elemento central do shounen. \"O nakama me deu força\" é um tropo famoso (e amado) do gênero." },
+      { term: "Nakama", reading: "仲間", def: "\"Companheiros de equipe\". O poder da amizade/lealdade entre personagens, elemento central do shounen. \"O nakama me deu força\" é um tropo famoso (e amado) do gênero." },
       { term: "Timeskip", reading: "Salto temporal", def: "Quando a história avança anos no tempo de uma só vez. Attack on Titan faz um timeskip de 4 anos na 4ª temporada. Comum para mostrar evolução dos personagens." },
       { term: "Redemption Arc", reading: "Arco de Redenção", def: "Quando um personagem vilão ou moralmente questionável muda de lado e busca fazer o bem. Zuko em Avatar (não é anime, mas exemplifica bem) é o padrão-ouro. Vegeta em Dragon Ball é um exemplo clássico." },
     ],
@@ -115,11 +115,11 @@ const SECTIONS = [
     icon: "📡",
     desc: "Onde e como assistir anime",
     terms: [
-      { term: "Simulcast", reading: "", def: "Transmissão simultânea — quando o episódio é disponibilizado no streaming internacional no mesmo dia ou horas após a exibição no Japão. Crunchyroll e Netflix fazem simulcast de muitos títulos." },
-      { term: "Dub", reading: "Dublagem", def: "Versão com áudio em outro idioma (no Brasil, em português). A dublagem BR de anime tem melhorado muito — Crunchyroll e Netflix têm catálogos extensos dublados." },
+      { term: "Simulcast", reading: "", def: "Transmissão simultânea: quando o episódio é disponibilizado no streaming internacional no mesmo dia ou horas após a exibição no Japão. Crunchyroll e Netflix fazem simulcast de muitos títulos." },
+      { term: "Dub", reading: "Dublagem", def: "Versão com áudio em outro idioma (no Brasil, em português). A dublagem BR de anime tem melhorado muito: Crunchyroll e Netflix têm catálogos extensos dublados." },
       { term: "Sub", reading: "Legendado", def: "Versão em japonês com legendas. Muitos fãs preferem o sub por preservar as nuances das performances dos seiyuu. Geralmente disponível antes do dub." },
       { term: "Fansub", reading: "", def: "Legenda feita por fãs voluntários, antes das plataformas oficiais chegarem ao Brasil. Ainda existe para títulos sem distribuição oficial em português." },
-      { term: "Pirataria / Raw", reading: "", def: "Raw é o anime em japonês sem legendas, distribuído sem autorização. O AnimeInfoBR não apoia pirataria — indicamos sempre plataformas legais como Crunchyroll, Netflix, Prime Video e Funimation." },
+      { term: "Pirataria / Raw", reading: "", def: "Raw é o anime em japonês sem legendas, distribuído sem autorização. O AnimeInfoBR não apoia pirataria: indicamos sempre plataformas legais como Crunchyroll, Netflix, Prime Video e Funimation." },
       { term: "Crunchyroll", reading: "", def: "Maior plataforma de streaming de anime do mundo. Tem o maior catálogo com simulcast. Disponível no Brasil com planos pagos (e gratuito com anúncios)." },
     ],
   },
@@ -130,8 +130,8 @@ const SECTIONS = [
     desc: "Sistemas de magia, habilidades e poder dos universos anime",
     terms: [
       { term: "Chakra", reading: "チャクラ", def: "Sistema de energia do universo Naruto. Combina energia física e espiritual. Permite a criação de Jutsus (técnicas ninja). Cada pessoa nasce com uma quantidade diferente de chakra." },
-      { term: "Haki", reading: "覇気", def: "Sistema de poder de One Piece. Divide-se em Observation Haki (percepção), Armament Haki (armadura/força) e Conqueror's Haki (força de vontade avassaladora — raridade extrema)." },
-      { term: "Nen", reading: "念", def: "Sistema de energia vital de Hunter x Hunter. Um dos sistemas de poder mais elaborados do anime — com 6 tipos (Enhancer, Emitter, Transmuter, Conjurer, Manipulator, Specialist) e técnicas complexas." },
+      { term: "Haki", reading: "覇気", def: "Sistema de poder de One Piece. Divide-se em Observation Haki (percepção), Armament Haki (armadura/força) e Conqueror's Haki (força de vontade avassaladora, raridade extrema)." },
+      { term: "Nen", reading: "念", def: "Sistema de energia vital de Hunter x Hunter. Um dos sistemas de poder mais elaborados do anime, com 6 tipos (Enhancer, Emitter, Transmuter, Conjurer, Manipulator, Specialist) e técnicas complexas." },
       { term: "Quirk", reading: "個性 / Kosei", def: "Superpoder inato de My Hero Academia. 80% da humanidade tem quirks. Alguns são simples (criar chamas), outros absurdamente complexos (rewind, alterar porcentagem do corpo)." },
       { term: "Cursed Energy", reading: "呪力 / Jujutsu", def: "Energia amaldiçoada de Jujutsu Kaisen. Gerada por emoções negativas humanas. Base de todas as técnicas de maldição. Gojo Satoru tem o maior domínio desse poder na série." },
       { term: "Alchemy", reading: "錬金術 / Renkin", def: "Sistema de Fullmetal Alchemist. \"Equivalência: para criar algo, algo de igual valor deve ser perdido.\" Baseia-se em entender a composição da matéria e reorganizá-la." },
@@ -153,7 +153,7 @@ export default function GlossarioPage() {
               Glossário do Mundo Anime
             </h1>
             <p className="text-slate-400 mt-1">
-              Todos os termos, formatos, gêneros e jargões da cultura otaku — em português, com explicações completas.
+              Todos os termos, formatos, gêneros e jargões da cultura otaku, em português, com explicações completas.
             </p>
           </div>
         </div>

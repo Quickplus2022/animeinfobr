@@ -22,7 +22,7 @@ export default function ORVLerPage() {
             </Link>
             <span className="text-white/20 shrink-0">|</span>
             <span className="text-white font-semibold text-sm truncate">
-              Omniscient Reader&apos;s Viewpoint — PT-BR
+              Omniscient Reader&apos;s Viewpoint PT-BR
             </span>
             <span className="hidden sm:inline px-2 py-0.5 rounded-full text-xs bg-emerald-500/15 text-emerald-300 border border-emerald-500/25 shrink-0">
               Versão autorizada
@@ -38,7 +38,7 @@ export default function ORVLerPage() {
         </div>
       </div>
 
-      {/* Action buttons — visible on mobile and as fallback */}
+      {/* Action buttons - visible on mobile and as fallback */}
       <div className="bg-[#0d1424] border-b border-white/8 px-4 py-4">
         <div className="max-w-7xl mx-auto flex flex-wrap gap-3 items-center justify-between">
           <p className="text-slate-400 text-sm">
@@ -64,13 +64,13 @@ export default function ORVLerPage() {
         </div>
       </div>
 
-      {/* PDF viewer — uses Google Docs viewer for broad compatibility */}
+      {/* PDF viewer - uses Google Docs viewer for broad compatibility */}
       <div className="flex-1 relative">
         <iframe
           src={GDOCS_URL}
           className="w-full"
           style={{ height: "calc(100vh - 180px)", border: "none", minHeight: "500px" }}
-          title="Omniscient Reader's Viewpoint — PT-BR"
+          title="Omniscient Reader's Viewpoint PT-BR"
           allowFullScreen
         />
       </div>

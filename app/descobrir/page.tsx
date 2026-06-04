@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import RecommenderClient from "./RecommenderClient";
 
 export const metadata: Metadata = {
-  title: "Descobrir Animes — Recomendador Inteligente",
+  title: "Descobrir Animes: Recomendador Inteligente",
   description:
     "Responda 5 perguntas e descubra o anime perfeito para você hoje. Sem cadastro, sem spoilers. Recomendações personalizadas em português.",
 };

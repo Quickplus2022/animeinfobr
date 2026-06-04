@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Animes Parecidos — Encontre Títulos Similares",
+  title: "Animes Parecidos: Encontre Títulos Similares",
   description:
     "Já terminou um anime e não sabe o que assistir agora? Encontre animes parecidos com seus favoritos.",
 };

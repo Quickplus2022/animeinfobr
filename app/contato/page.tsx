@@ -1,6 +1,6 @@
 "use client";
 
-// metadata exportada em layout separado — client components não exportam metadata
+// metadata exportada em layout separado - client components não exportam metadata
 import Link from "next/link";
 
 
@@ -13,7 +13,7 @@ export default function ContatoPage() {
           Fale Conosco
         </h1>
         <p className="text-slate-400">
-          Sugestões de conteúdo, parcerias, erros ou dúvidas — estamos aqui!
+          Sugestões de conteúdo, parcerias, erros ou dúvidas? Estamos aqui!
         </p>
       </div>
 

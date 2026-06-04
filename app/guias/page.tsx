@@ -4,7 +4,7 @@ import { GUIDES } from "@/data/mock/guides";
 import NewsletterForm from "@/components/newsletter/NewsletterForm";
 
 export const metadata: Metadata = {
-  title: "Guias de Anime — Para Iniciantes e Fãs",
+  title: "Guias de Anime: Para Iniciantes e Fãs",
   description:
     "Guias completos em português sobre animes. Ordem correta de franquias, explicações de gêneros e listas para todos os gostos.",
 };
@@ -49,7 +49,7 @@ export default function GuiasPage() {
         ))}
       </div>
 
-      {/* EXTRA destaque — ORV */}
+      {/* EXTRA destaque - ORV */}
       <div className="mb-10">
         <h2 className="text-xl font-bold text-white mb-4">⭐ Extras</h2>
         <Link
@@ -63,7 +63,7 @@ export default function GuiasPage() {
               <span className="px-2 py-0.5 rounded-full text-xs bg-violet-500/15 text-violet-300 border border-violet-500/25">Manhwa · Web Novel</span>
             </div>
             <h3 className="text-white font-bold text-lg group-hover:text-violet-300 transition-colors">
-              Omniscient Reader&apos;s Viewpoint — Guia Definitivo
+              Omniscient Reader&apos;s Viewpoint: Guia Definitivo
             </h3>
             <p className="text-slate-400 text-sm mt-1">
               Personagens, sistema de poderes, constelações, ordem de leitura e por que ORV é considerado uma obra-prima. O guia mais completo em português.

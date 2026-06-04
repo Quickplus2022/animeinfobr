@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Omniscient Reader's Viewpoint — O Guia Definitivo | AnimeInfoBR",
+  title: "Omniscient Reader's Viewpoint: O Guia Definitivo | AnimeInfoBR",
   description:
     "Guia completo de Omniscient Reader's Viewpoint (ORV): história, personagens, sistema de poderes, constelações, onde ler e por que é uma obra-prima.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "web novel coreana",
   ],
   openGraph: {
-    title: "Omniscient Reader's Viewpoint — Guia Definitivo",
+    title: "Omniscient Reader's Viewpoint: Guia Definitivo",
     description:
       "Tudo sobre ORV: personagens, sistema de poderes, constelações e por que é considerado uma obra-prima.",
     type: "article",
@@ -49,7 +49,7 @@ const CHARACTERS = [
       "O protagonista do web novel que se tornou realidade. Sobreviveu através de inúmeras regressões temporais, acumulando força absurda. Frio, eficiente e incrivelmente poderoso.",
     traits: ["Implacável", "Orgulhoso", "Obsessivo", "Protetor (secreto)"],
     power: "Regressão + Força física suprema + Espadas míticas",
-    quote: "\"Só existe uma forma de sobreviver — ser o mais forte.\"",
+    quote: "\"Só existe uma forma de sobreviver: ser o mais forte.\"",
   },
   {
     name: "Han Sooyoung",
@@ -88,10 +88,10 @@ const CHARACTERS = [
     badgeColor: "bg-amber-500/20 text-amber-300 border-amber-500/30",
     emoji: "🌐",
     description:
-      "Colega de trabalho de Kim Dokja e uma das primeiras aliadas. Sua habilidade com idiomas transcende o humano — ela pode se comunicar com seres de outras dimensões.",
+      "Colega de trabalho de Kim Dokja e uma das primeiras aliadas. Sua habilidade com idiomas transcende o humano: ela pode se comunicar com seres de outras dimensões.",
     traits: ["Gentil", "Resiliente", "Observadora", "Corajosa"],
     power: "Domínio absoluto de idiomas + Comunicação com entidades",
-    quote: "\"Palavras têm poder — em qualquer língua.\"",
+    quote: "\"Palavras têm poder, em qualquer língua.\"",
   },
   {
     name: "Lee Gilyoung",
@@ -117,7 +117,7 @@ const SYSTEM_ELEMENTS = [
     titleColor: "text-violet-300",
     description:
       "Desafios mortais impostos ao mundo pelos Dokkaebis. Cada cenário tem condições de vitória, recompensas e penalidades. A humanidade deve completá-los para continuar existindo.",
-    examples: ["Cenário 0 — Começo do Fim", "Cenário das Bestas", "Cenário da Torre", "Cenário Final"],
+    examples: ["Cenário 0: Começo do Fim", "Cenário das Bestas", "Cenário da Torre", "Cenário Final"],
   },
   {
     title: "Constelações",
@@ -125,7 +125,7 @@ const SYSTEM_ELEMENTS = [
     color: "border-amber-500/30 bg-amber-500/5",
     titleColor: "text-amber-300",
     description:
-      "Seres extraordinariamente poderosos que assistem os cenários como entretenimento. Eles patrocinam incarnações humanas em troca de 'Fama' — a energia gerada pelas histórias dos humanos.",
+      "Seres extraordinariamente poderosos que assistem os cenários como entretenimento. Eles patrocinam incarnações humanas em troca de 'Fama', a energia gerada pelas histórias dos humanos.",
     examples: ["Maquinador Secreto", "Dragão de Chama Negra Abissal", "Prometeu", "Rei Demônio da Salvação"],
   },
   {
@@ -161,7 +161,7 @@ const SYSTEM_ELEMENTS = [
     color: "border-orange-500/30 bg-orange-500/5",
     titleColor: "text-orange-300",
     description:
-      "Criaturas míticas coreanas que gerenciam e anunciam os cenários. São mensageiros entre o sistema cósmico e a humanidade. Alguns têm personalidades distintas — como o Dokkaebi Bihyung.",
+      "Criaturas míticas coreanas que gerenciam e anunciam os cenários. São mensageiros entre o sistema cósmico e a humanidade. Alguns têm personalidades distintas, como o Dokkaebi Bihyung.",
     examples: ["Dokkaebi Bihyung", "Dokkaebi Secreto", "Dokkaebis de Cenário", "Grande Dokkaebi"],
   },
 ];
@@ -234,7 +234,7 @@ const THEMES = [
 
 const QUOTES = [
   {
-    text: "Não importa como a história termina — o que importa é que você a viveu.",
+    text: "Não importa como a história termina. O que importa é que você a viveu.",
     character: "Kim Dokja",
     context: "Sobre o significado de existir dentro de uma narrativa",
   },
@@ -287,7 +287,7 @@ export default function ORVPage() {
     <div className="min-h-screen">
       {/* Hero */}
       <section className="relative overflow-hidden">
-        {/* Background image — capa oficial do manhwa */}
+        {/* Background image - capa oficial do manhwa */}
         <div
           className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
@@ -338,7 +338,7 @@ export default function ORVPage() {
             전지적 독자 시점 · Ponto de Vista do Leitor Onisciente
           </p>
           <p className="text-slate-300 text-base md:text-lg max-w-2xl leading-relaxed mb-8">
-            O que acontece quando o mundo começa a seguir o roteiro de um web novel — e você é o único que leu até o fim?
+            O que acontece quando o mundo começa a seguir o roteiro de um web novel, e você é o único que leu até o fim?
             A obra que redefiniu o manhwa moderno e transformou leitores em fãs apaixonados.
           </p>
 
@@ -348,7 +348,7 @@ export default function ORVPage() {
               href="/orv/ler"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all hover:scale-105 shadow-lg shadow-violet-900/40"
             >
-              📖 Ler Novel — PT-BR
+              📖 Ler Novel PT-BR
             </Link>
             <a
               href="/novels/orv-pt-br.pdf"
@@ -392,7 +392,7 @@ export default function ORVPage() {
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed">
                 Kim Dokja é um funcionário comum, solitário e quieto. Seu único escapismo é um obscuro web novel chamado{" "}
-                <strong className="text-white">&ldquo;Three Ways to Survive the Apocalypse&rdquo;</strong> — uma obra que ninguém mais leu até o fim porque era longa demais, dark demais, e estranha demais.
+                <strong className="text-white">&ldquo;Three Ways to Survive the Apocalypse&rdquo;</strong>, uma obra que ninguém mais leu até o fim porque era longa demais, dark demais, e estranha demais.
               </p>
               <p className="text-slate-300 text-sm leading-relaxed mt-3">
                 Ele passou anos acompanhando a história do protagonista Yoo Joonghyuk sobrevivendo ao apocalipse através de regressões temporais. Dokja era o único leitor fiel, o único que continuou até o último capítulo.
@@ -408,7 +408,7 @@ export default function ORVPage() {
               </p>
               <p className="text-slate-300 text-sm leading-relaxed mt-3">
                 Mas Dokja tem uma vantagem que ninguém mais no mundo possui:{" "}
-                <strong className="text-white">ele conhece a história completa.</strong> Cada cenário, cada traição, cada morte — ele já leu tudo. Agora precisa usar esse conhecimento para sobreviver e, talvez, reescrever o destino.
+                <strong className="text-white">ele conhece a história completa.</strong> Cada cenário, cada traição, cada morte: ele já leu tudo. Agora precisa usar esse conhecimento para sobreviver e, talvez, reescrever o destino.
               </p>
             </div>
           </div>
@@ -416,7 +416,7 @@ export default function ORVPage() {
           <div className="mt-6 bg-gradient-to-r from-violet-900/30 to-indigo-900/30 border border-violet-500/20 rounded-2xl p-6 md:p-8">
             <h3 className="text-white font-bold text-lg mb-3">O Núcleo da Narrativa</h3>
             <p className="text-slate-300 text-sm leading-relaxed max-w-4xl">
-              ORV é simultaneamente uma obra de ação apocalíptica e uma reflexão profunda sobre narrativas, leitores e autores. Kim Dokja não é um protagonista convencional — ele é quieto, calculista, e constantemente se coloca em segundo plano. Mas sua jornada de descobrir o que significa ser parte de uma história, e não apenas observá-la, é o coração emocional de toda a obra.
+              ORV é simultaneamente uma obra de ação apocalíptica e uma reflexão profunda sobre narrativas, leitores e autores. Kim Dokja não é um protagonista convencional: ele é quieto, calculista, e constantemente se coloca em segundo plano. Mas sua jornada de descobrir o que significa ser parte de uma história, e não apenas observá-la, é o coração emocional de toda a obra.
             </p>
             <div className="mt-4 flex flex-wrap gap-2">
               {["Apocalipse", "Sistemas de Poderes", "Regressão Temporal", "Meta-narrativa", "Drama Emocional", "Épico"].map((tag) => (
@@ -539,7 +539,7 @@ export default function ORVPage() {
               )}
             </div>
             <p className="text-slate-500 text-xs text-center mt-4">
-              O ciclo de poder em ORV — humans geram entretenimento para constelações, que em troca os tornam mais poderosos.
+              O ciclo de poder em ORV: humans geram entretenimento para constelações, que em troca os tornam mais poderosos.
             </p>
           </div>
         </section>
@@ -634,7 +634,7 @@ export default function ORVPage() {
                 <blockquote className="relative z-10">
                   <p className="text-white text-sm font-medium leading-relaxed italic mb-4">{quote.text}</p>
                   <footer>
-                    <span className="text-violet-400 font-bold text-xs">— {quote.character}</span>
+                    <span className="text-violet-400 font-bold text-xs">{quote.character}</span>
                     <p className="text-slate-500 text-xs mt-0.5">{quote.context}</p>
                   </footer>
                 </blockquote>
@@ -670,10 +670,10 @@ export default function ORVPage() {
             <div className="text-5xl mb-4">⭐</div>
             <h2 className="text-2xl md:text-3xl font-black font-display text-white mb-3">O Veredicto</h2>
             <p className="text-slate-300 text-base leading-relaxed max-w-2xl mx-auto mb-6">
-              Omniscient Reader&apos;s Viewpoint não é apenas uma história de apocalipse ou de poderes. É uma carta de amor para leitores — para todos que já se perderam em uma história, que choraram por personagens fictícios, que desejaram que as histórias fossem reais.
+              Omniscient Reader&apos;s Viewpoint não é apenas uma história de apocalipse ou de poderes. É uma carta de amor para leitores: para todos que já se perderam em uma história, que choraram por personagens fictícios, que desejaram que as histórias fossem reais.
             </p>
             <p className="text-slate-300 text-base leading-relaxed max-w-2xl mx-auto mb-8">
-              Kim Dokja começa como alguém que apenas observa histórias de longe. E termina — bem, você precisa descobrir por conta própria. Mas é um dos finais mais impactantes da ficção moderna.
+              Kim Dokja começa como alguém que apenas observa histórias de longe. E termina... bem, você precisa descobrir por conta própria. Mas é um dos finais mais impactantes da ficção moderna.
             </p>
             <div className="flex flex-wrap justify-center gap-3">
               <div className="px-4 py-2 rounded-xl bg-white/8 border border-white/12 text-center">

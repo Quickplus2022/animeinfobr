@@ -6,7 +6,7 @@ import Badge from "@/components/ui/Badge";
 import RefreshButton from "@/components/ui/RefreshButton";
 
 export const metadata: Metadata = {
-  title: "Ranking de Animes — Os Mais Populares no Brasil",
+  title: "Ranking de Animes: Os Mais Populares no Brasil",
   description:
     "Ranking dos animes mais populares e bem avaliados no Brasil. Veja os tops por popularidade, nota e temporada atual.",
 };
