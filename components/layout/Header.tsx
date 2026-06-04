@@ -24,17 +24,15 @@ export default function Header() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 shrink-0">
-            <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center shrink-0">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="white">
-                <polygon points="5,3 19,12 5,21" />
-              </svg>
-            </div>
-            <span className="text-xl font-black font-display tracking-tight">
-              <span className="gradient-text">Anime</span>
-              <span className="text-white">Info</span>
-              <span className="text-cyan-400">BR</span>
-            </span>
+          <Link href="/" className="flex items-center shrink-0 bg-white rounded-xl px-2 py-1">
+            <Image
+              src="/logo.png"
+              alt="AnimeInfoBR"
+              width={180}
+              height={50}
+              className="h-8 w-auto object-contain"
+              priority
+            />
           </Link>
 
           {/* Desktop nav */}

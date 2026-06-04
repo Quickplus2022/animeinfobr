@@ -30,17 +30,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-10">
           {/* Brand */}
           <div className="md:col-span-2">
-            <Link href="/" className="flex items-center gap-2">
-              <div className="w-7 h-7 rounded-full bg-gradient-to-br from-violet-600 to-cyan-500 flex items-center justify-center shrink-0">
-                <svg width="12" height="12" viewBox="0 0 24 24" fill="white">
-                  <polygon points="5,3 19,12 5,21" />
-                </svg>
-              </div>
-              <span className="text-lg font-black font-display tracking-tight">
-                <span className="gradient-text">Anime</span>
-                <span className="text-white">Info</span>
-                <span className="text-cyan-400">BR</span>
-              </span>
+            <Link href="/" className="flex items-center shrink-0 bg-white rounded-xl px-2 py-1">
+              <Image
+                src="/logo.png"
+                alt="AnimeInfoBR"
+                width={160}
+                height={44}
+                className="h-8 w-auto object-contain"
+              />
             </Link>
             <p className="text-slate-400 text-sm mt-3 max-w-xs leading-relaxed">
               O guia brasileiro de animes. Descubra, acompanhe e explore o universo dos animes
