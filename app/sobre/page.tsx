@@ -87,18 +87,6 @@ export default function SobrePage() {
           </p>
         </div>
 
-        {/* Stack técnica */}
-        <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-6 md:p-8">
-          <h2 className="text-xl font-bold text-white mb-4">⚙️ Tecnologia</h2>
-          <div className="flex flex-wrap gap-2">
-            {["Next.js 15", "TypeScript", "Tailwind CSS", "Prisma", "MySQL", "Vercel", "AniList API"].map((tech) => (
-              <span key={tech} className="px-3 py-1 rounded-full bg-violet-900/40 text-violet-300 border border-violet-800/50 text-sm">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-
         {/* Contato */}
         <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-6 md:p-8 text-center">
           <h2 className="text-xl font-bold text-white mb-3">📬 Fale Conosco</h2>

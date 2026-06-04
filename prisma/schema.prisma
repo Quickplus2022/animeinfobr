@@ -35,3 +35,72 @@ model NewsletterSubscriber {
 
   @@index([active])
 }
+
+model User {
+  id        String   @id @default(cuid())
+  name      String?  @db.VarChar(100)
+  email     String   @unique @db.VarChar(254)
+  password  String   @db.VarChar(72)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  favorites  UserFavorite[]
+  watchLater UserWatchLater[]
+  likes      UserLike[]
+
+  @@index([email])
+}
+
+model UserFavorite {
+  id      String   @id @default(cuid())
+  userId  String
+  animeId Int
+  slug    String   @db.VarChar(200)
+  title   String   @db.VarChar(200)
+  cover   String?  @db.VarChar(500)
+  addedAt DateTime @default(now())
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, animeId])
+  @@index([userId])
+}
+
+model UserWatchLater {
+  id      String   @id @default(cuid())
+  userId  String
+  animeId Int
+  slug    String   @db.VarChar(200)
+  title   String   @db.VarChar(200)
+  cover   String?  @db.VarChar(500)
+  addedAt DateTime @default(now())
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, animeId])
+  @@index([userId])
+}
+
+model UserLike {
+  id      String   @id @default(cuid())
+  userId  String
+  animeId Int
+  addedAt DateTime @default(now())
+
+  user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, animeId])
+  @@index([userId])
+}
+
+model PasswordResetToken {
+  id        String   @id @default(cuid())
+  email     String   @db.VarChar(254)
+  token     String   @unique @db.VarChar(128)
+  expiresAt DateTime
+  used      Boolean  @default(false)
+  createdAt DateTime @default(now())
+
+  @@index([email])
+  @@index([token])
+}

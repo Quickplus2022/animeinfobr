@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
+import UserMenu from "@/components/auth/UserMenu";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -13,6 +14,7 @@ const NAV_LINKS = [
   { href: "/parecidos", label: "Parecidos" },
   { href: "/ranking", label: "Ranking" },
   { href: "/guias", label: "Guias" },
+  { href: "/glossario", label: "Glossário" },
 ];
 
 export default function Header() {
@@ -53,8 +55,9 @@ export default function Header() {
             ))}
           </nav>
 
-          {/* CTA + mobile toggle */}
+          {/* CTA + user + mobile toggle */}
           <div className="flex items-center gap-2">
+            <UserMenu />
             <Link
               href="/quiz"
               className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl btn-primary text-white text-sm font-semibold"

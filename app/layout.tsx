@@ -5,6 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 import GoogleAdSense from "@/components/seo/GoogleAdSense";
+import SessionProvider from "@/components/auth/SessionProvider";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -65,9 +66,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen flex flex-col">
         <GoogleAnalytics measurementId={GA_ID} />
         <GoogleAdSense />
-        <Header />
-        <main className="flex-1">{children}</main>
-        <Footer />
+        <SessionProvider>
+          <Header />
+          <main className="flex-1">{children}</main>
+          <Footer />
+        </SessionProvider>
       </body>
     </html>
   );
