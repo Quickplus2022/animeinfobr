@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { GUIDES } from "@/data/mock/guides";
+import NewsletterForm from "@/components/newsletter/NewsletterForm";
 
 export const metadata: Metadata = {
   title: "Guias de Anime — Para Iniciantes e Fãs",
@@ -87,15 +88,8 @@ export default function GuiasPage() {
         <p className="text-slate-400 text-sm mb-4">
           Receba novos guias, rankings e calendários direto no seu e-mail. Sem spam.
         </p>
-        <div className="flex flex-col sm:flex-row gap-2 max-w-md">
-          <input
-            type="email"
-            placeholder="seu@email.com"
-            className="flex-1 px-4 py-2.5 bg-white/8 border border-white/12 rounded-xl text-white placeholder-slate-500 text-sm outline-none focus:border-violet-500 transition-colors"
-          />
-          <button className="px-5 py-2.5 btn-primary text-white font-semibold text-sm rounded-xl whitespace-nowrap">
-            Quero receber
-          </button>
+        <div className="relative">
+          <NewsletterForm />
         </div>
       </div>
     </div>
