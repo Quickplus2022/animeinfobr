@@ -34,9 +34,10 @@ export default function Footer() {
               <Image
                 src="/logo.png"
                 alt="AnimeInfoBR"
-                width={140}
-                height={38}
-                className="h-8 w-auto object-contain"
+                width={160}
+                height={44}
+                className="h-9 w-auto object-contain"
+                style={{ mixBlendMode: "screen" }}
               />
             </Link>
             <p className="text-slate-400 text-sm mt-3 max-w-xs leading-relaxed">
