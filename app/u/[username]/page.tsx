@@ -53,8 +53,8 @@ export default async function PublicProfilePage({ params }: PageProps) {
     prisma.userCharacterSlot.findMany({ where: { userId: user.id } }),
     prisma.userFavorite.findMany({ where: { userId: user.id }, orderBy: { addedAt: "desc" }, take: 8 }),
     prisma.characterTestResult.findFirst({ where: { userId: user.id }, orderBy: { createdAt: "desc" } }),
-    prisma.rpgCharacter.findUnique({ where: { userId: user.id } }),
-    prisma.rpgBadge.findMany({ where: { userId: user.id }, orderBy: { unlockedAt: "desc" }, take: 6 }),
+    prisma.rpgCharacter.findUnique({ where: { userId: user.id } }).catch(() => null),
+    prisma.rpgBadge.findMany({ where: { userId: user.id }, orderBy: { unlockedAt: "desc" }, take: 6 }).catch(() => []),
   ]);
 
   const initial = (user.name || user.username || "U")[0].toUpperCase();

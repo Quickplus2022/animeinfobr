@@ -33,8 +33,8 @@ export default async function PerfilPage({ searchParams }: { searchParams: Promi
     prisma.userLike.findMany({ where: { userId }, orderBy: { addedAt: "desc" } }),
     prisma.characterTestResult.findFirst({ where: { userId }, orderBy: { createdAt: "desc" } }),
     prisma.userCharacterSlot.findMany({ where: { userId } }),
-    prisma.rpgCharacter.findUnique({ where: { userId } }),
-    prisma.rpgBadge.findMany({ where: { userId }, orderBy: { unlockedAt: "desc" } }),
+    prisma.rpgCharacter.findUnique({ where: { userId } }).catch(() => null),
+    prisma.rpgBadge.findMany({ where: { userId }, orderBy: { unlockedAt: "desc" } }).catch(() => []),
   ]);
 
   const initial = (session.user.name || session.user.email || "U")[0].toUpperCase();
