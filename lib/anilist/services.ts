@@ -17,6 +17,32 @@ import type {
 
 export type { AniListMedia };
 
+const COVERS_QUERY = `
+query($ids: [Int]) {
+  Page(perPage: 20) {
+    media(id_in: $ids, type: ANIME) {
+      id
+      coverImage { large }
+    }
+  }
+}
+`;
+
+export async function getAnimeCoversById(ids: number[]): Promise<Record<number, string | null>> {
+  try {
+    const data = await fetchAniList<{ Page: { media: { id: number; coverImage: { large: string } }[] } }>(
+      COVERS_QUERY,
+      { ids },
+      3600
+    );
+    const result: Record<number, string | null> = {};
+    for (const m of data.Page.media) result[m.id] = m.coverImage?.large ?? null;
+    return result;
+  } catch {
+    return {};
+  }
+}
+
 export async function searchAnime(
   params: {
     search?: string;

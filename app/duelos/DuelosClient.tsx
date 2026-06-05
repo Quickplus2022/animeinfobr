@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { DUELS, type Duel } from "@/data/mock/duelos";
+import type { Duel } from "@/data/mock/duelos";
 import { trackDuelVote } from "@/lib/missions";
 
 const VOTES_KEY = "aibr_duel_votes";
@@ -137,10 +137,10 @@ function DuelCard({ duel }: { duel: Duel }) {
   );
 }
 
-export default function DuelosClient() {
+export default function DuelosClient({ duels }: { duels: Duel[] }) {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {DUELS.map((duel) => (
+      {duels.map((duel) => (
         <DuelCard key={duel.slug} duel={duel} />
       ))}
     </div>

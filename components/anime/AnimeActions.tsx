@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useAuth } from "@/components/auth/AuthContext";
-import { Heart, Clock, ThumbsUp } from "lucide-react";
+import { Heart, Clock, ThumbsUp, MessageCircle } from "lucide-react";
 import AuthModal from "@/components/auth/AuthModal";
 
 interface AnimeActionsProps {
@@ -113,6 +113,13 @@ export default function AnimeActions({ animeId, slug, title, cover }: AnimeActio
             </button>
           );
         })}
+        <a
+          href="#comentarios"
+          className="flex items-center gap-1.5 px-4 py-2 rounded-xl border text-sm font-medium transition-all bg-white/5 border-white/12 text-slate-400 hover:border-violet-500/30 hover:text-violet-400"
+        >
+          <MessageCircle size={15} className="opacity-70" />
+          Comentar
+        </a>
         {!session && (
           <span className="text-slate-600 text-xs self-center">
             <button onClick={() => setAuthOpen(true)} className="text-violet-400 hover:text-violet-300 underline">

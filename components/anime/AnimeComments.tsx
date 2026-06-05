@@ -71,7 +71,7 @@ export default function AnimeComments({ animeId, animeTitle }: Props) {
   }
 
   return (
-    <div>
+    <div id="comentarios">
       <h2 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
         <MessageCircle size={20} className="text-violet-400" />
         Comentários
