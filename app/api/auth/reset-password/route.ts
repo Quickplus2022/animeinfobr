@@ -47,7 +47,7 @@ export async function POST(request: Request) {
 
   const resend = new Resend(process.env.RESEND_API_KEY);
   await resend.emails.send({
-    from: "AnimeInfoBR <noreply@animeinfobr.com.br>",
+    from: "AnimeInfoBR <no-reply@animeinfobr.com.br>",
     to: user.email,
     subject: "Redefinição de senha — AnimeInfoBR",
     html: `
