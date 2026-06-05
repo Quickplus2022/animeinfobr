@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
-import { createSession } from "@/lib/session";
+import { createToken, setSessionCookie } from "@/lib/session";
 import bcrypt from "bcryptjs";
 
 export async function POST(request: Request) {
@@ -22,9 +22,11 @@ export async function POST(request: Request) {
       data: { name: name?.trim() || null, email: cleanEmail, password: hash },
     });
 
-    await createSession({ id: user.id, email: user.email, name: user.name ?? null });
+    const token = await createToken({ id: user.id, email: user.email, name: user.name ?? null });
+    const response = NextResponse.json({ id: user.id, email: user.email });
+    setSessionCookie(response, token);
 
-    return NextResponse.json({ id: user.id, email: user.email });
+    return response;
   } catch (err) {
     console.error("Register error:", err);
     return NextResponse.json({ error: "Erro interno" }, { status: 500 });
