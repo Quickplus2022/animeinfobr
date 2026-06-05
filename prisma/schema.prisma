@@ -37,12 +37,15 @@ model NewsletterSubscriber {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  name      String?  @db.VarChar(100)
-  email     String   @unique @db.VarChar(254)
-  password  String   @db.VarChar(72)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  id           String   @id @default(cuid())
+  name         String?  @db.VarChar(100)
+  email        String   @unique @db.VarChar(254)
+  password     String   @db.VarChar(72)
+  bio          String?  @db.VarChar(500)
+  avatarEmoji  String?  @db.VarChar(10)
+  avatarColor  String?  @db.VarChar(30)
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
 
   favorites  UserFavorite[]
   watchLater UserWatchLater[]
