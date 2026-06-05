@@ -12,7 +12,6 @@ model PageView {
   id        Int      @id @default(autoincrement())
   path      String   @db.VarChar(500)
   createdAt DateTime @default(now())
-
   @@index([path])
   @@index([createdAt])
 }
@@ -22,7 +21,6 @@ model AnimeVote {
   animeId   Int
   sessionId String   @db.VarChar(128)
   createdAt DateTime @default(now())
-
   @@unique([animeId, sessionId])
   @@index([animeId])
 }
@@ -32,7 +30,6 @@ model NewsletterSubscriber {
   email     String   @unique @db.VarChar(254)
   createdAt DateTime @default(now())
   active    Boolean  @default(true)
-
   @@index([active])
 }
 
@@ -59,6 +56,19 @@ model User {
   comments             AnimeComment[]
   characterTestResults CharacterTestResult[]
   characterSlots       UserCharacterSlot[]
+  sentFriendRequests   FriendRequest[]      @relation("SentRequests")
+  receivedFriendRequests FriendRequest[]    @relation("ReceivedRequests")
+  friends              UserFriend[]         @relation("UserFriends")
+  friendOf             UserFriend[]         @relation("FriendOf")
+  rpgCharacter         RpgCharacter?
+  ownedParties         RpgParty[]           @relation("OwnedParties")
+  partyMemberships     RpgPartyMember[]
+  rpgActions           RpgAction[]
+  rpgBadges            RpgBadge[]
+  blocks               UserBlock[]          @relation("Blocking")
+  blockedBy            UserBlock[]          @relation("BlockedBy")
+  madeReports          UserReport[]         @relation("MadeReports")
+  receivedReports      UserReport[]         @relation("ReceivedReports")
 
   @@index([email])
   @@index([username])
@@ -72,9 +82,7 @@ model UserFavorite {
   title   String   @db.VarChar(200)
   cover   String?  @db.VarChar(500)
   addedAt DateTime @default(now())
-
   user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   @@unique([userId, animeId])
   @@index([userId])
 }
@@ -87,9 +95,7 @@ model UserWatchLater {
   title   String   @db.VarChar(200)
   cover   String?  @db.VarChar(500)
   addedAt DateTime @default(now())
-
   user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   @@unique([userId, animeId])
   @@index([userId])
 }
@@ -99,9 +105,7 @@ model UserLike {
   userId  String
   animeId Int
   addedAt DateTime @default(now())
-
   user    User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   @@unique([userId, animeId])
   @@index([userId])
 }
@@ -113,7 +117,6 @@ model PasswordResetToken {
   expiresAt DateTime
   used      Boolean  @default(false)
   createdAt DateTime @default(now())
-
   @@index([email])
   @@index([token])
 }
@@ -124,9 +127,7 @@ model AnimeComment {
   userId    String
   content   String   @db.Text
   createdAt DateTime @default(now())
-
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   @@index([animeId])
   @@index([userId])
 }
@@ -147,9 +148,7 @@ model CharacterTestResult {
   answersJson           String   @db.Text
   animeDnaJson          String?  @db.Text
   createdAt             DateTime @default(now())
-
   user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   @@index([userId])
 }
 
@@ -163,9 +162,183 @@ model UserCharacterSlot {
   mediaTitle     String?  @db.VarChar(200)
   createdAt      DateTime @default(now())
   updatedAt      DateTime @updatedAt
-
   user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
-
   @@unique([userId, slotType])
   @@index([userId])
+}
+
+// ── FRIENDS ──────────────────────────────────────────────────
+
+model FriendRequest {
+  id         String   @id @default(cuid())
+  senderId   String
+  receiverId String
+  status     String   @default("PENDING") @db.VarChar(10)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  sender     User     @relation("SentRequests", fields: [senderId], references: [id], onDelete: Cascade)
+  receiver   User     @relation("ReceivedRequests", fields: [receiverId], references: [id], onDelete: Cascade)
+  @@unique([senderId, receiverId])
+  @@index([senderId])
+  @@index([receiverId])
+}
+
+model UserFriend {
+  id        String   @id @default(cuid())
+  userId    String
+  friendId  String
+  createdAt DateTime @default(now())
+  user      User     @relation("UserFriends", fields: [userId], references: [id], onDelete: Cascade)
+  friend    User     @relation("FriendOf", fields: [friendId], references: [id], onDelete: Cascade)
+  @@unique([userId, friendId])
+  @@index([userId])
+}
+
+// ── RPG ──────────────────────────────────────────────────────
+
+model RpgCharacter {
+  id          String   @id @default(cuid())
+  userId      String   @unique
+  name        String   @db.VarChar(50)
+  avatarEmoji String   @default("⚔️") @db.VarChar(10)
+  classType   String   @db.VarChar(30)
+  elementType String   @db.VarChar(20)
+  backstory   String?  @db.VarChar(500)
+  courage     Int      @default(5)
+  strategy    Int      @default(5)
+  empathy     Int      @default(5)
+  energy      Int      @default(5)
+  technique   Int      @default(5)
+  defense     Int      @default(5)
+  luck        Int      @default(5)
+  charisma    Int      @default(5)
+  level       Int      @default(1)
+  xp          Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@index([userId])
+}
+
+model RpgParty {
+  id         String   @id @default(cuid())
+  name       String   @db.VarChar(50)
+  inviteCode String   @unique @db.VarChar(10)
+  ownerId    String
+  theme      String   @default("fantasia") @db.VarChar(30)
+  status     String   @default("OPEN") @db.VarChar(15)
+  maxPlayers Int      @default(4)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  owner      User          @relation("OwnedParties", fields: [ownerId], references: [id], onDelete: Cascade)
+  members    RpgPartyMember[]
+  sessions   RpgSession[]
+  @@index([ownerId])
+}
+
+model RpgPartyMember {
+  id          String   @id @default(cuid())
+  partyId     String
+  userId      String
+  characterId String?  @db.VarChar(50)
+  role        String   @default("MEMBER") @db.VarChar(10)
+  joinedAt    DateTime @default(now())
+  party       RpgParty @relation(fields: [partyId], references: [id], onDelete: Cascade)
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([partyId, userId])
+  @@index([partyId])
+  @@index([userId])
+}
+
+model RpgMission {
+  id               String   @id @default(cuid())
+  title            String   @db.VarChar(100)
+  slug             String   @unique @db.VarChar(100)
+  theme            String   @db.VarChar(50)
+  difficulty       Int      @default(1)
+  estimatedMinutes Int      @default(20)
+  description      String   @db.Text
+  objective        String   @db.VarChar(300)
+  scenesJson       String   @db.Text
+  rewardsJson      String   @db.Text
+  isActive         Boolean  @default(true)
+  createdAt        DateTime @default(now())
+  updatedAt        DateTime @updatedAt
+  sessions         RpgSession[]
+}
+
+model RpgSession {
+  id                String    @id @default(cuid())
+  partyId           String
+  missionId         String
+  status            String    @default("WAITING") @db.VarChar(15)
+  currentSceneIndex Int       @default(0)
+  turnUserId        String?
+  logJson           String    @db.Text @default("[]")
+  startedAt         DateTime?
+  finishedAt        DateTime?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  party             RpgParty   @relation(fields: [partyId], references: [id], onDelete: Cascade)
+  mission           RpgMission @relation(fields: [missionId], references: [id])
+  actions           RpgAction[]
+  @@index([partyId])
+}
+
+model RpgAction {
+  id            String   @id @default(cuid())
+  sessionId     String
+  userId        String
+  characterName String   @db.VarChar(50)
+  actionText    String   @db.VarChar(500)
+  attributeUsed String   @db.VarChar(20)
+  diceRoll      Int
+  bonus         Int
+  total         Int
+  resultType    String   @db.VarChar(10)
+  resultText    String   @db.Text
+  createdAt     DateTime @default(now())
+  session       RpgSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  user          User       @relation(fields: [userId], references: [id])
+  @@index([sessionId])
+  @@index([userId])
+}
+
+model RpgBadge {
+  id          String   @id @default(cuid())
+  userId      String
+  badgeKey    String   @db.VarChar(50)
+  badgeName   String   @db.VarChar(100)
+  description String   @db.VarChar(300)
+  unlockedAt  DateTime @default(now())
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  @@unique([userId, badgeKey])
+  @@index([userId])
+}
+
+// ── MODERATION ───────────────────────────────────────────────
+
+model UserBlock {
+  id        String   @id @default(cuid())
+  blockerId String
+  blockedId String
+  createdAt DateTime @default(now())
+  blocker   User     @relation("Blocking", fields: [blockerId], references: [id], onDelete: Cascade)
+  blocked   User     @relation("BlockedBy", fields: [blockedId], references: [id], onDelete: Cascade)
+  @@unique([blockerId, blockedId])
+  @@index([blockerId])
+}
+
+model UserReport {
+  id             String   @id @default(cuid())
+  reporterId     String
+  reportedUserId String
+  reason         String   @db.VarChar(100)
+  details        String?  @db.VarChar(500)
+  status         String   @default("PENDING") @db.VarChar(15)
+  createdAt      DateTime @default(now())
+  reporter       User     @relation("MadeReports", fields: [reporterId], references: [id], onDelete: Cascade)
+  reported       User     @relation("ReceivedReports", fields: [reportedUserId], references: [id], onDelete: Cascade)
+  @@index([reporterId])
+  @@index([reportedUserId])
 }

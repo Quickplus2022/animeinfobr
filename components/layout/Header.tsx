@@ -20,10 +20,11 @@ const NAV_LINKS = [
 ];
 
 const INTERATIVO_LINKS = [
-  { href: "/quiz", label: "🎯 Quiz", description: "Descubra seu anime ideal" },
+  { href: "/quiz", label: "🎯 Qual Anime é Para Mim?", description: "Encontre seu anime ideal" },
   { href: "/jogo", label: "🎮 Jogo", description: "Adivinhe o anime", badge: "🔐 Exclusivo" },
   { href: "/duelos", label: "⚔️ Duelos", description: "Vote nos melhores" },
   { href: "/missoes", label: "🗓️ Missões", description: "Ganhe XP diariamente" },
+  { href: "/guilds", label: "🏰 Guilds RPG", description: "Party, amigos e missões", badge: "✨ Novo" },
 ];
 
 export default function Header() {

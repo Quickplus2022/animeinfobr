@@ -23,7 +23,7 @@ export async function PUT(request: Request) {
   if (!session?.user?.id) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
 
   const body = await request.json();
-  const { bio, avatarEmoji, avatarColor, username, favoriteAnimeId, favoriteAnimeTitle, profileVisibility } = body;
+  const { bio, avatarEmoji, avatarColor, username, favoriteAnimeId, favoriteAnimeTitle, profileVisibility, name } = body;
 
   if (bio !== undefined && typeof bio === "string" && bio.length > 500) {
     return NextResponse.json({ error: "Máximo 500 caracteres" }, { status: 400 });
@@ -42,6 +42,7 @@ export async function PUT(request: Request) {
   }
 
   const data: Record<string, unknown> = {};
+  if (name !== undefined) data.name = name?.trim() || null;
   if (bio !== undefined) data.bio = bio?.trim() || null;
   if (avatarEmoji !== undefined) data.avatarEmoji = avatarEmoji || null;
   if (avatarColor !== undefined) data.avatarColor = avatarColor || null;

@@ -11,8 +11,9 @@ const LINKS = {
   ],
   Conteúdo: [
     { label: "Guias para Iniciantes", href: "/guias" },
-    { label: "Quiz de Anime", href: "/quiz" },
+    { label: "Qual Anime é Para Mim?", href: "/quiz" },
     { label: "Jogo: Adivinhe o Anime", href: "/jogo" },
+    { label: "Duelos de Anime", href: "/duelos" },
     { label: "★ ORV: Guia Definitivo", href: "/orv" },
     { label: "O que é Isekai?", href: "/guias/o-que-e-isekai" },
     { label: "Ordem para Naruto", href: "/guias/ordem-para-assistir-naruto" },

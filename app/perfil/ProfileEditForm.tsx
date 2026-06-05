@@ -16,6 +16,8 @@ export default function ProfileEditForm({ initialName, initialUsername, initialF
   const [username, setUsername] = useState(initialUsername ?? "");
   const [favoriteAnime, setFavoriteAnime] = useState(initialFavoriteAnime ?? "");
   const [visibility, setVisibility] = useState(initialVisibility);
+
+  // name field in the form
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
@@ -26,6 +28,7 @@ export default function ProfileEditForm({ initialName, initialUsername, initialF
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
+        name: name.trim() || null,
         username: username.trim() || null,
         favoriteAnimeTitle: favoriteAnime.trim() || null,
         profileVisibility: visibility,
@@ -42,6 +45,12 @@ export default function ProfileEditForm({ initialName, initialUsername, initialF
   return (
     <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-5 space-y-4">
       <h3 className="text-white font-bold">✏️ Editar Perfil</h3>
+
+      <div>
+        <label className="block text-slate-400 text-xs mb-1.5">Nome de exibição</label>
+        <input value={name} onChange={e => setName(e.target.value)} maxLength={100}
+          placeholder="Seu nome de otaku" className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors" />
+      </div>
 
       <div>
         <label className="block text-slate-400 text-xs mb-1.5">Username <span className="text-slate-600">(único · 3-30 chars · letras, números, ponto, _ e -)</span></label>

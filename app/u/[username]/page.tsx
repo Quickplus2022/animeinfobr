@@ -49,10 +49,12 @@ export default async function PublicProfilePage({ params }: PageProps) {
 
   if (!user || user.profileVisibility === "private") notFound();
 
-  const [slots, favorites, testResult] = await Promise.all([
+  const [slots, favorites, testResult, rpgCharacter, rpgBadges] = await Promise.all([
     prisma.userCharacterSlot.findMany({ where: { userId: user.id } }),
     prisma.userFavorite.findMany({ where: { userId: user.id }, orderBy: { addedAt: "desc" }, take: 8 }),
     prisma.characterTestResult.findFirst({ where: { userId: user.id }, orderBy: { createdAt: "desc" } }),
+    prisma.rpgCharacter.findUnique({ where: { userId: user.id } }),
+    prisma.rpgBadge.findMany({ where: { userId: user.id }, orderBy: { unlockedAt: "desc" }, take: 6 }),
   ]);
 
   const initial = (user.name || user.username || "U")[0].toUpperCase();
@@ -151,6 +153,30 @@ export default async function PublicProfilePage({ params }: PageProps) {
               );
             })}
           </div>
+        </div>
+      )}
+
+      {/* RPG Character */}
+      {rpgCharacter && (
+        <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-5 mb-6">
+          <h2 className="text-white font-bold mb-3">⚔️ Personagem RPG</h2>
+          <div className="flex items-center gap-4">
+            <span className="text-4xl w-14 h-14 flex items-center justify-center bg-slate-800 rounded-xl border border-slate-700 shrink-0">{rpgCharacter.avatarEmoji}</span>
+            <div>
+              <div className="font-bold text-white">{rpgCharacter.name}</div>
+              <div className="text-sm text-slate-400 capitalize">{rpgCharacter.classType} · {rpgCharacter.elementType}</div>
+              <div className="text-xs text-violet-400 mt-1">Lv.{rpgCharacter.level} · {rpgCharacter.xp} XP</div>
+            </div>
+          </div>
+          {rpgBadges.length > 0 && (
+            <div className="mt-4 flex flex-wrap gap-2">
+              {rpgBadges.map(b => (
+                <span key={b.id} title={b.description} className="text-xs bg-slate-800 border border-slate-700 rounded-full px-2.5 py-1 text-slate-300">
+                  🏅 {b.badgeName}
+                </span>
+              ))}
+            </div>
+          )}
         </div>
       )}
 

@@ -23,7 +23,7 @@ export default async function PerfilPage({ searchParams }: { searchParams: Promi
   const activeTab = tab || "overview";
   const userId = session.user.id;
 
-  const [user, favorites, watchLater, likes, testResult, slots] = await Promise.all([
+  const [user, favorites, watchLater, likes, testResult, slots, rpgCharacter, rpgBadges] = await Promise.all([
     prisma.user.findUnique({
       where: { id: userId },
       select: { bio: true, avatarEmoji: true, avatarColor: true, avatarUrl: true, username: true, favoriteAnimeTitle: true, profileVisibility: true, animeDnaJson: true },
@@ -33,6 +33,8 @@ export default async function PerfilPage({ searchParams }: { searchParams: Promi
     prisma.userLike.findMany({ where: { userId }, orderBy: { addedAt: "desc" } }),
     prisma.characterTestResult.findFirst({ where: { userId }, orderBy: { createdAt: "desc" } }),
     prisma.userCharacterSlot.findMany({ where: { userId } }),
+    prisma.rpgCharacter.findUnique({ where: { userId } }),
+    prisma.rpgBadge.findMany({ where: { userId }, orderBy: { unlockedAt: "desc" } }),
   ]);
 
   const initial = (session.user.name || session.user.email || "U")[0].toUpperCase();
@@ -42,6 +44,7 @@ export default async function PerfilPage({ searchParams }: { searchParams: Promi
     { id: "dna", label: "DNA", emoji: "🧬" },
     { id: "team", label: "Time", emoji: "🎭" },
     { id: "edit", label: "Editar", emoji: "✏️" },
+    { id: "guilds", label: "Guilds", emoji: "⚔️" },
     { id: "favorites", label: "Favoritos", emoji: "❤️", count: favorites.length },
     { id: "watch-later", label: "Ver Depois", emoji: "🕐", count: watchLater.length },
   ];
@@ -110,6 +113,63 @@ export default async function PerfilPage({ searchParams }: { searchParams: Promi
               </Link>
             </div>
           )}
+        </div>
+      )}
+
+      {/* Guilds tab */}
+      {activeTab === "guilds" && (
+        <div className="space-y-6">
+          {rpgCharacter ? (
+            <div className="bg-[#0d1424] rounded-xl border border-white/8 p-5">
+              <div className="flex items-center justify-between mb-4">
+                <h3 className="font-bold text-white">Meu Personagem RPG</h3>
+                <Link href="/personagem" className="text-xs text-violet-400 hover:text-violet-300">Editar</Link>
+              </div>
+              <div className="flex items-center gap-4">
+                <span className="text-4xl w-14 h-14 flex items-center justify-center bg-slate-800 rounded-xl border border-slate-700">{rpgCharacter.avatarEmoji}</span>
+                <div>
+                  <div className="font-bold text-white">{rpgCharacter.name}</div>
+                  <div className="text-sm text-slate-400">{rpgCharacter.classType} · {rpgCharacter.elementType}</div>
+                  <div className="text-xs text-violet-400 mt-1">Lv.{rpgCharacter.level} · {rpgCharacter.xp} XP</div>
+                </div>
+              </div>
+            </div>
+          ) : (
+            <div className="bg-[#0d1424] rounded-xl border border-white/8 p-5 text-center">
+              <div className="text-4xl mb-3">🧙</div>
+              <p className="text-slate-400 mb-4">Você ainda não tem um personagem RPG.</p>
+              <Link href="/personagem" className="bg-violet-600 hover:bg-violet-500 text-white font-bold px-5 py-2 rounded-xl text-sm transition-colors">Criar Personagem</Link>
+            </div>
+          )}
+
+          {rpgBadges.length > 0 && (
+            <div className="bg-[#0d1424] rounded-xl border border-white/8 p-5">
+              <h3 className="font-bold text-white mb-3">Badges de Guilds ({rpgBadges.length})</h3>
+              <div className="flex flex-wrap gap-2">
+                {rpgBadges.map(b => (
+                  <div key={b.id} title={b.description} className="bg-slate-800 border border-slate-700 rounded-xl px-3 py-2 text-center cursor-default">
+                    <div className="text-2xl mb-1">🏅</div>
+                    <div className="text-xs text-white font-medium">{b.badgeName}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          <div className="grid grid-cols-3 gap-3">
+            <Link href="/amigos" className="bg-[#0d1424] rounded-xl border border-white/8 p-4 text-center hover:border-violet-500/40 transition-colors">
+              <div className="text-2xl mb-2">🤝</div>
+              <div className="text-xs text-slate-400">Amigos</div>
+            </Link>
+            <Link href="/party" className="bg-[#0d1424] rounded-xl border border-white/8 p-4 text-center hover:border-violet-500/40 transition-colors">
+              <div className="text-2xl mb-2">🏰</div>
+              <div className="text-xs text-slate-400">Party</div>
+            </Link>
+            <Link href="/missoes" className="bg-[#0d1424] rounded-xl border border-white/8 p-4 text-center hover:border-violet-500/40 transition-colors">
+              <div className="text-2xl mb-2">⚔️</div>
+              <div className="text-xs text-slate-400">Missões RPG</div>
+            </Link>
+          </div>
         </div>
       )}
 
