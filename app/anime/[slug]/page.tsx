@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimeCard from "@/components/anime/AnimeCard";
 import AnimeActions from "@/components/anime/AnimeActions";
+import AnimeCuriosities from "@/components/anime/AnimeCuriosities";
+import AnimeComments from "@/components/anime/AnimeComments";
 import Badge from "@/components/ui/Badge";
 import {
   getAnimeById,
@@ -355,6 +357,12 @@ export default async function AnimeDetailPage({ params }: PageProps) {
                 </div>
               </div>
             )}
+
+            {/* Curiosidades */}
+            <AnimeCuriosities anime={anime} />
+
+            {/* Comentários */}
+            <AnimeComments animeId={anime.id} animeTitle={title} />
 
             {/* Piracy warning */}
             <div className="bg-red-900/15 border border-red-800/25 rounded-xl p-4">

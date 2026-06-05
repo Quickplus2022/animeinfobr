@@ -47,6 +47,7 @@ model User {
   favorites  UserFavorite[]
   watchLater UserWatchLater[]
   likes      UserLike[]
+  comments   AnimeComment[]
 
   @@index([email])
 }
@@ -103,4 +104,17 @@ model PasswordResetToken {
 
   @@index([email])
   @@index([token])
+}
+
+model AnimeComment {
+  id        String   @id @default(cuid())
+  animeId   Int
+  userId    String
+  content   String   @db.Text
+  createdAt DateTime @default(now())
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([animeId])
+  @@index([userId])
 }
