@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
@@ -12,6 +13,7 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthModalProps) {
+  const router = useRouter();
   const [tab, setTab] = useState<"login" | "register">(defaultTab);
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,7 +34,7 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
       setLoading(false);
     } else {
       setDone(true);
-      setTimeout(() => { onClose(); window.location.reload(); }, 800);
+      setTimeout(() => { onClose(); router.refresh(); }, 600);
     }
   }
 
@@ -61,7 +63,7 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
       }
       setDone(true);
       setLoading(false);
-      setTimeout(() => { onClose(); window.location.reload(); }, 1000);
+      setTimeout(() => { onClose(); router.refresh(); }, 600);
     } catch {
       setError("Erro de conexão. Tente novamente.");
       setLoading(false);
