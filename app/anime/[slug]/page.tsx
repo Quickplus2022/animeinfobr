@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimeCard from "@/components/anime/AnimeCard";
+import AnimeActions from "@/components/anime/AnimeActions";
 import Badge from "@/components/ui/Badge";
 import {
   getAnimeById,
@@ -246,6 +247,16 @@ export default async function AnimeDetailPage({ params }: PageProps) {
                     </Badge>
                   </Link>
                 ))}
+              </div>
+
+              {/* Actions: Favoritar, Assistir Depois, Like */}
+              <div className="mt-5">
+                <AnimeActions
+                  animeId={anime.id}
+                  slug={slug}
+                  title={title}
+                  cover={anime.coverImage.large}
+                />
               </div>
             </div>
 
