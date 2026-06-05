@@ -12,10 +12,19 @@ interface AuthCtx {
   user: AuthUser | null;
   loading: boolean;
   refresh: () => Promise<void>;
+  login: (email: string, password: string) => Promise<void>;
+  register: (name: string | null, email: string, password: string) => Promise<void>;
   logout: () => Promise<void>;
 }
 
-const Ctx = createContext<AuthCtx>({ user: null, loading: true, refresh: async () => {}, logout: async () => {} });
+const Ctx = createContext<AuthCtx>({
+  user: null,
+  loading: true,
+  refresh: async () => {},
+  login: async () => {},
+  register: async () => {},
+  logout: async () => {},
+});
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<AuthUser | null>(null);
@@ -23,18 +32,36 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   const refresh = useCallback(async () => {
     try {
-      const res = await fetch("/api/auth/me");
-      if (res.ok) {
-        const data = await res.json();
-        setUser(data);
-      } else {
-        setUser(null);
-      }
+      const res = await fetch("/api/auth/me", { cache: "no-store" });
+      const data = await res.json();
+      setUser(data ?? null);
     } catch {
       setUser(null);
     } finally {
       setLoading(false);
     }
+  }, []);
+
+  const login = useCallback(async (email: string, password: string) => {
+    const res = await fetch("/api/auth/login", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email: email.toLowerCase().trim(), password }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Erro ao entrar.");
+    setUser({ id: data.id, email: data.email, name: data.name ?? null });
+  }, []);
+
+  const register = useCallback(async (name: string | null, email: string, password: string) => {
+    const res = await fetch("/api/auth/register", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ name, email: email.toLowerCase().trim(), password }),
+    });
+    const data = await res.json();
+    if (!res.ok) throw new Error(data.error || "Erro ao criar conta.");
+    setUser({ id: data.id, email: data.email, name: data.name ?? null });
   }, []);
 
   const logout = useCallback(async () => {
@@ -44,7 +71,11 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   useEffect(() => { refresh(); }, [refresh]);
 
-  return <Ctx.Provider value={{ user, loading, refresh, logout }}>{children}</Ctx.Provider>;
+  return (
+    <Ctx.Provider value={{ user, loading, refresh, login, register, logout }}>
+      {children}
+    </Ctx.Provider>
+  );
 }
 
 export function useAuth() {
