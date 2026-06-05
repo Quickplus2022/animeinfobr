@@ -50,9 +50,9 @@ export default async function PublicProfilePage({ params }: PageProps) {
   if (!user || user.profileVisibility === "private") notFound();
 
   const [slots, favorites, testResult, rpgCharacter, rpgBadges] = await Promise.all([
-    prisma.userCharacterSlot.findMany({ where: { userId: user.id } }),
-    prisma.userFavorite.findMany({ where: { userId: user.id }, orderBy: { addedAt: "desc" }, take: 8 }),
-    prisma.characterTestResult.findFirst({ where: { userId: user.id }, orderBy: { createdAt: "desc" } }),
+    prisma.userCharacterSlot.findMany({ where: { userId: user.id } }).catch(() => []),
+    prisma.userFavorite.findMany({ where: { userId: user.id }, orderBy: { addedAt: "desc" }, take: 8 }).catch(() => []),
+    prisma.characterTestResult.findFirst({ where: { userId: user.id }, orderBy: { createdAt: "desc" } }).catch(() => null),
     prisma.rpgCharacter.findUnique({ where: { userId: user.id } }).catch(() => null),
     prisma.rpgBadge.findMany({ where: { userId: user.id }, orderBy: { unlockedAt: "desc" }, take: 6 }).catch(() => []),
   ]);

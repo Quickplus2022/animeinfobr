@@ -27,12 +27,12 @@ export default async function PerfilPage({ searchParams }: { searchParams: Promi
     prisma.user.findUnique({
       where: { id: userId },
       select: { bio: true, avatarEmoji: true, avatarColor: true, avatarUrl: true, username: true, favoriteAnimeTitle: true, profileVisibility: true, animeDnaJson: true },
-    }),
-    prisma.userFavorite.findMany({ where: { userId }, orderBy: { addedAt: "desc" } }),
-    prisma.userWatchLater.findMany({ where: { userId }, orderBy: { addedAt: "desc" } }),
-    prisma.userLike.findMany({ where: { userId }, orderBy: { addedAt: "desc" } }),
-    prisma.characterTestResult.findFirst({ where: { userId }, orderBy: { createdAt: "desc" } }),
-    prisma.userCharacterSlot.findMany({ where: { userId } }),
+    }).catch(() => null),
+    prisma.userFavorite.findMany({ where: { userId }, orderBy: { addedAt: "desc" } }).catch(() => []),
+    prisma.userWatchLater.findMany({ where: { userId }, orderBy: { addedAt: "desc" } }).catch(() => []),
+    prisma.userLike.findMany({ where: { userId }, orderBy: { addedAt: "desc" } }).catch(() => []),
+    prisma.characterTestResult.findFirst({ where: { userId }, orderBy: { createdAt: "desc" } }).catch(() => null),
+    prisma.userCharacterSlot.findMany({ where: { userId } }).catch(() => []),
     prisma.rpgCharacter.findUnique({ where: { userId } }).catch(() => null),
     prisma.rpgBadge.findMany({ where: { userId }, orderBy: { unlockedAt: "desc" } }).catch(() => []),
   ]);
