@@ -1,9 +1,11 @@
 import { NextResponse } from "next/server";
-import { auth } from "@/auth";
+import { getSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 export async function GET(request: Request) {
-  const session = await auth();
+  const session = await getSession();
   if (!session?.user?.id) {
     return NextResponse.json({ favorited: false, watchLater: false, liked: false });
   }
@@ -19,9 +21,5 @@ export async function GET(request: Request) {
     prisma.userLike.findUnique({ where: { userId_animeId: { userId, animeId } } }),
   ]);
 
-  return NextResponse.json({
-    favorited: !!fav,
-    watchLater: !!wl,
-    liked: !!like,
-  });
+  return NextResponse.json({ favorited: !!fav, watchLater: !!wl, liked: !!like });
 }

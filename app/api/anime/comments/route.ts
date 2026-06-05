@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { auth } from "@/auth";
+import { getSession } from "@/lib/session";
 import { prisma } from "@/lib/prisma";
 
 const BAD_WORDS = ["merda", "caralho", "puta", "fdp", "viado", "porra", "buceta", "cu ", "arrombado", "cuzao", "vtnc", "filho da puta"];
@@ -8,6 +8,8 @@ function hasBadWord(text: string): boolean {
   const lower = text.toLowerCase();
   return BAD_WORDS.some(w => lower.includes(w));
 }
+
+export const dynamic = "force-dynamic";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -35,7 +37,7 @@ export async function GET(request: Request) {
 }
 
 export async function POST(request: Request) {
-  const session = await auth();
+  const session = await getSession();
   if (!session?.user?.id) {
     return NextResponse.json({ error: "Faça login para comentar" }, { status: 401 });
   }
@@ -71,7 +73,7 @@ export async function POST(request: Request) {
 }
 
 export async function DELETE(request: Request) {
-  const session = await auth();
+  const session = await getSession();
   if (!session?.user?.id) return NextResponse.json({ error: "Não autorizado" }, { status: 401 });
 
   const { searchParams } = new URL(request.url);

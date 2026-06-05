@@ -4,6 +4,8 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import AnimeCard from "@/components/anime/AnimeCard";
 import AnimeActions from "@/components/anime/AnimeActions";
+import AnimeListButtons from "@/components/anime/AnimeListButtons";
+import AnimeVoteBox from "@/components/anime/AnimeVoteBox";
 import AnimeCuriosities from "@/components/anime/AnimeCuriosities";
 import AnimeComments from "@/components/anime/AnimeComments";
 import Badge from "@/components/ui/Badge";
@@ -251,8 +253,20 @@ export default async function AnimeDetailPage({ params }: PageProps) {
                 ))}
               </div>
 
-              {/* Actions: Favoritar, Assistir Depois, Like */}
-              <div className="mt-5">
+              {/* Status da lista (localStorage) */}
+              <div className="mt-4">
+                <p className="text-slate-500 text-xs mb-2 uppercase tracking-wider font-medium">Minha Lista</p>
+                <AnimeListButtons
+                  animeId={anime.id}
+                  slug={slug}
+                  title={title}
+                  cover={anime.coverImage.large}
+                />
+              </div>
+
+              {/* Actions: Favoritar, Assistir Depois, Like (server) */}
+              <div className="mt-3">
+                <p className="text-slate-500 text-xs mb-2 uppercase tracking-wider font-medium">Ações</p>
                 <AnimeActions
                   animeId={anime.id}
                   slug={slug}
@@ -357,6 +371,9 @@ export default async function AnimeDetailPage({ params }: PageProps) {
                 </div>
               </div>
             )}
+
+            {/* Vote Box */}
+            <AnimeVoteBox animeId={anime.id} slug={slug} title={title} />
 
             {/* Curiosidades */}
             <AnimeCuriosities anime={anime} />

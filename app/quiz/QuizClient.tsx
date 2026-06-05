@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { trackMission } from "@/lib/missions";
 import Link from "next/link";
 import Image from "next/image";
 import { QUIZ_QUESTIONS, getQuizResult } from "@/data/mock/quiz";
@@ -44,6 +45,7 @@ export default function QuizClient() {
         const res = await fetch(`/api/anime/recommend?${params}`);
         const data = await res.json();
         setResult({ ...quizResult, animes: data.media ?? [] });
+        trackMission("quiz");
       } catch {
         setResult({ ...quizResult, animes: [] });
       } finally {
@@ -68,18 +70,25 @@ export default function QuizClient() {
   }
 
   if (result) {
-    const shareText = `Eu fiz o Quiz do AnimeInfoBR e descobri: ${result.title}! Faça o seu: animeinfobr.com.br/quiz`;
+    const shareText = `🎌 Fiz o Quiz do AnimeInfoBR!\n\n${result.emoji} ${result.title}\n"${result.description}"\n\n🎭 ${result.genres.join(", ")}\n⭐ ${result.highlights.join(", ")}\n\nFaça o seu → animeinfobr.com.br/quiz`;
+    const waUrl = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
+
+    function copyResult() {
+      navigator.clipboard.writeText(shareText).then(() => alert("Resultado copiado! 🎌")).catch(() => {});
+    }
 
     return (
       <div className="animate-fade-in">
         {/* Result card */}
-        <div className="bg-[#0d1424] rounded-2xl border border-violet-500/30 p-6 md:p-8 mb-8 text-center">
-          <div className="text-6xl mb-4">{result.emoji}</div>
+        <div className="bg-gradient-to-br from-violet-900/40 via-[#0d1424] to-cyan-900/20 rounded-2xl border border-violet-500/30 p-6 md:p-8 mb-8 text-center">
+          <div className="text-6xl mb-4 animate-bounce">{result.emoji}</div>
           <h2 className="text-2xl md:text-3xl font-black font-display text-white mb-3">
             {result.title}
           </h2>
-          <p className="text-slate-300 mb-4">{result.description}</p>
-          <div className="flex flex-wrap justify-center gap-2 mb-6">
+          <p className="text-slate-300 mb-4 max-w-md mx-auto">{result.description}</p>
+
+          {/* Genres */}
+          <div className="flex flex-wrap justify-center gap-2 mb-4">
             {result.genres.map((g) => (
               <span key={g} className="px-3 py-1 rounded-full bg-violet-900/40 text-violet-300 border border-violet-800/50 text-sm font-medium">
                 {g}
@@ -87,26 +96,39 @@ export default function QuizClient() {
             ))}
           </div>
 
-          {/* Share */}
+          {/* Highlights */}
+          {result.highlights.length > 0 && (
+            <div className="flex flex-wrap justify-center gap-2 mb-6">
+              <span className="text-slate-500 text-xs self-center">Animes ideais:</span>
+              {result.highlights.map((h) => (
+                <span key={h} className="px-2.5 py-1 rounded-lg bg-cyan-900/30 text-cyan-300 border border-cyan-800/40 text-xs font-medium">
+                  ⭐ {h}
+                </span>
+              ))}
+            </div>
+          )}
+
+          {/* Share buttons */}
           <div className="flex flex-wrap justify-center gap-2">
-            <button
-              onClick={() => {
-                if (navigator.share) {
-                  navigator.share({ title: "AnimeInfoBR Quiz", text: shareText });
-                } else {
-                  navigator.clipboard.writeText(shareText);
-                  alert("Link copiado!");
-                }
-              }}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-blue-600/30 hover:bg-blue-600/50 border border-blue-500/40 text-blue-300 rounded-xl text-sm font-medium transition-colors"
+            <a
+              href={waUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-emerald-600/30 hover:bg-emerald-600/50 border border-emerald-500/40 text-emerald-300 rounded-xl text-sm font-semibold transition-colors"
             >
-              📤 Compartilhar resultado
+              📲 Compartilhar no WhatsApp
+            </a>
+            <button
+              onClick={copyResult}
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600/20 hover:bg-blue-600/40 border border-blue-500/30 text-blue-300 rounded-xl text-sm font-medium transition-colors"
+            >
+              📋 Copiar resultado
             </button>
             <button
               onClick={restart}
-              className="inline-flex items-center gap-2 px-5 py-2 bg-white/8 hover:bg-white/12 border border-white/10 text-slate-300 rounded-xl text-sm font-medium transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 bg-white/8 hover:bg-white/12 border border-white/10 text-slate-300 rounded-xl text-sm font-medium transition-colors"
             >
-              🔄 Refazer quiz
+              🔄 Refazer
             </button>
           </div>
         </div>
