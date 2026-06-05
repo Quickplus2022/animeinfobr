@@ -11,17 +11,23 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
         password: { label: "Senha", type: "password" },
       },
       async authorize(credentials) {
-        const email = credentials?.email as string | undefined;
-        const password = credentials?.password as string | undefined;
-        if (!email || !password) return null;
+        try {
+          const email = credentials?.email as string | undefined;
+          const password = credentials?.password as string | undefined;
+          if (!email || !password) return null;
 
-        const user = await prisma.user.findUnique({ where: { email } });
-        if (!user) return null;
+          const user = await prisma.user.findUnique({
+            where: { email: email.toLowerCase().trim() },
+          });
+          if (!user) return null;
 
-        const valid = await bcrypt.compare(password, user.password);
-        if (!valid) return null;
+          const valid = await bcrypt.compare(password, user.password);
+          if (!valid) return null;
 
-        return { id: user.id, email: user.email, name: user.name ?? undefined };
+          return { id: user.id, email: user.email, name: user.name ?? null };
+        } catch {
+          return null;
+        }
       },
     }),
   ],
@@ -36,7 +42,10 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       return session;
     },
   },
-  pages: { signIn: "/" },
+  pages: {
+    signIn: "/",
+    error: "/",
+  },
   trustHost: true,
-  secret: process.env.NEXTAUTH_SECRET,
+  secret: process.env.NEXTAUTH_SECRET ?? process.env.AUTH_SECRET,
 });

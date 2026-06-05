@@ -26,11 +26,11 @@ const STATIONS = [
     fallback: "https://radio.plaza.one/mp3",
   },
   {
-    name: "J1 Anime Radio",
-    desc: "J-Pop e anime music",
+    name: "AnisonStation",
+    desc: "Abertura e encerramento de anime",
     emoji: "🌸",
-    url: "https://jenny.torontocast.com:8116/stream",
-    fallback: "https://jenny.torontocast.com:8116/stream",
+    url: "https://anisonstation.com/radio/8020/radio.mp3",
+    fallback: "https://listen.moe/stream",
   },
 ];
 
