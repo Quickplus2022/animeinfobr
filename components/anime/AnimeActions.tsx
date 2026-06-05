@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/auth/AuthContext";
 import { Heart, Clock, ThumbsUp } from "lucide-react";
 import AuthModal from "@/components/auth/AuthModal";
 
@@ -13,7 +13,8 @@ interface AnimeActionsProps {
 }
 
 export default function AnimeActions({ animeId, slug, title, cover }: AnimeActionsProps) {
-  const { data: session, status } = useSession();
+  const { user: session, loading: loadingAuth } = useAuth();
+  const status = loadingAuth ? "loading" : session ? "authenticated" : "unauthenticated";
   const [favorited, setFavorited] = useState(false);
   const [watchLater, setWatchLater] = useState(false);
   const [liked, setLiked] = useState(false);
@@ -21,7 +22,7 @@ export default function AnimeActions({ animeId, slug, title, cover }: AnimeActio
   const [authOpen, setAuthOpen] = useState(false);
 
   useEffect(() => {
-    if (status === "loading" || !session) return;
+    if (loadingAuth || !session) return;
     fetch(`/api/user/status?animeId=${animeId}`)
       .then(r => r.json())
       .then(d => {
@@ -30,7 +31,7 @@ export default function AnimeActions({ animeId, slug, title, cover }: AnimeActio
         setLiked(d.liked);
       })
       .catch(() => {});
-  }, [session, status, animeId]);
+  }, [session, loadingAuth, animeId]);
 
   async function toggle(type: "favorite" | "watch-later" | "like") {
     if (!session) { setAuthOpen(true); return; }

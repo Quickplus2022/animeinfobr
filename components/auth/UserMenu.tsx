@@ -1,13 +1,13 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
-import { useSession, signOut } from "next-auth/react";
+import { useAuth } from "./AuthContext";
 import Link from "next/link";
 import AuthModal from "./AuthModal";
 import { User, Heart, Clock, LogOut, ChevronDown } from "lucide-react";
 
 export default function UserMenu() {
-  const { data: session, status } = useSession();
+  const { user, loading, logout } = useAuth();
   const [modalOpen, setModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -22,11 +22,11 @@ export default function UserMenu() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  if (status === "loading") {
+  if (loading) {
     return <div className="w-8 h-8 rounded-full bg-white/8 animate-pulse" />;
   }
 
-  if (!session) {
+  if (!user) {
     return (
       <>
         <button
@@ -41,7 +41,7 @@ export default function UserMenu() {
     );
   }
 
-  const initial = (session.user?.name || session.user?.email || "U")[0].toUpperCase();
+  const initial = (user.name || user.email || "U")[0].toUpperCase();
 
   return (
     <div className="relative" ref={menuRef}>
@@ -53,7 +53,7 @@ export default function UserMenu() {
           {initial}
         </div>
         <span className="hidden sm:block text-white text-sm font-medium max-w-[100px] truncate">
-          {session.user?.name || session.user?.email?.split("@")[0]}
+          {user.name || user.email.split("@")[0]}
         </span>
         <ChevronDown size={14} className={`text-slate-400 transition-transform ${menuOpen ? "rotate-180" : ""}`} />
       </button>
@@ -61,10 +61,8 @@ export default function UserMenu() {
       {menuOpen && (
         <div className="absolute right-0 top-full mt-2 w-52 rounded-xl bg-[#0d1424] border border-white/12 shadow-2xl overflow-hidden z-50">
           <div className="px-4 py-3 border-b border-white/8">
-            <p className="text-white font-semibold text-sm truncate">
-              {session.user?.name || "Otaku"}
-            </p>
-            <p className="text-slate-500 text-xs truncate">{session.user?.email}</p>
+            <p className="text-white font-semibold text-sm truncate">{user.name || "Otaku"}</p>
+            <p className="text-slate-500 text-xs truncate">{user.email}</p>
           </div>
           <div className="p-1">
             <Link href="/perfil" onClick={() => setMenuOpen(false)}
@@ -81,7 +79,7 @@ export default function UserMenu() {
             </Link>
           </div>
           <div className="p-1 border-t border-white/8">
-            <button onClick={() => signOut()}
+            <button onClick={() => { logout(); setMenuOpen(false); }}
               className="flex w-full items-center gap-2.5 px-3 py-2 rounded-lg text-red-400 hover:text-red-300 hover:bg-red-500/10 text-sm transition-colors">
               <LogOut size={15} /> Sair
             </button>

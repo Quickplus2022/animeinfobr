@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/auth/AuthContext";
 import { Trash2, Send, MessageCircle } from "lucide-react";
 import AuthModal from "@/components/auth/AuthModal";
 
@@ -30,7 +30,7 @@ function timeAgo(date: string): string {
 }
 
 export default function AnimeComments({ animeId, animeTitle }: Props) {
-  const { data: session } = useSession();
+  const { user: session } = useAuth();
   const [comments, setComments] = useState<Comment[]>([]);
   const [text, setText] = useState("");
   const [loading, setLoading] = useState(false);
@@ -50,7 +50,7 @@ export default function AnimeComments({ animeId, animeTitle }: Props) {
 
   async function submit(e: React.FormEvent) {
     e.preventDefault();
-    if (!session) { setAuthOpen(true); return; }
+    if (!session?.id) { setAuthOpen(true); return; }
     if (!text.trim()) return;
     setLoading(true); setError("");
     const res = await fetch("/api/anime/comments", {
@@ -86,7 +86,7 @@ export default function AnimeComments({ animeId, animeTitle }: Props) {
           <form onSubmit={submit} className="flex flex-col gap-2">
             <div className="flex items-start gap-3">
               <div className="w-8 h-8 rounded-full bg-gradient-to-br from-violet-600 to-indigo-700 flex items-center justify-center text-white text-xs font-bold shrink-0 mt-1">
-                {(session.user?.name || session.user?.email || "U")[0].toUpperCase()}
+                {(session?.name || session?.email || "U")[0].toUpperCase()}
               </div>
               <textarea
                 value={text}
@@ -151,7 +151,7 @@ export default function AnimeComments({ animeId, animeTitle }: Props) {
                     <span className="text-white text-xs font-semibold">{comment.userName}</span>
                     <span className="text-slate-600 text-xs">{timeAgo(comment.createdAt)}</span>
                   </div>
-                  {session?.user?.id === comment.userId && (
+                  {session?.id === comment.userId && (
                     <button onClick={() => deleteComment(comment.id)}
                       className="opacity-0 group-hover:opacity-100 p-1 rounded text-slate-600 hover:text-red-400 transition-all">
                       <Trash2 size={13} />

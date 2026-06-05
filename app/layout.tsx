@@ -5,7 +5,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import GoogleAnalytics from "@/components/seo/GoogleAnalytics";
 import GoogleAdSense from "@/components/seo/GoogleAdSense";
-import SessionProvider from "@/components/auth/SessionProvider";
+import { AuthProvider } from "@/components/auth/AuthContext";
 import RadioPlayer from "@/components/radio/RadioPlayer";
 
 const inter = Inter({
@@ -67,12 +67,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="min-h-screen flex flex-col">
         <GoogleAnalytics measurementId={GA_ID} />
         <GoogleAdSense />
-        <SessionProvider>
+        <AuthProvider>
           <Header />
           <main className="flex-1">{children}</main>
           <Footer />
           <RadioPlayer />
-        </SessionProvider>
+        </AuthProvider>
       </body>
     </html>
   );

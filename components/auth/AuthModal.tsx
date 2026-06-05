@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import { useAuth } from "./AuthContext";
 import * as Dialog from "@radix-ui/react-dialog";
 import { X } from "lucide-react";
 
@@ -13,6 +13,7 @@ interface AuthModalProps {
 }
 
 export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthModalProps) {
+  const { refresh } = useAuth();
   const router = useRouter();
   const [tab, setTab] = useState<"login" | "register">(defaultTab);
   const [name, setName] = useState("");
@@ -28,13 +29,25 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
   async function handleLogin(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true); setError("");
-    const res = await signIn("credentials", { email, password, redirect: false });
-    if (res?.error) {
-      setError("E-mail ou senha incorretos.");
-      setLoading(false);
-    } else {
+    try {
+      const res = await fetch("/api/auth/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email: email.toLowerCase().trim(), password }),
+      });
+      const data = await res.json();
+      if (!res.ok) {
+        setError(data.error || "Erro ao entrar.");
+        setLoading(false);
+        return;
+      }
       setDone(true);
+      setLoading(false);
+      await refresh();
       setTimeout(() => { onClose(); router.refresh(); }, 600);
+    } catch {
+      setError("Erro de conexão. Tente novamente.");
+      setLoading(false);
     }
   }
 
@@ -53,16 +66,9 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
         setLoading(false);
         return;
       }
-      // Auto-login
-      const loginRes = await signIn("credentials", { email: email.toLowerCase().trim(), password, redirect: false });
-      if (loginRes?.error) {
-        setError("Conta criada! Faça login manualmente.");
-        setLoading(false);
-        switchTab("login");
-        return;
-      }
       setDone(true);
       setLoading(false);
+      await refresh();
       setTimeout(() => { onClose(); router.refresh(); }, 600);
     } catch {
       setError("Erro de conexão. Tente novamente.");
@@ -80,9 +86,9 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
             <div className="text-center py-8">
               <div className="text-5xl mb-4">✅</div>
               <p className="text-white font-bold text-lg mb-1">
-                {tab === "login" ? "Bem-vindo de volta!" : "Conta criada com sucesso!"}
+                {tab === "login" ? "Bem-vindo de volta!" : "Conta criada!"}
               </p>
-              <p className="text-slate-400 text-sm">Entrando na sua conta...</p>
+              <p className="text-slate-400 text-sm">Entrando...</p>
             </div>
           ) : (
             <>
@@ -115,9 +121,7 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
                   </button>
                   <p className="text-center text-slate-500 text-xs">
                     Não tem conta?{" "}
-                    <button type="button" onClick={() => switchTab("register")} className="text-violet-400 hover:text-violet-300">
-                      Criar agora grátis
-                    </button>
+                    <button type="button" onClick={() => switchTab("register")} className="text-violet-400 hover:text-violet-300">Criar grátis</button>
                   </p>
                 </form>
               ) : (
@@ -132,14 +136,12 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
                   </button>
                   <p className="text-center text-slate-500 text-xs">
                     Já tem conta?{" "}
-                    <button type="button" onClick={() => switchTab("login")} className="text-violet-400 hover:text-violet-300">
-                      Entrar
-                    </button>
+                    <button type="button" onClick={() => switchTab("login")} className="text-violet-400 hover:text-violet-300">Entrar</button>
                   </p>
                 </form>
               )}
 
-              <p className="text-center text-slate-600 text-[11px] mt-5">
+              <p className="text-center text-slate-600 text-[11px] mt-4">
                 Ao criar conta você concorda com nossa{" "}
                 <a href="/privacidade" className="text-slate-500 hover:text-slate-400">Política de Privacidade</a>.
               </p>
