@@ -19,7 +19,9 @@ export default async function PerfilPage({ searchParams }: { searchParams: Promi
   const session = await getSession();
   if (!session) redirect("/");
 
-  const { tab } = await searchParams;
+  try {
+  let tab: string | undefined;
+  try { ({ tab } = await searchParams); } catch { tab = undefined; }
   const activeTab = tab || "overview";
   const userId = session.user.id;
 
@@ -215,4 +217,20 @@ export default async function PerfilPage({ searchParams }: { searchParams: Promi
       )}
     </div>
   );
+  } catch (err) {
+    const msg = err instanceof Error ? `${err.name}: ${err.message}` : String(err);
+    console.error("[PERFIL_ERROR]", msg, err instanceof Error ? err.stack : "");
+    return (
+      <div className="max-w-5xl mx-auto px-4 py-10">
+        <div className="bg-red-950/40 border border-red-800/50 rounded-2xl p-6 text-center">
+          <div className="text-3xl mb-3">⚠️</div>
+          <p className="text-red-300 font-semibold mb-2">Erro ao carregar o perfil</p>
+          <pre className="text-xs text-slate-400 text-left bg-slate-900 rounded-xl p-4 overflow-auto mt-3 max-h-48">{msg}</pre>
+          <button onClick={undefined} className="mt-4 text-xs text-violet-400 underline cursor-pointer" suppressHydrationWarning>
+            <a href="/perfil">Tentar novamente</a>
+          </button>
+        </div>
+      </div>
+    );
+  }
 }
