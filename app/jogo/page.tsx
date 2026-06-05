@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import GameClient from "./GameClient";
+import GameGate from "./GameGate";
 
 export const metadata: Metadata = {
   title: "Jogo: Adivinhe o Anime | AnimeInfoBR",
@@ -22,7 +22,7 @@ export default function JogoPage() {
         <p className="text-slate-400">Adivinhe o anime pela sinopse. Quantos você acerta?</p>
       </div>
 
-      <GameClient />
+      <GameGate />
 
       <div className="mt-10 text-center">
         <p className="text-slate-600 text-xs">Mais jogos chegando em breve: adivinhe pelo personagem, pela abertura e muito mais.</p>

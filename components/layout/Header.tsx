@@ -59,6 +59,12 @@ export default function Header() {
           <div className="flex items-center gap-2">
             <UserMenu />
             <Link
+              href="/jogo"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl border border-amber-500/40 bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 text-sm font-semibold transition-colors"
+            >
+              🎮 Jogo
+            </Link>
+            <Link
               href="/quiz"
               className="hidden sm:inline-flex items-center gap-1.5 px-4 py-1.5 rounded-xl btn-primary text-white text-sm font-semibold"
             >
@@ -103,9 +109,16 @@ export default function Header() {
               </Link>
             ))}
             <Link
+              href="/jogo"
+              onClick={() => setOpen(false)}
+              className="mt-2 px-4 py-2 rounded-xl border border-amber-500/40 bg-amber-500/10 text-amber-300 text-sm font-semibold text-center"
+            >
+              🎮 Jogar Agora
+            </Link>
+            <Link
               href="/quiz"
               onClick={() => setOpen(false)}
-              className="mt-2 px-4 py-2 rounded-xl btn-primary text-white text-sm font-semibold text-center"
+              className="mt-1 px-4 py-2 rounded-xl btn-primary text-white text-sm font-semibold text-center"
             >
               🎯 Fazer Quiz
             </Link>
