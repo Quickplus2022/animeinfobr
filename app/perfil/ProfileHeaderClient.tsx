@@ -1,16 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import AvatarPicker from "./AvatarPicker";
+import AvatarUploader from "./AvatarUploader";
 import BioEditor from "./BioEditor";
-
-const COLORS: Record<string, string> = {
-  violet: "from-violet-600 to-indigo-700",
-  cyan: "from-cyan-500 to-blue-600",
-  rose: "from-rose-500 to-pink-700",
-  amber: "from-amber-500 to-orange-600",
-  emerald: "from-emerald-500 to-teal-700",
-};
 
 interface Props {
   name: string | null;
@@ -19,13 +11,17 @@ interface Props {
   bio: string | null;
   avatarEmoji: string | null;
   avatarColor: string | null;
+  avatarUrl: string | null;
+  username: string | null;
   stats: { favorites: number; watchLater: number; likes: number };
+  onProfileUpdate: (data: Partial<{ bio: string | null; avatarEmoji: string | null; avatarColor: string | null; avatarUrl: string | null }>) => void;
 }
 
-export default function ProfileHeaderClient({ name, email, initial, bio: initialBio, avatarEmoji: initialEmoji, avatarColor: initialColor, stats }: Props) {
+export default function ProfileHeaderClient({ name, email, initial, bio: initialBio, avatarEmoji: initialEmoji, avatarColor: initialColor, avatarUrl: initialUrl, username, stats, onProfileUpdate }: Props) {
   const [bio, setBio] = useState(initialBio);
   const [emoji, setEmoji] = useState(initialEmoji);
   const [color, setColor] = useState(initialColor ?? "violet");
+  const [avatarUrl, setAvatarUrl] = useState(initialUrl);
 
   async function saveAvatar(newEmoji: string, newColor: string) {
     const res = await fetch("/api/user/profile", {
@@ -33,7 +29,10 @@ export default function ProfileHeaderClient({ name, email, initial, bio: initial
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ avatarEmoji: newEmoji, avatarColor: newColor }),
     });
-    if (res.ok) { setEmoji(newEmoji); setColor(newColor); }
+    if (res.ok) {
+      setEmoji(newEmoji); setColor(newColor);
+      onProfileUpdate({ avatarEmoji: newEmoji, avatarColor: newColor });
+    }
   }
 
   async function saveBio(newBio: string) {
@@ -42,22 +41,25 @@ export default function ProfileHeaderClient({ name, email, initial, bio: initial
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ bio: newBio }),
     });
-    if (res.ok) setBio(newBio);
+    if (res.ok) { setBio(newBio); onProfileUpdate({ bio: newBio }); }
   }
-
-  const gradient = COLORS[color] ?? COLORS.violet;
 
   return (
     <div className="p-6 rounded-2xl bg-[#0d1424] border border-white/8 mb-8">
       <div className="flex items-start gap-5">
-        <AvatarPicker
-          currentEmoji={emoji}
-          currentColor={color}
+        <AvatarUploader
           initial={initial}
-          onSave={saveAvatar}
+          avatarUrl={avatarUrl}
+          avatarEmoji={emoji}
+          avatarColor={color}
+          onAvatarChange={(url) => { setAvatarUrl(url); onProfileUpdate({ avatarUrl: url }); }}
+          onEmojiColorChange={saveAvatar}
         />
         <div className="flex-1 min-w-0">
-          <h1 className="text-2xl font-black text-white mb-0.5">{name || "Otaku"}</h1>
+          <div className="flex items-center gap-2 flex-wrap mb-0.5">
+            <h1 className="text-2xl font-black text-white">{name || "Otaku"}</h1>
+            {username && <span className="text-slate-500 text-sm">@{username}</span>}
+          </div>
           <p className="text-slate-500 text-sm mb-3">{email}</p>
           <BioEditor initial={bio} onSave={saveBio} />
           <div className="flex flex-wrap gap-4 mt-3 text-xs text-slate-500">

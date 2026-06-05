@@ -37,22 +37,31 @@ model NewsletterSubscriber {
 }
 
 model User {
-  id           String   @id @default(cuid())
-  name         String?  @db.VarChar(100)
-  email        String   @unique @db.VarChar(254)
-  password     String   @db.VarChar(72)
-  bio          String?  @db.VarChar(500)
-  avatarEmoji  String?  @db.VarChar(10)
-  avatarColor  String?  @db.VarChar(30)
-  createdAt    DateTime @default(now())
-  updatedAt    DateTime @updatedAt
+  id                String    @id @default(cuid())
+  name              String?   @db.VarChar(100)
+  email             String    @unique @db.VarChar(254)
+  password          String    @db.VarChar(72)
+  username          String?   @unique @db.VarChar(30)
+  bio               String?   @db.VarChar(500)
+  avatarEmoji       String?   @db.VarChar(10)
+  avatarColor       String?   @db.VarChar(30)
+  avatarUrl         String?   @db.Text
+  favoriteAnimeId   Int?
+  favoriteAnimeTitle String?  @db.VarChar(200)
+  profileVisibility String    @default("public") @db.VarChar(10)
+  animeDnaJson      String?   @db.Text
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
 
-  favorites  UserFavorite[]
-  watchLater UserWatchLater[]
-  likes      UserLike[]
-  comments   AnimeComment[]
+  favorites            UserFavorite[]
+  watchLater           UserWatchLater[]
+  likes                UserLike[]
+  comments             AnimeComment[]
+  characterTestResults CharacterTestResult[]
+  characterSlots       UserCharacterSlot[]
 
   @@index([email])
+  @@index([username])
 }
 
 model UserFavorite {
@@ -119,5 +128,44 @@ model AnimeComment {
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   @@index([animeId])
+  @@index([userId])
+}
+
+model CharacterTestResult {
+  id                    String   @id @default(cuid())
+  userId                String
+  primaryCharacterId    String   @db.VarChar(100)
+  primaryCharacterName  String   @db.VarChar(100)
+  primaryCharacterImage String?  @db.VarChar(500)
+  secondaryCharacterId  String?  @db.VarChar(100)
+  secondaryCharacterName String? @db.VarChar(100)
+  shadowCharacterId     String?  @db.VarChar(100)
+  shadowCharacterName   String?  @db.VarChar(100)
+  rivalCharacterId      String?  @db.VarChar(100)
+  rivalCharacterName    String?  @db.VarChar(100)
+  scoreJson             String   @db.Text
+  answersJson           String   @db.Text
+  animeDnaJson          String?  @db.Text
+  createdAt             DateTime @default(now())
+
+  user                  User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model UserCharacterSlot {
+  id             String   @id @default(cuid())
+  userId         String
+  slotType       String   @db.VarChar(30)
+  characterId    String   @db.VarChar(100)
+  characterName  String   @db.VarChar(100)
+  characterImage String?  @db.VarChar(10)
+  mediaTitle     String?  @db.VarChar(200)
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+
+  user           User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, slotType])
   @@index([userId])
 }

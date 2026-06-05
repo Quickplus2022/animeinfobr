@@ -6,6 +6,9 @@ export interface AuthUser {
   id: string;
   email: string;
   name: string | null;
+  username: string | null;
+  avatarEmoji: string | null;
+  avatarColor: string | null;
 }
 
 interface AuthCtx {
@@ -18,12 +21,8 @@ interface AuthCtx {
 }
 
 const Ctx = createContext<AuthCtx>({
-  user: null,
-  loading: true,
-  refresh: async () => {},
-  login: async () => {},
-  register: async () => {},
-  logout: async () => {},
+  user: null, loading: true,
+  refresh: async () => {}, login: async () => {}, register: async () => {}, logout: async () => {},
 });
 
 export function AuthProvider({ children }: { children: React.ReactNode }) {
@@ -50,7 +49,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || "Erro ao entrar.");
-    setUser({ id: data.id, email: data.email, name: data.name ?? null });
+    setUser({ id: data.id, email: data.email, name: data.name ?? null, username: data.username ?? null, avatarEmoji: data.avatarEmoji ?? null, avatarColor: data.avatarColor ?? null });
   }, []);
 
   const register = useCallback(async (name: string | null, email: string, password: string) => {
@@ -61,7 +60,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     });
     const data = await res.json();
     if (!res.ok) throw new Error(data.error || "Erro ao criar conta.");
-    setUser({ id: data.id, email: data.email, name: data.name ?? null });
+    setUser({ id: data.id, email: data.email, name: data.name ?? null, username: null, avatarEmoji: null, avatarColor: null });
   }, []);
 
   const logout = useCallback(async () => {
@@ -78,6 +77,4 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   );
 }
 
-export function useAuth() {
-  return useContext(Ctx);
-}
+export function useAuth() { return useContext(Ctx); }

@@ -2,8 +2,13 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { TEST_QUESTIONS, getCharacterResult, type ArchetypeScore, type AnimeCharacter } from "@/data/mock/characters";
+import { useAuth } from "@/components/auth/AuthContext";
+import {
+  TEST_QUESTIONS, getCharacterResult, type ArchetypeScore, type AnimeCharacter, type AnimeDNA,
+} from "@/data/mock/characters";
 import type { Archetype } from "@/data/mock/characters";
+import AnimeDNAChart from "./AnimeDNAChart";
+import ShareCard from "./ShareCard";
 
 const KEY = "aibr_char_dna";
 
@@ -15,64 +20,39 @@ const ARCHETYPE_COLORS: Record<Archetype, string> = {
   conexao: "text-violet-400 border-violet-500/40 bg-violet-500/10",
 };
 
-function CharacterCard({ char, label, match }: { char: AnimeCharacter; label: string; match: number }) {
-  const [expanded, setExpanded] = useState(false);
+function CharacterCard({ char, label, match, expanded: initExpanded }: { char: AnimeCharacter; label: string; match: number; expanded?: boolean }) {
+  const [expanded, setExpanded] = useState(initExpanded ?? false);
+  const color = ARCHETYPE_COLORS[char.archetype];
   return (
-    <div className={`rounded-2xl border p-5 transition-all ${ARCHETYPE_COLORS[char.archetype]}`}>
+    <div className={`rounded-2xl border p-5 transition-all ${color}`}>
       <div className="flex items-start gap-3 mb-3">
-        <div className="text-4xl shrink-0">{char.image ?? "🎌"}</div>
+        <div className="text-4xl shrink-0">{char.image}</div>
         <div className="flex-1 min-w-0">
           <div className="flex items-center gap-2 flex-wrap mb-0.5">
-            <span className="text-white/40 text-xs font-semibold uppercase">{label}</span>
-            <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 font-bold">{match}% compatível</span>
+            <span className="text-white/50 text-xs font-semibold uppercase">{label}</span>
+            <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 font-bold">{match}%</span>
           </div>
           <h3 className="text-white font-black text-lg leading-tight">{char.name}</h3>
           <p className="text-slate-400 text-xs">{char.anime}</p>
         </div>
       </div>
-
       <div className="flex flex-wrap gap-1.5 mb-3">
-        {char.traits.map((t) => (
-          <span key={t} className="text-[11px] px-2 py-0.5 rounded-full bg-white/8 border border-white/10 text-slate-300">{t}</span>
-        ))}
+        {char.traits.map(t => <span key={t} className="text-[11px] px-2 py-0.5 rounded-full bg-white/8 border border-white/10 text-slate-300">{t}</span>)}
       </div>
-
-      <blockquote className="text-slate-400 text-xs italic border-l-2 border-current pl-3 mb-3">
-        &ldquo;{char.quote}&rdquo;
-      </blockquote>
-
+      <blockquote className="text-slate-400 text-xs italic border-l-2 border-current pl-3 mb-3">&ldquo;{char.quote}&rdquo;</blockquote>
       <button onClick={() => setExpanded(v => !v)} className="text-xs font-semibold opacity-60 hover:opacity-100 transition-opacity">
         {expanded ? "▲ Menos" : "▼ Ver ficha técnica"}
       </button>
-
       {expanded && (
         <div className="mt-3 space-y-2 border-t border-white/10 pt-3">
           <div className="grid grid-cols-2 gap-2 text-xs">
-            <div>
-              <p className="text-slate-500 uppercase tracking-wider mb-0.5">Arquétipo</p>
-              <p className="text-white font-semibold">{char.archetypeLabel}</p>
-            </div>
-            <div>
-              <p className="text-slate-500 uppercase tracking-wider mb-0.5">Idade</p>
-              <p className="text-white font-semibold">{char.age}</p>
-            </div>
+            <div><p className="text-slate-500 uppercase tracking-wider mb-0.5">Arquétipo</p><p className="text-white font-semibold">{char.archetypeLabel}</p></div>
+            <div><p className="text-slate-500 uppercase tracking-wider mb-0.5">Idade</p><p className="text-white font-semibold">{char.age}</p></div>
           </div>
-          <div className="text-xs">
-            <p className="text-slate-500 uppercase tracking-wider mb-0.5">Habilidade especial</p>
-            <p className="text-slate-300">{char.ability}</p>
-          </div>
-          <div className="text-xs">
-            <p className="text-slate-500 uppercase tracking-wider mb-0.5">Sobre ele/ela</p>
-            <p className="text-slate-300 leading-relaxed">{char.description}</p>
-          </div>
-          <div className="text-xs">
-            <p className="text-slate-500 uppercase tracking-wider mb-0.5">Personagens parecidos</p>
-            <p className="text-slate-300">{char.similarTo.join(" · ")}</p>
-          </div>
-          <Link
-            href={`/anime?search=${encodeURIComponent(char.anime.split("/")[0].trim())}`}
-            className="inline-flex items-center gap-1.5 mt-1 px-3 py-1.5 rounded-lg bg-white/8 border border-white/10 text-slate-300 hover:text-white text-xs font-medium transition-colors"
-          >
+          <div className="text-xs"><p className="text-slate-500 uppercase tracking-wider mb-0.5">Habilidade</p><p className="text-slate-300">{char.ability}</p></div>
+          <div className="text-xs"><p className="text-slate-500 uppercase tracking-wider mb-0.5">Perfil</p><p className="text-slate-300 leading-relaxed">{char.description}</p></div>
+          <div className="text-xs"><p className="text-slate-500 uppercase tracking-wider mb-0.5">Parecidos com</p><p className="text-slate-300">{char.similarTo.join(" · ")}</p></div>
+          <Link href={`/anime?search=${encodeURIComponent(char.anime.split("/")[0].trim())}`} className="inline-flex items-center gap-1.5 mt-1 px-3 py-1.5 rounded-lg bg-white/8 border border-white/10 text-slate-300 hover:text-white text-xs font-medium transition-colors">
             🔍 Ver {char.anime.split("/")[0].trim()}
           </Link>
         </div>
@@ -81,119 +61,160 @@ function CharacterCard({ char, label, match }: { char: AnimeCharacter; label: st
   );
 }
 
-export default function CharacterTest() {
+interface SavedResult {
+  primary: AnimeCharacter; medium: AnimeCharacter; hidden: AnimeCharacter;
+  rival: AnimeCharacter; shadow: AnimeCharacter;
+  archetype: Archetype; archetypeLabel: string; dna: AnimeDNA;
+}
+
+export default function CharacterTest({ username }: { username?: string | null }) {
+  const { user } = useAuth();
   const [step, setStep] = useState<"start" | "test" | "result">("start");
   const [current, setCurrent] = useState(0);
   const [scores, setScores] = useState<ArchetypeScore>({ coracao: 0, mente: 0, forca: 0, espirito: 0, conexao: 0 });
-  const [result, setResult] = useState<ReturnType<typeof getCharacterResult> | null>(null);
+  const [answers, setAnswers] = useState<string[]>([]);
+  const [result, setResult] = useState<SavedResult | null>(null);
+  const [saved, setSaved] = useState(false);
+  const [activeView, setActiveView] = useState<"characters" | "dna" | "share">("characters");
 
   useEffect(() => {
-    const saved = localStorage.getItem(KEY);
-    if (saved) {
-      try { setResult(JSON.parse(saved)); setStep("result"); } catch { /* noop */ }
-    }
+    const raw = localStorage.getItem(KEY);
+    if (raw) { try { setResult(JSON.parse(raw)); setStep("result"); } catch { /* noop */ } }
   }, []);
 
-  function answer(optionScores: Partial<ArchetypeScore>) {
+  function answer(label: string, optionScores: Partial<ArchetypeScore>) {
     const newScores = { ...scores };
-    for (const [k, v] of Object.entries(optionScores) as [Archetype, number][]) {
-      newScores[k] = (newScores[k] ?? 0) + v;
-    }
+    for (const [k, v] of Object.entries(optionScores) as [Archetype, number][]) newScores[k] = (newScores[k] ?? 0) + v;
+    const newAnswers = [...answers, label];
     setScores(newScores);
+    setAnswers(newAnswers);
 
     if (current + 1 >= TEST_QUESTIONS.length) {
       const res = getCharacterResult(newScores);
       setResult(res);
       setStep("result");
       localStorage.setItem(KEY, JSON.stringify(res));
+      if (user) saveToDb(res, newScores, newAnswers);
     } else {
       setCurrent(c => c + 1);
     }
   }
 
+  async function saveToDb(res: SavedResult, sc: ArchetypeScore, ans: string[]) {
+    try {
+      await fetch("/api/user/character-test", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          primaryCharacterId: res.primary.id, primaryCharacterName: res.primary.name, primaryCharacterImage: res.primary.image,
+          secondaryCharacterId: res.medium.id, secondaryCharacterName: res.medium.name,
+          shadowCharacterId: res.shadow.id, shadowCharacterName: res.shadow.name,
+          rivalCharacterId: res.rival.id, rivalCharacterName: res.rival.name,
+          scoreJson: sc, answersJson: ans, animeDnaJson: res.dna,
+        }),
+      });
+      setSaved(true);
+    } catch { /* noop */ }
+  }
+
   function restart() {
-    setStep("start");
-    setCurrent(0);
-    setScores({ coracao: 0, mente: 0, forca: 0, espirito: 0, conexao: 0 });
-    setResult(null);
-    localStorage.removeItem(KEY);
+    setStep("start"); setCurrent(0); setScores({ coracao: 0, mente: 0, forca: 0, espirito: 0, conexao: 0 });
+    setAnswers([]); setResult(null); setSaved(false); localStorage.removeItem(KEY);
   }
 
   const total = TEST_QUESTIONS.length;
   const q = TEST_QUESTIONS[current];
 
-  if (step === "start") {
-    return (
-      <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-6 text-center">
-        <div className="text-5xl mb-3">🧬</div>
-        <h3 className="text-white font-black text-xl mb-2">Anime Character DNA</h3>
-        <p className="text-slate-400 text-sm mb-5 max-w-md mx-auto">
-          7 perguntas sobre sua personalidade. Descubra qual personagem de anime você é — do icônico ao completamente desconhecido.
-        </p>
-        <button
-          onClick={() => setStep("test")}
-          className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-bold hover:opacity-90 transition-opacity"
-        >
-          Iniciar teste →
-        </button>
-      </div>
-    );
-  }
+  if (step === "start") return (
+    <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-6 text-center">
+      <div className="text-5xl mb-3">🧬</div>
+      <h3 className="text-white font-black text-xl mb-2">Anime Character DNA</h3>
+      <p className="text-slate-400 text-sm mb-5 max-w-md mx-auto">
+        {total} perguntas sobre sua personalidade. Descubra qual personagem você é, seu rival, sua sombra e seu DNA de gêneros.
+      </p>
+      <button onClick={() => setStep("test")} className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-bold hover:opacity-90 transition-opacity">
+        Iniciar teste →
+      </button>
+    </div>
+  );
 
-  if (step === "test") {
-    return (
-      <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-6">
-        <div className="mb-5">
-          <div className="flex justify-between text-xs text-slate-500 mb-1.5">
-            <span>Pergunta {current + 1} de {total}</span>
-            <span>{Math.round((current / total) * 100)}%</span>
-          </div>
-          <div className="h-1.5 bg-white/8 rounded-full overflow-hidden">
-            <div className="h-full bg-gradient-to-r from-violet-600 to-cyan-500 rounded-full transition-all duration-500" style={{ width: `${(current / total) * 100}%` }} />
-          </div>
+  if (step === "test") return (
+    <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-6">
+      <div className="mb-5">
+        <div className="flex justify-between text-xs text-slate-500 mb-1.5">
+          <span>Pergunta {current + 1} de {total}</span>
+          <span>{Math.round((current / total) * 100)}%</span>
         </div>
-        <div className="text-center mb-5">
-          <div className="text-3xl mb-2">{q.emoji}</div>
-          <h3 className="text-white font-bold text-lg">{q.question}</h3>
-        </div>
-        <div className="space-y-2">
-          {q.options.map((opt, i) => (
-            <button
-              key={i}
-              onClick={() => answer(opt.scores)}
-              className="w-full text-left px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:border-violet-500/50 hover:bg-violet-500/10 hover:text-white transition-all text-sm"
-            >
-              {opt.label}
-            </button>
-          ))}
+        <div className="h-1.5 bg-white/8 rounded-full overflow-hidden">
+          <div className="h-full bg-gradient-to-r from-violet-600 to-cyan-500 rounded-full transition-all duration-500" style={{ width: `${(current / total) * 100}%` }} />
         </div>
       </div>
-    );
-  }
+      <div className="text-center mb-5">
+        <div className="text-3xl mb-2">{q.emoji}</div>
+        <h3 className="text-white font-bold text-lg">{q.question}</h3>
+      </div>
+      <div className="space-y-2">
+        {q.options.map((opt, i) => (
+          <button key={i} onClick={() => answer(opt.label, opt.scores)}
+            className="w-full text-left px-4 py-3 rounded-xl bg-white/5 border border-white/10 text-slate-300 hover:border-violet-500/50 hover:bg-violet-500/10 hover:text-white transition-all text-sm">
+            {opt.label}
+          </button>
+        ))}
+      </div>
+      {current > 0 && <button onClick={() => { setCurrent(c => c - 1); setAnswers(a => a.slice(0, -1)); }} className="mt-4 text-slate-500 hover:text-slate-300 text-sm transition-colors">← Voltar</button>}
+    </div>
+  );
 
   if (!result) return null;
 
-  const maxScore = Math.max(...Object.values(scores));
+  const maxScore = Math.max(...Object.values(scores)) || 1;
   const primaryMatch = Math.min(98, 65 + Math.round((scores[result.archetype] / maxScore) * 30));
 
   return (
     <div className="space-y-4">
-      <div className="bg-[#0d1424] rounded-2xl border border-white/8 p-5 text-center">
-        <p className="text-slate-500 text-xs uppercase tracking-wider mb-1">Seu DNA de Anime</p>
-        <h3 className={`text-xl font-black mb-1 ${ARCHETYPE_COLORS[result.archetype].split(" ")[0]}`}>
-          {result.archetypeLabel}
-        </h3>
-        <p className="text-slate-400 text-sm">Veja seus 3 personagens — do famoso ao oculto:</p>
+      {/* Header */}
+      <div className={`rounded-2xl border p-5 text-center ${ARCHETYPE_COLORS[result.archetype]}`}>
+        <p className="text-white/50 text-xs uppercase tracking-wider mb-1">Seu Anime Character DNA</p>
+        <h3 className={`text-xl font-black mb-1 ${ARCHETYPE_COLORS[result.archetype].split(" ")[0]}`}>{result.archetypeLabel}</h3>
+        {user && saved && <p className="text-emerald-400 text-xs">✓ Resultado salvo no seu perfil</p>}
       </div>
 
-      <CharacterCard char={result.primary} label="⭐ Ícone" match={primaryMatch} />
-      <CharacterCard char={result.medium} label="🔵 Conhecido" match={Math.max(60, primaryMatch - 12)} />
-      <CharacterCard char={result.hidden} label="💎 Oculto" match={Math.max(50, primaryMatch - 20)} />
+      {/* Tab switcher */}
+      <div className="flex gap-1 bg-white/5 rounded-xl p-1">
+        {([["characters", "🎭 Personagens"], ["dna", "🧬 DNA"], ["share", "📲 Compartilhar"]] as const).map(([id, label]) => (
+          <button key={id} onClick={() => setActiveView(id)}
+            className={`flex-1 py-2 rounded-lg text-xs font-semibold transition-all ${activeView === id ? "bg-violet-600 text-white" : "text-slate-400 hover:text-white"}`}>
+            {label}
+          </button>
+        ))}
+      </div>
+
+      {activeView === "characters" && (
+        <div className="space-y-3">
+          <CharacterCard char={result.primary} label="⭐ Você é" match={primaryMatch} expanded />
+          <CharacterCard char={result.medium} label="🔵 Também se parece com" match={Math.max(60, primaryMatch - 12)} />
+          <CharacterCard char={result.hidden} label="💎 Lado oculto" match={Math.max(50, primaryMatch - 20)} />
+          <div className="grid grid-cols-2 gap-3">
+            <CharacterCard char={result.rival} label="⚔️ Seu rival" match={Math.max(45, primaryMatch - 25)} />
+            <CharacterCard char={result.shadow} label="🌑 Sua sombra" match={Math.max(40, primaryMatch - 30)} />
+          </div>
+        </div>
+      )}
+
+      {activeView === "dna" && <AnimeDNAChart dna={result.dna} />}
+
+      {activeView === "share" && (
+        <ShareCard
+          name={user?.name ?? "Otaku"}
+          username={username ?? null}
+          character={result.primary}
+          matchPct={primaryMatch}
+          archetypeLabel={result.archetypeLabel}
+        />
+      )}
 
       <div className="text-center pt-2">
-        <button onClick={restart} className="text-slate-500 hover:text-slate-300 text-sm transition-colors">
-          🔄 Refazer teste
-        </button>
+        <button onClick={restart} className="text-slate-500 hover:text-slate-300 text-sm transition-colors">🔄 Refazer teste</button>
       </div>
     </div>
   );

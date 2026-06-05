@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useAuth } from "./AuthContext";
 import * as Dialog from "@radix-ui/react-dialog";
-import { X } from "lucide-react";
+import { X, Eye, EyeOff } from "lucide-react";
 
 interface AuthModalProps {
   open: boolean;
@@ -17,6 +17,7 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -77,7 +78,7 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
           {tab === "login" ? (
             <form onSubmit={handleLogin} className="space-y-4">
               <Field label="E-mail" type="email" value={email} onChange={setEmail} placeholder="seu@email.com" />
-              <Field label="Senha" type="password" value={password} onChange={setPassword} placeholder="••••••••" />
+              <PasswordField label="Senha" value={password} onChange={setPassword} show={showPassword} onToggle={() => setShowPassword(v => !v)} />
               {error && <p className="text-red-400 text-xs bg-red-500/10 px-3 py-2 rounded-lg">{error}</p>}
               <button type="submit" disabled={loading}
                 className="w-full py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-sm transition-colors disabled:opacity-50">
@@ -92,7 +93,7 @@ export default function AuthModal({ open, onClose, defaultTab = "login" }: AuthM
             <form onSubmit={handleRegister} className="space-y-4">
               <Field label="Apelido (opcional)" type="text" value={name} onChange={setName} placeholder="Seu nome de otaku" />
               <Field label="E-mail" type="email" value={email} onChange={setEmail} placeholder="seu@email.com" />
-              <Field label="Senha (mínimo 6 caracteres)" type="password" value={password} onChange={setPassword} placeholder="••••••••" minLength={6} />
+              <PasswordField label="Senha (mínimo 6 caracteres)" value={password} onChange={setPassword} show={showPassword} onToggle={() => setShowPassword(v => !v)} minLength={6} />
               {error && <p className="text-red-400 text-xs bg-red-500/10 px-3 py-2 rounded-lg">{error}</p>}
               <button type="submit" disabled={loading}
                 className="w-full py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-semibold text-sm transition-colors disabled:opacity-50">
@@ -126,6 +127,37 @@ function Field({ label, type, value, onChange, placeholder, minLength }: {
         placeholder={placeholder} minLength={minLength}
         className="w-full px-4 py-3 bg-white/6 border border-white/10 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-violet-500 transition-colors"
       />
+    </div>
+  );
+}
+
+function PasswordField({ label, value, onChange, show, onToggle, minLength }: {
+  label: string; value: string; onChange: (v: string) => void;
+  show: boolean; onToggle: () => void; minLength?: number;
+}) {
+  return (
+    <div>
+      <label className="block text-slate-400 text-xs mb-1.5">{label}</label>
+      <div className="relative">
+        <input
+          type={show ? "text" : "password"}
+          value={value}
+          onChange={e => onChange(e.target.value)}
+          required
+          placeholder="••••••••"
+          minLength={minLength}
+          className="w-full px-4 py-3 pr-11 bg-white/6 border border-white/10 rounded-xl text-white placeholder-slate-500 text-sm focus:outline-none focus:border-violet-500 transition-colors"
+        />
+        <button
+          type="button"
+          onClick={onToggle}
+          tabIndex={-1}
+          className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-300 transition-colors"
+          aria-label={show ? "Ocultar senha" : "Mostrar senha"}
+        >
+          {show ? <EyeOff size={16} /> : <Eye size={16} />}
+        </button>
+      </div>
     </div>
   );
 }
