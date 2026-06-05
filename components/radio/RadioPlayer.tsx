@@ -5,32 +5,32 @@ import { Play, Pause, Volume2, VolumeX, Radio, ChevronDown, ChevronUp } from "lu
 
 const STATIONS = [
   {
-    name: "Anison.fm",
+    name: "Listen.moe Anime",
     desc: "Músicas de anime 24h",
     emoji: "🎌",
-    url: "https://anison.fm/anison.m3u8",
-    fallback: "https://streams.radiomast.io/anison-fm",
+    url: "https://listen.moe/stream",
+    fallback: "https://listen.moe/fallback",
   },
   {
-    name: "J-Pop Sakura",
+    name: "Listen.moe K-Pop",
+    desc: "K-Pop e K-Drama OSTs",
+    emoji: "🇰🇷",
+    url: "https://listen.moe/kpop/stream",
+    fallback: "https://listen.moe/kpop/fallback",
+  },
+  {
+    name: "Nightwave Plaza",
+    desc: "City pop, synthwave e anime vibes",
+    emoji: "🌃",
+    url: "https://radio.plaza.one/mp3",
+    fallback: "https://radio.plaza.one/mp3",
+  },
+  {
+    name: "J1 Anime Radio",
     desc: "J-Pop e anime music",
     emoji: "🌸",
     url: "https://jenny.torontocast.com:8116/stream",
     fallback: "https://jenny.torontocast.com:8116/stream",
-  },
-  {
-    name: "K-Pop Radio",
-    desc: "K-Pop e K-Drama OSTs",
-    emoji: "🇰🇷",
-    url: "https://kpop.radioca.st/stream",
-    fallback: "https://kpop.radioca.st/stream",
-  },
-  {
-    name: "Anime OST",
-    desc: "Trilhas sonoras de anime",
-    emoji: "🎵",
-    url: "https://radio.plaza.one/mp3",
-    fallback: "https://radio.plaza.one/mp3",
   },
 ];
 
