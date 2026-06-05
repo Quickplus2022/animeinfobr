@@ -31,6 +31,15 @@ export default async function RankingPage() {
         <RefreshButton label="Atualizar Ranking" />
       </div>
 
+      {popular.length === 0 && trending.length === 0 && (
+        <div className="text-center py-20">
+          <div className="text-5xl mb-4">📡</div>
+          <p className="text-slate-400 text-lg font-medium">Ranking temporariamente indisponível</p>
+          <p className="text-slate-600 text-sm mt-2">A API está fora do ar. Tente novamente em alguns minutos.</p>
+        </div>
+      )}
+
+      {(popular.length > 0 || trending.length > 0) && (
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
         {/* Main ranking */}
         <div className="lg:col-span-2">
@@ -152,6 +161,7 @@ export default async function RankingPage() {
           </div>
         </div>
       </div>
+      )}
     </div>
   );
 }

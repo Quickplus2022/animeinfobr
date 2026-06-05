@@ -25,6 +25,18 @@ async function SeasonalGrid() {
   const animes = await getSeasonalAnime(50);
   const { season, year } = getCurrentSeason();
 
+  if (animes.length === 0) {
+    return (
+      <div className="text-center py-20">
+        <div className="text-5xl mb-4">📡</div>
+        <p className="text-slate-400 text-lg font-medium">Calendário temporariamente indisponível</p>
+        <p className="text-slate-600 text-sm mt-2">
+          Não foi possível carregar os animes de {SEASON_NAMES[season]} {year}. Tente novamente em alguns instantes.
+        </p>
+      </div>
+    );
+  }
+
   const releasing = animes.filter((a) => a.status === "RELEASING");
   const notStarted = animes.filter((a) => a.status === "NOT_YET_RELEASED");
   const finished = animes.filter((a) => a.status === "FINISHED");
