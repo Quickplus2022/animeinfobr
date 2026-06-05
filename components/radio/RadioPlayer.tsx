@@ -85,17 +85,17 @@ export default function RadioPlayer() {
     return (
       <button
         onClick={() => setVisible(true)}
-        className="fixed bottom-4 right-4 z-40 flex items-center gap-2 px-4 py-2.5 rounded-full bg-violet-600 hover:bg-violet-500 text-white text-sm font-semibold shadow-lg shadow-violet-900/50 transition-all hover:scale-105"
+        className="fixed bottom-4 right-4 z-40 flex items-center gap-1.5 sm:gap-2 px-3 sm:px-4 py-2 sm:py-2.5 rounded-full bg-violet-700/90 hover:bg-violet-600 text-white text-xs sm:text-sm font-semibold shadow-lg shadow-violet-900/50 transition-all backdrop-blur-sm border border-violet-500/30"
         title="Abrir rádio anime"
       >
-        <Radio size={16} />
-        <span className="hidden sm:block">Rádio Anime</span>
+        <Radio size={14} />
+        <span className="hidden sm:block">Rádio</span>
       </button>
     );
   }
 
   return (
-    <div className="fixed bottom-4 right-4 z-40 w-72 rounded-2xl bg-[#0d1424] border border-violet-500/30 shadow-2xl shadow-violet-900/40 overflow-hidden">
+    <div className="fixed bottom-4 right-2 sm:right-4 z-40 w-[calc(100vw-16px)] max-w-[288px] rounded-2xl bg-[#0d1424] border border-violet-500/30 shadow-2xl shadow-violet-900/40 overflow-hidden max-h-[80vh]">
       {/* Header */}
       <div className="flex items-center justify-between px-4 py-3 bg-gradient-to-r from-violet-900/60 to-indigo-900/60 border-b border-white/8">
         <div className="flex items-center gap-2">
