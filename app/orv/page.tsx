@@ -345,18 +345,11 @@ export default function ORVPage() {
           {/* CTA buttons */}
           <div className="flex flex-wrap gap-3 mb-8">
             <Link
-              href="/orv/ler"
+              href="/guias"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-violet-600 hover:bg-violet-500 text-white font-bold text-sm transition-all hover:scale-105 shadow-lg shadow-violet-900/40"
             >
-              📖 Ler Novel PT-BR
+              📚 Ver Guias de Anime
             </Link>
-            <a
-              href="/novels/orv-pt-br.pdf"
-              download
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl border border-white/20 bg-white/5 hover:bg-white/10 text-white font-medium text-sm transition-all"
-            >
-              ⬇ Baixar PDF
-            </a>
           </div>
 
           {/* Quick stats */}
