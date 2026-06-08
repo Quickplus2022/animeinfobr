@@ -1,26 +1,44 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { Check, Loader } from "lucide-react";
 
 interface Props {
   initialName: string | null;
   initialUsername: string | null;
+  initialBio: string | null;
   initialFavoriteAnime: string | null;
   initialVisibility: string;
-  onSaved: (data: { name?: string; username?: string; favoriteAnimeTitle?: string; profileVisibility?: string }) => void;
+  focusField?: "name" | "username" | "bio" | "favorite";
+  onSaved: (data: { name?: string; username?: string; bio?: string; favoriteAnimeTitle?: string; profileVisibility?: string }) => void;
 }
 
-export default function ProfileEditForm({ initialName, initialUsername, initialFavoriteAnime, initialVisibility, onSaved }: Props) {
+export default function ProfileEditForm({
+  initialName, initialUsername, initialBio, initialFavoriteAnime, initialVisibility, focusField, onSaved,
+}: Props) {
   const [name, setName] = useState(initialName ?? "");
   const [username, setUsername] = useState(initialUsername ?? "");
+  const [bio, setBio] = useState(initialBio ?? "");
   const [favoriteAnime, setFavoriteAnime] = useState(initialFavoriteAnime ?? "");
   const [visibility, setVisibility] = useState(initialVisibility);
-
-  // name field in the form
   const [saving, setSaving] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
+
+  const nameRef = useRef<HTMLInputElement>(null);
+  const usernameRef = useRef<HTMLInputElement>(null);
+  const bioRef = useRef<HTMLTextAreaElement>(null);
+  const favoriteRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (!focusField) return;
+    const map = { name: nameRef, username: usernameRef, bio: bioRef, favorite: favoriteRef };
+    const el = map[focusField]?.current;
+    if (el) {
+      el.scrollIntoView({ behavior: "smooth", block: "center" });
+      el.focus();
+    }
+  }, [focusField]);
 
   async function handleSave() {
     setSaving(true); setError(""); setSuccess(false);
@@ -30,6 +48,7 @@ export default function ProfileEditForm({ initialName, initialUsername, initialF
       body: JSON.stringify({
         name: name.trim() || null,
         username: username.trim() || null,
+        bio: bio.trim() || null,
         favoriteAnimeTitle: favoriteAnime.trim() || null,
         profileVisibility: visibility,
       }),
@@ -37,7 +56,12 @@ export default function ProfileEditForm({ initialName, initialUsername, initialF
     const data = await res.json();
     if (!res.ok) { setError(data.error || "Erro ao salvar."); setSaving(false); return; }
     setSuccess(true);
-    onSaved({ username: username.trim() || undefined, favoriteAnimeTitle: favoriteAnime.trim() || undefined, profileVisibility: visibility });
+    onSaved({
+      username: username.trim() || undefined,
+      bio: bio.trim() || undefined,
+      favoriteAnimeTitle: favoriteAnime.trim() || undefined,
+      profileVisibility: visibility,
+    });
     setTimeout(() => setSuccess(false), 3000);
     setSaving(false);
   }
@@ -48,26 +72,36 @@ export default function ProfileEditForm({ initialName, initialUsername, initialF
 
       <div>
         <label className="block text-slate-400 text-xs mb-1.5">Nome de exibição</label>
-        <input value={name} onChange={e => setName(e.target.value)} maxLength={100}
-          placeholder="Seu nome de otaku" className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors" />
+        <input ref={nameRef} value={name} onChange={e => setName(e.target.value)} maxLength={100}
+          placeholder="Seu nome de otaku"
+          className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors" />
       </div>
 
       <div>
         <label className="block text-slate-400 text-xs mb-1.5">Username <span className="text-slate-600">(único · 3-30 chars · letras, números, ponto, _ e -)</span></label>
         <div className="flex items-center gap-2">
           <span className="text-slate-500 text-sm">@</span>
-          <input value={username} onChange={e => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9._-]/g, ""))} maxLength={30}
-            placeholder="seu_username" className="flex-1 px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors" />
+          <input ref={usernameRef} value={username}
+            onChange={e => setUsername(e.target.value.toLowerCase().replace(/[^a-z0-9._-]/g, ""))} maxLength={30}
+            placeholder="seu_username"
+            className="flex-1 px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors" />
         </div>
-        {username && (
-          <p className="text-slate-600 text-xs mt-1">Perfil público em: animeinfobr.com.br/u/{username}</p>
-        )}
+        {username && <p className="text-slate-600 text-xs mt-1">Perfil público em: animeinfobr.com.br/u/{username}</p>}
+      </div>
+
+      <div>
+        <label className="block text-slate-400 text-xs mb-1.5">Biografia</label>
+        <textarea ref={bioRef} value={bio} onChange={e => setBio(e.target.value)} maxLength={500} rows={3}
+          placeholder="Conte um pouco sobre você como otaku..."
+          className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors resize-none" />
+        <p className="text-slate-600 text-xs mt-0.5 text-right">{bio.length}/500</p>
       </div>
 
       <div>
         <label className="block text-slate-400 text-xs mb-1.5">Anime favorito</label>
-        <input value={favoriteAnime} onChange={e => setFavoriteAnime(e.target.value)} maxLength={200}
-          placeholder="Ex: Fullmetal Alchemist: Brotherhood" className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors" />
+        <input ref={favoriteRef} value={favoriteAnime} onChange={e => setFavoriteAnime(e.target.value)} maxLength={200}
+          placeholder="Ex: Fullmetal Alchemist: Brotherhood"
+          className="w-full px-3 py-2.5 bg-white/5 border border-white/10 rounded-xl text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-500 transition-colors" />
       </div>
 
       <div>

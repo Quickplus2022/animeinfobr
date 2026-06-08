@@ -72,6 +72,7 @@ export default function PerfilClient({
 }: Props) {
   const [tab, setTab] = useState(initialTab);
   const [localProfile, setLocalProfile] = useState(profile);
+  const [editFocus, setEditFocus] = useState<"name" | "username" | "bio" | "favorite" | undefined>(undefined);
 
   const initial = (session.name || session.email || "U")[0].toUpperCase();
   const tabs = TABS(favorites.length, watchLater.length);
@@ -79,6 +80,25 @@ export default function PerfilClient({
 
   function handleProfileUpdate(data: Partial<ProfileData>) {
     setLocalProfile(p => p ? { ...p, ...data } : p);
+  }
+
+  function handleCompletionAction(stepId: string) {
+    const focusMap: Record<string, "name" | "username" | "bio" | "favorite"> = {
+      name: "name", username: "username", bio: "bio", favorite: "favorite", avatar: "name",
+    };
+    const tabMap: Record<string, string> = {
+      name: "edit", username: "edit", bio: "edit", favorite: "edit", avatar: "edit",
+      test: "dna", team: "team",
+    };
+    const focus = focusMap[stepId];
+    const nextTab = tabMap[stepId] ?? "edit";
+    setEditFocus(focus);
+    setTab(nextTab);
+  }
+
+  function handleTabChange(newTab: string) {
+    if (newTab !== "edit") setEditFocus(undefined);
+    setTab(newTab);
   }
 
   return (
@@ -102,7 +122,7 @@ export default function PerfilClient({
           <Link
             key={t.id}
             href={`/perfil?tab=${t.id}`}
-            onClick={() => setTab(t.id)}
+            onClick={() => handleTabChange(t.id)}
             className={`flex items-center gap-1.5 px-3 py-2 rounded-xl text-sm font-medium whitespace-nowrap transition-all ${
               tab === t.id
                 ? "bg-violet-600 text-white"
@@ -130,7 +150,7 @@ export default function PerfilClient({
             testDone={hasTestResult}
             favoriteAnime={!!localProfile?.favoriteAnimeTitle}
             slotFilled={slotCount > 0}
-            onGoToTab={setTab}
+            onAction={handleCompletionAction}
           />
           {localProfile?.favoriteAnimeTitle && (
             <div className="bg-[#0d1424] rounded-xl border border-white/8 p-4 flex items-center gap-3">
@@ -229,9 +249,18 @@ export default function PerfilClient({
         <ProfileEditForm
           initialName={session.name}
           initialUsername={localProfile?.username ?? null}
+          initialBio={localProfile?.bio ?? null}
           initialFavoriteAnime={localProfile?.favoriteAnimeTitle ?? null}
           initialVisibility={localProfile?.profileVisibility ?? "public"}
-          onSaved={() => {}}
+          focusField={editFocus}
+          onSaved={(data) => {
+            handleProfileUpdate({
+              username: data.username !== undefined ? data.username : localProfile?.username ?? null,
+              bio: data.bio !== undefined ? data.bio : localProfile?.bio ?? null,
+              favoriteAnimeTitle: data.favoriteAnimeTitle !== undefined ? data.favoriteAnimeTitle : localProfile?.favoriteAnimeTitle ?? null,
+              profileVisibility: data.profileVisibility ?? localProfile?.profileVisibility ?? "public",
+            });
+          }}
         />
       )}
 

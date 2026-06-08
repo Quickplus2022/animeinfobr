@@ -19,17 +19,17 @@ interface Props {
   testDone: boolean;
   favoriteAnime: boolean;
   slotFilled: boolean;
-  onGoToTab: (tab: string) => void;
+  onAction: (stepId: string) => void;
 }
 
 export default function ProfileCompletion({
-  name, username, bio, avatar, testDone, favoriteAnime, slotFilled, onGoToTab,
+  name, username, bio, avatar, testDone, favoriteAnime, slotFilled, onAction,
 }: Props) {
   const steps: Step[] = [
     { id: "name", label: "Nome de exibição", description: "Como outros usuários vão te ver.", done: name, points: 10, tab: "edit", actionLabel: "Adicionar nome", emoji: "👤" },
     { id: "avatar", label: "Avatar personalizado", description: "Emoji ou foto que representa você.", done: avatar, points: 15, tab: "edit", actionLabel: "Escolher avatar", emoji: "🎨" },
     { id: "username", label: "Username único (@)", description: "Seu endereço público no AnimeInfoBR.", done: username, points: 15, tab: "edit", actionLabel: "Criar username", emoji: "🔗" },
-    { id: "bio", label: "Biografia", description: "Fale sobre você em poucas palavras.", done: bio, points: 20, tab: "edit", actionLabel: "Escrever bio", emoji: "✍️" },
+    { id: "bio", label: "Biografia", description: "Fale sobre você em poucas palavras.", done: bio, points: 20, tab: "edit", actionLabel: "Escrever bio →", emoji: "✍️" },
     { id: "favorite", label: "Anime favorito", description: "Qual anime marcou sua vida?", done: favoriteAnime, points: 10, tab: "edit", actionLabel: "Adicionar favorito", emoji: "🎌" },
     { id: "test", label: "Teste de Personagem", description: "Descubra qual personagem você é.", done: testDone, points: 25, tab: "dna", actionLabel: "Fazer o teste", emoji: "🧬" },
     { id: "team", label: "Time de Personagens", description: "Monte seu time com seus favoritos.", done: slotFilled, points: 5, tab: "team", actionLabel: "Montar time", emoji: "🎭" },
@@ -88,7 +88,7 @@ export default function ProfileCompletion({
             <span className="text-violet-400 text-xs font-bold shrink-0">+{nextStep.points}%</span>
           </div>
           <button
-            onClick={() => onGoToTab(nextStep.tab)}
+            onClick={() => onAction(nextStep.id)}
             className="mt-3 w-full py-2.5 rounded-xl bg-violet-600 hover:bg-violet-500 text-white text-sm font-bold transition-colors"
           >
             {nextStep.actionLabel} →
@@ -103,7 +103,7 @@ export default function ProfileCompletion({
           {remainingSteps.slice(1).map((step) => (
             <button
               key={step.id}
-              onClick={() => onGoToTab(step.tab)}
+              onClick={() => onAction(step.id)}
               className="w-full flex items-center gap-3 p-3 rounded-xl bg-white/3 border border-white/6 hover:border-violet-500/30 hover:bg-violet-500/5 transition-all text-left"
             >
               <span className="text-lg opacity-50">{step.emoji}</span>
