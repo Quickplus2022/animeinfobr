@@ -53,6 +53,9 @@ export async function POST(request: Request) {
 }
 
 export async function GET(request: Request) {
+  const session = await getSession();
+  if (!session?.user?.id) return NextResponse.json({ error: "Não autenticado" }, { status: 401 });
+
   const { searchParams } = new URL(request.url);
   const sessionId = searchParams.get("id");
   if (!sessionId) return NextResponse.json(null);
@@ -65,5 +68,11 @@ export async function GET(request: Request) {
       party: { include: { members: { include: { user: { select: { id: true, name: true, username: true, avatarEmoji: true } } } } } },
     },
   });
+
+  if (!rpgSession) return NextResponse.json(null);
+
+  const isMember = rpgSession.party.members.some((m) => m.userId === session.user.id);
+  if (!isMember) return NextResponse.json({ error: "Acesso negado" }, { status: 403 });
+
   return NextResponse.json(rpgSession);
 }

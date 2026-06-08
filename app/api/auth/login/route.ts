@@ -1,9 +1,24 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { createToken, setSessionCookie } from "@/lib/session";
+import { checkRateLimit, rateLimitKey } from "@/lib/rate-limit";
 import bcrypt from "bcryptjs";
 
+export const dynamic = "force-dynamic";
+
+// 10 tentativas por 15 minutos por IP
+const LIMIT = 10;
+const WINDOW_MS = 15 * 60 * 1000;
+
 export async function POST(request: Request) {
+  const rl = checkRateLimit(rateLimitKey("login", request), LIMIT, WINDOW_MS);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: `Muitas tentativas. Tente novamente em ${rl.retryAfterSec}s.` },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSec) } }
+    );
+  }
+
   try {
     const { email, password } = await request.json();
     if (!email || !password) {
@@ -28,8 +43,7 @@ export async function POST(request: Request) {
     setSessionCookie(response, token);
 
     return response;
-  } catch (err) {
-    console.error("Login error:", err);
+  } catch {
     return NextResponse.json({ error: "Erro interno. Tente novamente." }, { status: 500 });
   }
 }

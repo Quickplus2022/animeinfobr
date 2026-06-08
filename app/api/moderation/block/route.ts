@@ -11,14 +11,21 @@ export async function POST(request: Request) {
   const { blockedId } = await request.json();
   if (!blockedId || blockedId === session.user.id) return NextResponse.json({ error: "ID inválido" }, { status: 400 });
 
-  await prisma.userBlock.upsert({
-    where: { blockerId_blockedId: { blockerId: session.user.id, blockedId } },
-    create: { blockerId: session.user.id, blockedId },
-    update: {},
-  });
-
-  // Remove friendship if exists
-  await prisma.userFriend.deleteMany({ where: { OR: [{ userId: session.user.id, friendId: blockedId }, { userId: blockedId, friendId: session.user.id }] } });
+  await prisma.$transaction([
+    prisma.userBlock.upsert({
+      where: { blockerId_blockedId: { blockerId: session.user.id, blockedId } },
+      create: { blockerId: session.user.id, blockedId },
+      update: {},
+    }),
+    prisma.userFriend.deleteMany({
+      where: {
+        OR: [
+          { userId: session.user.id, friendId: blockedId },
+          { userId: blockedId, friendId: session.user.id },
+        ],
+      },
+    }),
+  ]);
 
   return NextResponse.json({ success: true });
 }

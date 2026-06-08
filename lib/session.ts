@@ -12,8 +12,12 @@ export const COOKIE_OPTIONS = {
   path: "/",
 };
 
+const rawSecret = process.env.JWT_SECRET;
+if (!rawSecret && process.env.NODE_ENV === "production") {
+  throw new Error("JWT_SECRET env var não definida em produção.");
+}
 const SECRET = new TextEncoder().encode(
-  "AnimeInfoBR-JWT-2026-xZ9kQmPv3nRt7wYsUjLhFcBdAeGo-stable-key"
+  rawSecret ?? "AnimeInfoBR-dev-only-change-in-production"
 );
 
 export interface SessionUser {

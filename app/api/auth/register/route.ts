@@ -1,14 +1,32 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
 import { createToken, setSessionCookie } from "@/lib/session";
+import { checkRateLimit, rateLimitKey } from "@/lib/rate-limit";
 import bcrypt from "bcryptjs";
 
+export const dynamic = "force-dynamic";
+
+// 5 cadastros por hora por IP
+const LIMIT = 5;
+const WINDOW_MS = 60 * 60 * 1000;
+
 export async function POST(request: Request) {
+  const rl = checkRateLimit(rateLimitKey("register", request), LIMIT, WINDOW_MS);
+  if (!rl.allowed) {
+    return NextResponse.json(
+      { error: `Muitas tentativas. Tente novamente em ${rl.retryAfterSec}s.` },
+      { status: 429, headers: { "Retry-After": String(rl.retryAfterSec) } }
+    );
+  }
+
   try {
     const { name, email, password } = await request.json();
 
-    if (!email || !password || password.length < 6) {
-      return NextResponse.json({ error: "Dados inválidos. Senha mínima: 6 caracteres." }, { status: 400 });
+    if (!email || !password || password.length < 8) {
+      return NextResponse.json(
+        { error: "Dados inválidos. Senha mínima: 8 caracteres." },
+        { status: 400 }
+      );
     }
 
     const cleanEmail = email.toLowerCase().trim();
@@ -27,8 +45,7 @@ export async function POST(request: Request) {
     setSessionCookie(response, token);
 
     return response;
-  } catch (err) {
-    console.error("Register error:", err);
+  } catch {
     return NextResponse.json({ error: "Erro interno" }, { status: 500 });
   }
 }
