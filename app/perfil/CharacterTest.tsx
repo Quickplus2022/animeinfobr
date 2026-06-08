@@ -63,7 +63,7 @@ function CharacterCard({ char, label, match, expanded: initExpanded }: { char: A
 
 interface SavedResult {
   primary: AnimeCharacter; medium: AnimeCharacter; hidden: AnimeCharacter;
-  rival: AnimeCharacter; shadow: AnimeCharacter;
+  ally: AnimeCharacter; rival: AnimeCharacter; shadow: AnimeCharacter; wild: AnimeCharacter;
   archetype: Archetype; archetypeLabel: string; dna: AnimeDNA;
 }
 
@@ -130,7 +130,7 @@ export default function CharacterTest({ username }: { username?: string | null }
       <div className="text-5xl mb-3">🧬</div>
       <h3 className="text-white font-black text-xl mb-2">Anime Character DNA</h3>
       <p className="text-slate-400 text-sm mb-5 max-w-md mx-auto">
-        {total} perguntas sobre sua personalidade. Descubra qual personagem você é, seu rival, sua sombra e seu DNA de gêneros.
+        {total} perguntas sobre sua personalidade. Descubra seu personagem espelho, aliado, rival, sombra, carta surpresa e seu DNA de gêneros.
       </p>
       <button onClick={() => setStep("test")} className="px-6 py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 text-white font-bold hover:opacity-90 transition-opacity">
         Iniciar teste →
@@ -195,8 +195,12 @@ export default function CharacterTest({ username }: { username?: string | null }
           <CharacterCard char={result.medium} label="🔵 Também se parece com" match={Math.max(60, primaryMatch - 12)} />
           <CharacterCard char={result.hidden} label="💎 Lado oculto" match={Math.max(50, primaryMatch - 20)} />
           <div className="grid grid-cols-2 gap-3">
+            <CharacterCard char={result.ally} label="🤝 Seu aliado natural" match={Math.max(48, primaryMatch - 22)} />
             <CharacterCard char={result.rival} label="⚔️ Seu rival" match={Math.max(45, primaryMatch - 25)} />
+          </div>
+          <div className="grid grid-cols-2 gap-3">
             <CharacterCard char={result.shadow} label="🌑 Sua sombra" match={Math.max(40, primaryMatch - 30)} />
+            <CharacterCard char={result.wild} label="🃏 Carta surpresa" match={Math.max(35, primaryMatch - 35)} />
           </div>
         </div>
       )}

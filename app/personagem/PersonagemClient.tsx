@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/auth/AuthContext";
 import { RPG_CLASSES, RPG_ELEMENTS, STYLE_OPTIONS, getLevelFromXp, type RpgClass } from "@/data/mock/rpg";
 import { CharacterMini } from "@/components/rpg/CharacterMini";
 
@@ -26,7 +26,7 @@ interface CharacterData {
 }
 
 export default function PersonagemClient() {
-  const { data: session } = useSession();
+  const { user, loading: authLoading } = useAuth();
   const [step, setStep] = useState<"style" | "class" | "element" | "details" | "view">("style");
   const [character, setCharacter] = useState<CharacterData | null>(null);
   const [draft, setDraft] = useState({
@@ -45,11 +45,13 @@ export default function PersonagemClient() {
       }
       setLoaded(true);
     }
-    if (session?.user) load();
-    else setLoaded(true);
-  }, [session]);
+    if (!authLoading) {
+      if (user) load();
+      else setLoaded(true);
+    }
+  }, [user, authLoading]);
 
-  if (!session?.user) {
+  if (!authLoading && !user) {
     return (
       <div className="text-center py-16 text-slate-400">
         <p className="mb-4">Faça login para criar seu personagem.</p>
@@ -58,7 +60,7 @@ export default function PersonagemClient() {
     );
   }
 
-  if (!loaded) return <div className="text-center text-slate-500 py-16">Carregando...</div>;
+  if (authLoading || !loaded) return <div className="text-center text-slate-500 py-16">Carregando...</div>;
 
   async function save() {
     setSaving(true);
