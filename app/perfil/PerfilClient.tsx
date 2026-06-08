@@ -130,6 +130,7 @@ export default function PerfilClient({
             testDone={hasTestResult}
             favoriteAnime={!!localProfile?.favoriteAnimeTitle}
             slotFilled={slotCount > 0}
+            onGoToTab={setTab}
           />
           {localProfile?.favoriteAnimeTitle && (
             <div className="bg-[#0d1424] rounded-xl border border-white/8 p-4 flex items-center gap-3">
