@@ -10,6 +10,8 @@ import CharacterSlotSelector from "./CharacterSlotSelector";
 import ProfileEditForm from "./ProfileEditForm";
 import ProfileCompletion from "./ProfileCompletion";
 
+export const dynamic = "force-dynamic";
+
 export const metadata: Metadata = {
   title: "Meu Perfil | AnimeInfoBR",
   description: "Seu perfil otaku — DNA de personagem, lista, favoritos e muito mais.",

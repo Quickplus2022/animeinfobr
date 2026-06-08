@@ -13,6 +13,7 @@ import {
   getCurrentSeason,
   createAnimeSlug,
   getDisplayTitle,
+  type AniListMedia,
 } from "@/lib/anilist/services";
 import { GUIDES } from "@/data/mock/guides";
 
@@ -44,9 +45,9 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.animeinfobr.co
 
 export default async function HomePage() {
   const [trending, seasonal, popular] = await Promise.all([
-    getTrendingAnime(12),
-    getSeasonalAnime(8),
-    getPopularAnime(5),
+    getTrendingAnime(12).catch(() => [] as AniListMedia[]),
+    getSeasonalAnime(8).catch(() => [] as AniListMedia[]),
+    getPopularAnime(5).catch(() => [] as AniListMedia[]),
   ]);
 
   const { season, year } = getCurrentSeason();
