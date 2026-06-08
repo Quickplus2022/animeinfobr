@@ -137,7 +137,7 @@ export default function PartyClient() {
         </div>
 
         <div className="flex gap-3">
-          <Link href="/missoes" className="flex-1 text-center bg-violet-600 hover:bg-violet-500 text-white font-bold px-4 py-2.5 rounded-xl transition-colors text-sm">
+          <Link href={`/missoes/rpg?partyId=${party.id}`} className="flex-1 text-center bg-violet-600 hover:bg-violet-500 text-white font-bold px-4 py-2.5 rounded-xl transition-colors text-sm">
             ⚔️ Escolher Missão
           </Link>
           {!isOwner && (
