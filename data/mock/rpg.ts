@@ -41,6 +41,14 @@ export interface RpgMissionData {
   rewardsJson: string;
 }
 
+export interface AwakeningPath {
+  id: string;
+  label: string;
+  emoji: string;
+  description: string;
+  attrBonuses: Partial<Record<string, number>>;
+}
+
 export const RPG_CLASSES: RpgClass[] = [
   { id: "espadachim", label: "Espadachim", emoji: "⚔️", description: "Mestre em combate corpo-a-corpo. Vive pela honra e pelo fio da lâmina.", primaryAttribute: "courage", style: ["combatente"], attributes: { courage: 9, defense: 8, technique: 7, energy: 6, strategy: 4, empathy: 3, luck: 4, charisma: 3 } },
   { id: "estrategista", label: "Estrategista", emoji: "♟️", description: "Vê o campo de batalha como xadrez. Cada peça tem seu propósito.", primaryAttribute: "strategy", style: ["intelectual"], attributes: { strategy: 10, technique: 7, luck: 5, charisma: 6, defense: 4, empathy: 4, courage: 3, energy: 3 } },
@@ -89,6 +97,150 @@ export const GUILD_BADGES = [
   { key: "heroi_temporada", name: "Herói da Temporada", icon: "👑", description: "Concluiu 5 missões" },
   { key: "jogador_equipe", name: "Jogador de Equipe", icon: "🎭", description: "Jogou com 3 amigos em uma sessão" },
 ];
+
+// ── SISTEMA DE NÍVEIS (100 níveis) ────────────────────────────────────────────
+
+const TIER_TITLES: Array<{ minLevel: number; title: string }> = [
+  { minLevel: 100, title: "Imortal" },
+  { minLevel: 90, title: "Transcendido" },
+  { minLevel: 80, title: "Lendário" },
+  { minLevel: 70, title: "Guardião" },
+  { minLevel: 60, title: "Campeão" },
+  { minLevel: 50, title: "Mestre" },
+  { minLevel: 40, title: "Veterano" },
+  { minLevel: 30, title: "Guerreiro" },
+  { minLevel: 20, title: "Iniciado" },
+  { minLevel: 10, title: "Aventureiro" },
+  { minLevel: 1, title: "Recruta" },
+];
+
+export function getLevelTitle(level: number): string {
+  for (const tier of TIER_TITLES) {
+    if (level >= tier.minLevel) return tier.title;
+  }
+  return "Recruta";
+}
+
+export function xpForLevel(n: number): number {
+  if (n <= 1) return 0;
+  return Math.round((n - 1) * n / 2 * 100);
+}
+
+export function getLevelFromXp(xp: number): {
+  level: number; label: string; currentXp: number; nextXp: number; progress: number;
+} {
+  let level = 1;
+  for (let n = 100; n >= 1; n--) {
+    if (xp >= xpForLevel(n)) { level = n; break; }
+  }
+  const currentLevelXp = xpForLevel(level);
+  const nextLevelXp = level >= 100 ? xpForLevel(100) + 50000 : xpForLevel(level + 1);
+  const range = nextLevelXp - currentLevelXp;
+  const progress = level >= 100 ? 100 : Math.min(100, Math.round(((xp - currentLevelXp) / range) * 100));
+  return { level, label: getLevelTitle(level), currentXp: currentLevelXp, nextXp: nextLevelXp, progress };
+}
+
+// Legacy compat — some callers used XP_LEVELS array
+export const XP_LEVELS = Array.from({ length: 100 }, (_, i) => {
+  const n = i + 1;
+  return { level: n, min: xpForLevel(n), max: n < 100 ? xpForLevel(n + 1) - 1 : Infinity, label: getLevelTitle(n) };
+});
+
+// ── TIERS VISUAIS ─────────────────────────────────────────────────────────────
+
+export type VisualTier =
+  | "recruta" | "aventureiro" | "iniciado" | "guerreiro" | "veterano"
+  | "mestre" | "campeao" | "guardiao" | "lendario" | "transcendido" | "imortal";
+
+export interface TierStyle {
+  tier: VisualTier;
+  borderColor: string;
+  bgColor: string;
+  textColor: string;
+  shadowColor: string;
+  glowClass: string;
+  badgeEmoji: string;
+  tierLabel: string;
+}
+
+export function getVisualTier(level: number): TierStyle {
+  if (level >= 100) return { tier: "imortal", borderColor: "border-yellow-400", bgColor: "bg-yellow-900/30", textColor: "text-yellow-300", shadowColor: "shadow-yellow-500/40", glowClass: "shadow-lg", badgeEmoji: "👑", tierLabel: "Imortal" };
+  if (level >= 90) return { tier: "transcendido", borderColor: "border-red-400", bgColor: "bg-red-900/20", textColor: "text-red-300", shadowColor: "shadow-red-500/30", glowClass: "shadow-md", badgeEmoji: "🌌", tierLabel: "Transcendido" };
+  if (level >= 80) return { tier: "lendario", borderColor: "border-rose-400", bgColor: "bg-rose-900/20", textColor: "text-rose-300", shadowColor: "shadow-rose-500/25", glowClass: "shadow-md", badgeEmoji: "🏆", tierLabel: "Lendário" };
+  if (level >= 70) return { tier: "guardiao", borderColor: "border-orange-400", bgColor: "bg-orange-900/20", textColor: "text-orange-300", shadowColor: "shadow-orange-500/20", glowClass: "shadow-sm", badgeEmoji: "🔱", tierLabel: "Guardião" };
+  if (level >= 60) return { tier: "campeao", borderColor: "border-amber-400", bgColor: "bg-amber-900/20", textColor: "text-amber-300", shadowColor: "shadow-amber-500/20", glowClass: "shadow-sm", badgeEmoji: "🌟", tierLabel: "Campeão" };
+  if (level >= 50) return { tier: "mestre", borderColor: "border-purple-400", bgColor: "bg-purple-900/20", textColor: "text-purple-300", shadowColor: "shadow-purple-500/20", glowClass: "shadow-sm", badgeEmoji: "💜", tierLabel: "Mestre" };
+  if (level >= 40) return { tier: "veterano", borderColor: "border-violet-400", bgColor: "bg-violet-900/20", textColor: "text-violet-300", shadowColor: "shadow-violet-500/15", glowClass: "", badgeEmoji: "⚡", tierLabel: "Veterano" };
+  if (level >= 30) return { tier: "guerreiro", borderColor: "border-cyan-500", bgColor: "bg-cyan-900/15", textColor: "text-cyan-300", shadowColor: "", glowClass: "", badgeEmoji: "⚔️", tierLabel: "Guerreiro" };
+  if (level >= 20) return { tier: "iniciado", borderColor: "border-blue-500", bgColor: "bg-blue-900/15", textColor: "text-blue-300", shadowColor: "", glowClass: "", badgeEmoji: "🔵", tierLabel: "Iniciado" };
+  if (level >= 10) return { tier: "aventureiro", borderColor: "border-emerald-500", bgColor: "bg-emerald-900/15", textColor: "text-emerald-300", shadowColor: "", glowClass: "", badgeEmoji: "🌿", tierLabel: "Aventureiro" };
+  return { tier: "recruta", borderColor: "border-slate-600", bgColor: "bg-slate-800", textColor: "text-slate-400", shadowColor: "", glowClass: "", badgeEmoji: "🗡️", tierLabel: "Recruta" };
+}
+
+// ── DESPERTAR (AWAKENING) ─────────────────────────────────────────────────────
+
+export const AWAKENING_PATHS: Record<string, [AwakeningPath, AwakeningPath]> = {
+  espadachim: [
+    { id: "ronin", label: "Ronin Eterno", emoji: "🌑", description: "Abraça o caminho solitário. Velocidade e letalidade máximas.", attrBonuses: { courage: 3, technique: 2 } },
+    { id: "cavaleiro_sagrado", label: "Cavaleiro Sagrado", emoji: "🛡️", description: "Jura proteger os aliados acima da própria vida.", attrBonuses: { defense: 3, empathy: 2, courage: 1 } },
+  ],
+  estrategista: [
+    { id: "arquiteto_sombra", label: "Arquiteto das Sombras", emoji: "🕸️", description: "Manipula eventos muito antes que aconteçam. Invisível.", attrBonuses: { strategy: 4, luck: 2 } },
+    { id: "comandante", label: "Comandante de Campo", emoji: "🏴", description: "Amplifica a eficiência de toda a party em batalha.", attrBonuses: { strategy: 2, charisma: 3, technique: 1 } },
+  ],
+  curandeiro: [
+    { id: "medico_guerra", label: "Médico de Guerra", emoji: "🩺", description: "Cura rápida em condições caóticas. Ninguém cai com ele.", attrBonuses: { empathy: 3, technique: 3 } },
+    { id: "arquiteto_vida", label: "Arquiteto da Vida", emoji: "🌿", description: "Auras de cura passiva que beneficiam todos ao redor.", attrBonuses: { empathy: 4, energy: 2 } },
+  ],
+  invocador: [
+    { id: "mestre_contratos", label: "Mestre dos Contratos", emoji: "📜", description: "Invoca entidades mais poderosas com maior controle.", attrBonuses: { energy: 3, charisma: 3 } },
+    { id: "guardiao_portal", label: "Guardião dos Portais", emoji: "🌀", description: "Abre portais dimensionais para apoio tático da party.", attrBonuses: { energy: 2, technique: 2, defense: 2 } },
+  ],
+  exorcista: [
+    { id: "cacador_spectros", label: "Caçador de Spectros", emoji: "👁️", description: "Detecta e erradica entidades antes que causem dano.", attrBonuses: { technique: 3, courage: 2, luck: 1 } },
+    { id: "ponte_mundos", label: "Ponte entre Mundos", emoji: "🌉", description: "Negocia com entidades ao invés de destruí-las.", attrBonuses: { empathy: 3, charisma: 3 } },
+  ],
+  ninja_urbano: [
+    { id: "fantasma_digital", label: "Fantasma Digital", emoji: "💻", description: "Invisível em redes digitais e físicas. Zero rastros.", attrBonuses: { technique: 4, luck: 2 } },
+    { id: "assassino_silencioso", label: "Assassino Silencioso", emoji: "🗡️", description: "Strike letal de um único golpe antes de ser detectado.", attrBonuses: { technique: 2, courage: 2, luck: 2 } },
+  ],
+  alquimista: [
+    { id: "transmutador", label: "Transmutador Supremo", emoji: "⚗️", description: "Transforma qualquer material em arma ou ferramenta.", attrBonuses: { strategy: 3, technique: 3 } },
+    { id: "construtor_runas", label: "Construtor de Runas", emoji: "🔮", description: "Grava runas permanentes que persistem pelo mapa.", attrBonuses: { energy: 3, strategy: 2, luck: 1 } },
+  ],
+  guardiao: [
+    { id: "bastiao", label: "Bastião Inabalável", emoji: "🏰", description: "Absorve dano que destruiria aliados. Imovível.", attrBonuses: { defense: 4, courage: 2 } },
+    { id: "sentinel", label: "Sentinela Sagrada", emoji: "⚡", description: "Proteção ativa — reflete parte do dano recebido.", attrBonuses: { defense: 2, energy: 2, technique: 2 } },
+  ],
+  atirador: [
+    { id: "franco_atirador", label: "Franco-Atirador Supremo", emoji: "🎯", description: "Elimina alvos prioritários com um único tiro certeiro.", attrBonuses: { technique: 4, luck: 2 } },
+    { id: "artilheiro_area", label: "Artilheiro de Área", emoji: "💥", description: "Supressão total — cobre toda a área inimiga.", attrBonuses: { technique: 2, energy: 3, courage: 1 } },
+  ],
+  mago_elemental: [
+    { id: "arconte", label: "Arconte Elemental", emoji: "🌪️", description: "Domina até 3 elementos simultaneamente.", attrBonuses: { energy: 4, technique: 2 } },
+    { id: "feiticeiro_caos", label: "Feiticeiro do Caos", emoji: "🌀", description: "Magias imprevisíveis que confundem e paralisam inimigos.", attrBonuses: { energy: 3, luck: 3 } },
+  ],
+  lutador: [
+    { id: "berserker", label: "Berserker Lendário", emoji: "🔥", description: "Quanto mais machucado, mais devastador fica.", attrBonuses: { courage: 4, energy: 2 } },
+    { id: "mestre_marcial", label: "Mestre das Artes Marciais", emoji: "🥋", description: "Cada golpe é uma obra de arte técnica perfeita.", attrBonuses: { technique: 3, courage: 2, strategy: 1 } },
+  ],
+  oraculo: [
+    { id: "profeta", label: "Profeta dos Fins", emoji: "🔮", description: "Vê possibilidades de vitória que outros não enxergam.", attrBonuses: { charisma: 3, luck: 3 } },
+    { id: "narrador_destino", label: "Narrador do Destino", emoji: "📖", description: "Reescreve resultados negativos uma vez por sessão.", attrBonuses: { charisma: 4, strategy: 2 } },
+  ],
+};
+
+export function getAwakeningOptions(classType: string): [AwakeningPath, AwakeningPath] | null {
+  return AWAKENING_PATHS[classType] ?? null;
+}
+
+export function getAwakeningById(classType: string, awakeningId: string): AwakeningPath | null {
+  const paths = AWAKENING_PATHS[classType];
+  if (!paths) return null;
+  return paths.find(p => p.id === awakeningId) ?? null;
+}
+
+// ── MISSÕES ───────────────────────────────────────────────────────────────────
 
 export const MISSIONS_DATA: RpgMissionData[] = [
   {
@@ -290,6 +442,8 @@ export const MISSIONS_DATA: RpgMissionData[] = [
   },
 ];
 
+// ── FUNÇÕES UTILITÁRIAS ───────────────────────────────────────────────────────
+
 export function rollD20(): number {
   return Math.floor(Math.random() * 20) + 1;
 }
@@ -314,18 +468,6 @@ export const RESULT_LABELS: Record<ResultType, { label: string; color: string; e
   CRITICAL: { label: "Crítico!", color: "text-violet-400", emoji: "🌟" },
 };
 
-export const XP_LEVELS = [
-  { level: 1, min: 0, max: 99, label: "Recruta" },
-  { level: 2, min: 100, max: 249, label: "Aventureiro" },
-  { level: 3, min: 250, max: 499, label: "Veterano" },
-  { level: 4, min: 500, max: 999, label: "Elite" },
-  { level: 5, min: 1000, max: Infinity, label: "Lendário" },
-];
-
-export function getLevelFromXp(xp: number) {
-  return XP_LEVELS.find(l => xp >= l.min && xp <= l.max) ?? XP_LEVELS[0];
-}
-
 export function getClassById(id: string) {
   return RPG_CLASSES.find(c => c.id === id);
 }
@@ -336,4 +478,8 @@ export function getElementById(id: string) {
 
 export function suggestClassesForStyle(styleId: string): RpgClass[] {
   return RPG_CLASSES.filter(c => c.style.includes(styleId));
+}
+
+export function getAttributeWithLevel(baseValue: number, level: number, isPrimary: boolean): number {
+  return baseValue + Math.floor(level / (isPrimary ? 5 : 10));
 }

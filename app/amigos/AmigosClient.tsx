@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/auth/AuthContext";
 
 interface UserCard {
   id: string;
@@ -31,7 +31,7 @@ interface FriendsList {
 type Tab = "amigos" | "pendentes" | "buscar";
 
 export default function AmigosClient() {
-  const { data: session } = useSession();
+  const { user, loading: authLoading } = useAuth();
   const [tab, setTab] = useState<Tab>("amigos");
   const [query, setQuery] = useState("");
   const [results, setResults] = useState<SearchResult[]>([]);
@@ -44,7 +44,7 @@ export default function AmigosClient() {
     if (res.ok) setData(await res.json());
   }, []);
 
-  useEffect(() => { if (session?.user) loadData(); }, [session, loadData]);
+  useEffect(() => { if (!authLoading && user) loadData(); }, [authLoading, user, loadData]);
 
   useEffect(() => {
     if (query.length < 2) { setResults([]); return; }
@@ -78,7 +78,9 @@ export default function AmigosClient() {
     setActing(p => ({ ...p, [friendId]: false }));
   }
 
-  if (!session?.user) {
+  if (authLoading) return <div className="text-center text-slate-500 py-12">Carregando...</div>;
+
+  if (!user) {
     return (
       <div className="text-center py-16 text-slate-400">
         <p className="mb-4">Faça login para ver e adicionar amigos.</p>

@@ -1,7 +1,7 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { useSession } from "next-auth/react";
+import { useAuth } from "@/components/auth/AuthContext";
 import { CharacterMini } from "@/components/rpg/CharacterMini";
 
 const THEMES = [
@@ -30,7 +30,7 @@ interface Party {
 }
 
 export default function PartyClient() {
-  const { data: session } = useSession();
+  const { user, loading: authLoading } = useAuth();
   const [party, setParty] = useState<Party | null>(null);
   const [loading, setLoading] = useState(true);
   const [mode, setMode] = useState<"idle" | "create" | "join">("idle");
@@ -49,11 +49,13 @@ export default function PartyClient() {
       }
       setLoading(false);
     }
-    if (session?.user) load();
-    else setLoading(false);
-  }, [session]);
+    if (!authLoading) {
+      if (user) load();
+      else setLoading(false);
+    }
+  }, [authLoading, user]);
 
-  if (!session?.user) {
+  if (!authLoading && !user) {
     return (
       <div className="text-center py-16 text-slate-400">
         <p className="mb-4">Faça login para criar ou entrar em uma party.</p>
@@ -62,7 +64,7 @@ export default function PartyClient() {
     );
   }
 
-  if (loading) return <div className="text-center text-slate-500 py-16">Carregando...</div>;
+  if (authLoading || loading) return <div className="text-center text-slate-500 py-16">Carregando...</div>;
 
   async function createParty() {
     if (!name.trim()) return;
@@ -89,7 +91,7 @@ export default function PartyClient() {
   }
 
   if (party) {
-    const isOwner = party.owner.id === (session.user as { id?: string }).id;
+    const isOwner = party.owner.id === user?.id;
     return (
       <div className="bg-slate-800/60 border border-slate-700 rounded-2xl p-6 space-y-6">
         <div className="flex items-start justify-between">
